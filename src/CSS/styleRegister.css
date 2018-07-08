@@ -1,32 +1,102 @@
 body{
 font-size: 20px;
+background-image: url(http://www.harrybrown.com.au/custom/harrybrown/templates/images/agegate.jpg);
+background-size: 100%;
+}
+
+#title{
+    font-family: 'Marck Script', cursive;
+    font-size: 5em;
+    color: white;
+    -webkit-text-stroke: 3px black;
+}
+
+#description{
+    font-size: 0.7em;
+    text-align: center;
+    font-weight: bolder;
 }
 
 
 .socialheader{
-    background: green;
+    text-align: center;
+}
+
+#signInButtons{
+    margin-left: 15%;
+    width: 70%;
     text-align: center;
 }
 
 .or{
 text-align: center;
-margin-bottom: 0.2em;
+margin-bottom: 0.1em;
+margin-top: 0.3em;
+font-size: 0.7em;
+font-weight: bolder;
 }
 
 .submitbutton{
-    background: yellow;
+    background:  lightgreen  ;
     border: none;
-    margin-top: 1em;
+    margin-top: 0.7em;
     margin-left: 25%;
-    font-size: 1.5em;
+    font-size: 1.3em;
     border-radius: 0.5em;
-    height: 2.3em;
+    height: 2em;
     cursor: pointer;
+    margin-bottom: 0.7em;
+    font-weight: bolder;
 }
 .submitbutton:hover, focus{
-background: green;
+background:hsl(0, 60%, 50%);
 transition: 0.2s;
 }
 
-input[type:text], 
-rgba(253, 175, 23, 0.5)
+#section{
+    background-color: brown;
+    border-bottom-left-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+}
+
+#linkColor{
+    background:brown;
+    border-top-left-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+    width: 50%;
+    text-align: center;
+}
+
+#link{
+    color:white;
+    font-weight: bolder;
+}
+
+#label{
+    margin-top: 0.5em;
+    font-size: 1em;
+    font-weight: bolder;
+}
+
+#button{
+    border:none;
+    width: 50%;
+    float: left;
+    background-color:lightgreen;
+    margin-bottom: 1em;
+    margin-top: 0.7em;
+    font-weight: bolder;
+    font-size: 1.3em;
+    height: 2em;
+    cursor: pointer;
+}
+
+#button:hover, focus{
+    background:  hsl(0, 60%, 50%);
+    transition: 0.2s; 
+}
+
+
+
+

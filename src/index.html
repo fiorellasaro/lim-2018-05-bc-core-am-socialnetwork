@@ -4,10 +4,10 @@
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/styleRegister.css">
+    <link href="https://fonts.googleapis.com/css?family=Marck+Script|Patrick+Hand" rel="stylesheet">
       <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-social-gh-pages/bootstrap-social.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     
@@ -15,58 +15,59 @@
   </head>
   <body>
    <header class="col-12 socialheader"> 
-    <h1>SocialMeal</h1>
-    <img src="" alt="">
-    <p>descripción</p> 
+    <h1 id="title">SocialMeal</h1>
+    <img src="" alt=""> 
    </header>
 
-   <div class="btn-group justify-content-center">
-        <button type="button" class="btn btn-primary">Login</button>
-        <button type="button" class="btn btn-primary">Sign Up</button>
-    </div>
+<main class="container col-12 col-sm-8 col-md-6 col-lg-4 ">
+   
+  <section class="container justify-content-center" id="section">
 
+    <button id="button">Login</button>
+    <button id="button">Sign Up</button>
     
 
-  <section class="container col-12 col-sm-8 col-md-6 col-lg-4">
+    <p id="description">Registrate para poder hablar de comida cuando quieras, como quieras</p>
 
-     
-  
-  
+    <a class="btn btn-block btn-social btn-facebook" id="signInButtons">
+        <span class="fa fa-facebook"></span> Sign in with Facebook
+      </a>
 
-        <form action="" class="input-group justify-content-center">   
+      <a class="btn btn-block btn-social btn-google" id="signInButtons">
+          <span class="fa fa-google"></span> Sign in with Google
+        </a>
+
+   
+        <p class="or">Or sign up with</p>
+        <form action="" class="input-group">   
                 
-                <label for="usr" class="col-12" >Name </label>
+                <label for="usr" class="col-12" id="label" >Name </label>
                 <i class="material-icons" style="font-size: 1.7em">person</i>
                 <input type="text" class="form-control" id="usr" placeholder="FullName">
 
-                <label for="email" class="col-12" >E-mail </label>
+                <label for="email" class="col-12" id="label">E-mail </label>
                 <i class="material-icons" style="font-size: 1.7em">email</i>
                 <input type="email" class="form-control" id="email" placeholder="example@example.com">
 
-                <label for="pwd" class="col-12">Password</label>
+                <label for="pwd" class="col-12" id="label">Password</label>
                 <i class="material-icons" style="font-size: 1.7em">https</i>
                 <input type="password" class="form-control" id="pwd" placeholder="Password">
 
-                <label for="rpwd" class="col-12">Repeat password</label>
+                <label for="rpwd" class="col-12" id="label">Repeat password</label>
                 <i class="material-icons" style="font-size: 1.7em">https</i>
                 <input type="password" class="form-control" id="rpwd" placeholder="Retype password">
         </form>
-        <input type="submit" class="submitbutton col-6" value="Registrarse">
-
-       
-
+        <input type="submit" class="submitbutton col-6" value="Register"> 
     </section>
-
-
+</main>
    
 
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="js/main.js"></script>
   <script src="js/userRegister.js"></script>
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> 
-  <script src="js/bootstrap.min.js"></script>
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+ <!-- Include all compiled plugins (below), or include individual files as needed -->
+ <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
