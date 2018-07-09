@@ -1,4 +1,3 @@
-
 const formRegisterUser = document.getElementById('register-user');
 const btnEnviar = document.getElementById('register');
 let email = document.getElementById('email');
@@ -17,8 +16,8 @@ const registrar = (emailVal, rpasswordVal) => {
   formRegisterUser.reset();
 }
 btnEnviar.addEventListener('click', function () {
-  debugger
-const expresion = RegExp('\\w+@hotmail|gmail+\\.+[a-z]');
+
+const expresion = RegExp('\\w+@\\w+\\.+[a-z]');
   if (name.value === '' || email.value === '' || password.value === '' || rpassword.value === '') {
     alert('son campos requeridos');
   } else if (password.value.length < 8) {

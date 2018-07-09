@@ -13,6 +13,19 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
     <title>SocialMeal</title>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyATCT7ucluJ0oGG7LdZCcmJSixpGkVar1Q",
+    authDomain: "usuarios-436bc.firebaseapp.com",
+    databaseURL: "https://usuarios-436bc.firebaseio.com",
+    projectId: "usuarios-436bc",
+    storageBucket: "usuarios-436bc.appspot.com",
+    messagingSenderId: "1028309699631"
+  };
+  firebase.initializeApp(config);
+</script>
   </head>
   <body>
    <header class="col-12 socialheader"> 
@@ -61,19 +74,7 @@
     </section>
 </main>
    
-<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-<script>
-    // Initialize Firebase
-    var config = {
-    apiKey: "AIzaSyATCT7ucluJ0oGG7LdZCcmJSixpGkVar1Q",
-    authDomain: "usuarios-436bc.firebaseapp.com",
-    databaseURL: "https://usuarios-436bc.firebaseio.com",
-    projectId: "usuarios-436bc",
-    storageBucket: "usuarios-436bc.appspot.com",
-    messagingSenderId: "1028309699631"
-  };
-  firebase.initializeApp(config);
-</script>
+
   <script src="js/main.js"></script>
   <script src="js/userRegister.js"></script>
   <script src="js/userRegister.js"></script>
