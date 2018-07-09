@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,9 +9,9 @@
       <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
     <title>SocialMeal</title>
   </head>
   <body>
@@ -30,39 +31,51 @@
     <p id="description">Registrate para poder hablar de comida cuando quieras, como quieras</p>
 
     <a class="btn btn-block btn-social btn-facebook" id="signInButtons">
-        <span class="fa fa-facebook"></span> Sign in with Facebook
+        <span class="fab fa-facebook-f"></span> Sign in with Facebook
       </a>
 
       <a class="btn btn-block btn-social btn-google" id="signInButtons">
-          <span class="fa fa-google"></span> Sign in with Google
+          <span class="fab fa-google"></span> Sign in with Google
         </a>
 
    
         <p class="or">Or sign up with</p>
-        <form action="" class="input-group">   
-                
-                <label for="usr" class="col-12" id="label" >Name </label>
-                <i class="material-icons" style="font-size: 1.7em">person</i>
-                <input type="text" class="form-control" id="usr" placeholder="FullName">
+        <form id="register-user" class="input-group">   
+          <label for="usr" class="col-12" id="label" >Name </label>
+          <i class="material-icons" style="font-size: 1.7em">person</i>
+          <input type="text" class="form-control" id="usr-name" placeholder="FullName">
 
-                <label for="email" class="col-12" id="label">E-mail </label>
-                <i class="material-icons" style="font-size: 1.7em">email</i>
-                <input type="email" class="form-control" id="email" placeholder="example@example.com">
+          <label for="email" class="col-12" id="label">E-mail </label>
+          <i class="material-icons" style="font-size: 1.7em">email</i>
+          <input type="email" class="form-control" id="email" placeholder="example@example.com">
 
-                <label for="pwd" class="col-12" id="label">Password</label>
-                <i class="material-icons" style="font-size: 1.7em">https</i>
-                <input type="password" class="form-control" id="pwd" placeholder="Password">
+          <label for="pwd" class="col-12" id="label">Password</label>
+          <i class="material-icons" style="font-size: 1.7em">https</i>
+          <input type="password" class="form-control" id="pwd" placeholder="Password">
 
-                <label for="rpwd" class="col-12" id="label">Repeat password</label>
-                <i class="material-icons" style="font-size: 1.7em">https</i>
-                <input type="password" class="form-control" id="rpwd" placeholder="Retype password">
+          <label for="rpwd" class="col-12" id="label">Repeat password</label>
+          <i class="material-icons" style="font-size: 1.7em">https</i>
+          <input type="password" class="form-control" id="rpwd" placeholder="Retype password">
         </form>
-        <input type="submit" class="submitbutton col-6" value="Register"> 
+        <input type="button" class="submitbutton col-6" value="Register" id="register"> 
     </section>
 </main>
    
-
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyATCT7ucluJ0oGG7LdZCcmJSixpGkVar1Q",
+    authDomain: "usuarios-436bc.firebaseapp.com",
+    databaseURL: "https://usuarios-436bc.firebaseio.com",
+    projectId: "usuarios-436bc",
+    storageBucket: "usuarios-436bc.appspot.com",
+    messagingSenderId: "1028309699631"
+  };
+  firebase.initializeApp(config);
+</script>
   <script src="js/main.js"></script>
+  <script src="js/userRegister.js"></script>
   <script src="js/userRegister.js"></script>
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
