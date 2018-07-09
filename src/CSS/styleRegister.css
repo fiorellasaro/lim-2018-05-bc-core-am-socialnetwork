@@ -36,7 +36,7 @@ font-size: 0.7em;
 font-weight: bolder;
 }
 
-.submitbutton{
+#submitbutton{
     background:  lightgreen  ;
     border: none;
     margin-top: 0.7em;
@@ -48,7 +48,7 @@ font-weight: bolder;
     margin-bottom: 0.7em;
     font-weight: bolder;
 }
-.submitbutton:hover, focus{
+#submitbutton:hover, focus{
 background:hsl(0, 60%, 50%);
 transition: 0.2s;
 }
