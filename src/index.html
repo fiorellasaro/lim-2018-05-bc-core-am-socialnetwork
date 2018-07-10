@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/styleRegister.css">
     
-    <link href="https://fonts.googleapis.com/css?family=Marck+Script|Patrick+Hand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Titillium+Web" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!-- Bootstrap CSS -->
@@ -18,16 +18,13 @@
   <body>
    <header class="col-12 socialheader"> 
     <h1 id="title">SocialMeal</h1>
-    <img src="" alt=""> 
+    <img src="img/LogoPrincipal.png" alt="LogoPrincipal" id="logoPrincipal"> 
    </header>
 
 <main class="container col-12 col-sm-8 col-md-6 col-lg-4 ">
    
   <section class="container justify-content-center" id="section">
 
-    <button id="button">Login</button>
-    <button id="button">Sign Up</button>
-    
 
     <p id="description">Registrate para poder hablar de comida cuando quieras, como quieras</p>
 
@@ -45,23 +42,20 @@
         <form action="" class="input-group">   
                 
                 <label for="usr" class="col-12" id="label" >Name </label>
-                <i class="material-icons" style="font-size: 1.7em">person</i>
                 <input type="text" class="form-control" id="usr" placeholder="FullName">
 
                 <label for="email" class="col-12" id="label">E-mail </label>
-                <i class="material-icons" style="font-size: 1.7em">email</i>
                 <input type="email" class="form-control" id="email" placeholder="example@example.com">
 
                 <label for="pwd" class="col-12" id="label">Password</label>
-                <i class="material-icons" style="font-size: 1.7em">https</i>
                 <input type="password" class="form-control" id="pwd" placeholder="Password">
 
                 <label for="rpwd" class="col-12" id="label">Repeat password</label>
-                <i class="material-icons" style="font-size: 1.7em">https</i>
                 <input type="password" class="form-control" id="rpwd" placeholder="Retype password">
         </form>
         <input type="submit" class="col-6" id="submitbutton" value="Register"> 
     </section>
+    <p id="alreadysignin">¿Ya tienes cuenta? inicia sesión <a href="#" id='logIn'>aquí.</a></p>
 </main>
    
 
