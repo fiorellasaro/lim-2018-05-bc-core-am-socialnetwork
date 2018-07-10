@@ -21,41 +21,42 @@
     <img src="img/LogoPrincipal.png" alt="LogoPrincipal" id="logoPrincipal"> 
    </header>
 
-<main class="container col-12 col-sm-8 col-md-6 col-lg-4 ">
+<main class="container col-12 col-sm-8 col-md-6 col-lg-4 " id="section">
    
-  <section class="container justify-content-center" id="section">
-
-
     <p id="description">Registrate para poder hablar de comida cuando quieras, como quieras</p>
 
-    <a class="btn btn-block btn-social btn-facebook" id="signInButtons">
+    <div id="buttonContainer">
+      <a class="btn btn-block btn-social btn-facebook" id="signFacebook">
         <span class="fab fa-facebook-f"></span> Sign in with Facebook
       </a>
 
-      <a class="btn btn-block btn-social btn-google" id="signInButtons">
+      <a class="btn btn-block btn-social btn-google" id="signGoogle">
           <span class="fab fa-google"></span> Sign in with Google
-        </a>
+      </a>
+    </div>
+    
 
 
    
-        <p class="or">Or sign up with</p>
+        <p class="or">O regístrate con:</p>
         <form action="" class="input-group">   
                 
-                <label for="usr" class="col-12" id="label" >Name </label>
-                <input type="text" class="form-control" id="usr" placeholder="FullName">
+                <label for="usr" class="col-12" id="label" >Nombre </label>
+                <input type="text" class="form-control" id="usr" placeholder="Nombre">
 
-                <label for="email" class="col-12" id="label">E-mail </label>
+                <label for="email" class="col-12" id="label">Correo electrónico </label>
                 <input type="email" class="form-control" id="email" placeholder="example@example.com">
 
-                <label for="pwd" class="col-12" id="label">Password</label>
+                <label for="pwd" class="col-12" id="label">Contraseña</label>
                 <input type="password" class="form-control" id="pwd" placeholder="Password">
 
-                <label for="rpwd" class="col-12" id="label">Repeat password</label>
+                <label for="rpwd" class="col-12" id="label">Repetir contraseña</label>
                 <input type="password" class="form-control" id="rpwd" placeholder="Retype password">
         </form>
-        <input type="submit" class="col-6" id="submitbutton" value="Register"> 
-    </section>
-    <p id="alreadysignin">¿Ya tienes cuenta? inicia sesión <a href="#" id='logIn'>aquí.</a></p>
+        <input type="submit" class="col-6" id="submitbutton" value="Registrarse"> 
+        <p id="alreadysignin">¿Ya tienes cuenta? inicia sesión <a href="#" id='logIn'>aquí.</a></p>
+   
+
 </main>
    
 

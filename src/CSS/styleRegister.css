@@ -2,16 +2,20 @@ body{
 font-size: 20px;
 }
 
+header{
+    overflow: auto;
+}
 #title{
     font-family: 'Pacifico', cursive;
-    font-size: 3.5em;
+    font-size: 2.8em;
     color: white;
-    text-align: left;   
+    text-align: left;  
+    float: left; 
+    width: 70%;
+    padding-top: 4%;
 }
 #logoPrincipal{
-    width: 80px; 
-    height:80px;
-    margin-bottom: 0.2em;
+    width: 20%; 
     float: right;
 }
 #description, #alreadysignin{
@@ -26,12 +30,26 @@ font-size: 20px;
     background: #EC3747;
 }
 
-#signInButtons{
-    margin-left: 15%;
-    width: 70%;
-    text-align: center;
-    color: white;
+
+#buttonContainer{
+    overflow: auto;
 }
+
+#signFacebook{
+    float: left;
+}
+
+#signGoogle{
+   float: right;
+}
+
+#signFacebook, #signGoogle{
+    color: white;
+    font-weight: bold;
+    font-size: 0.7em;
+    width: 45%; 
+}
+
 
 .or{
 text-align: center;
@@ -83,11 +101,37 @@ transition: 0.2s;
     color: #EC3747;
 }
 
-/*
-main{
-    border: solid 2px whitesmoke;
-    margin-bottom: 0.3em;
-}
-*/
+
+
+/*Móviles en horizontal o tablets en vertical */
+@media (min-width: 768px) {
+    main{
+        border: solid 2px whitesmoke;
+        margin-bottom: 0.3em;
+    }
+
+    #title{
+        font-size: 3.5em;
+    }
+
+    #logoPrincipal{
+        width: 15%; 
+    }
+ }
+ 
+/*Tablets en horizonal y escritorios normales */
+@media (min-width: 1024px) {
+    #title{
+        font-size: 5.5em;
+        padding-top: 0;
+    }
+
+    #logoPrincipal{
+        width: 12%; 
+    }
+ }
+ 
+/*Escritorios muy anchos*/
+@media (min-width: 1200px) { }
 
 
