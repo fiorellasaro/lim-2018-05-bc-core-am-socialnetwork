@@ -2,6 +2,9 @@ body{
 font-size: 20px;
 }
 
+#signIn{
+display:none;
+}
 
 #signIn, #signUp{
     border:none;
@@ -68,22 +71,7 @@ display: none;
     width: 48%; 
     border-radius: 0.5em;
 }
-#signIFacebook{
-    float: left;
 
-}
-
-#signIGoogle{
-   float: right;
-}
-
-#signIFacebook, #signIGoogle{
-    color: white;
-    font-weight: bold;
-    font-size: 0.5em;
-    width: 48%; 
-    border-radius: 0.5em;
-}
 #alreadysignin, .or{
     font-size: 0.8em;
 }
@@ -209,13 +197,6 @@ section{
     #signFacebook, #signGoogle{
         font-size: 0.7em;   
     }
-    #signIFacebook, #signIGoogle{
-        margin-top: 1.5em;
-     }
- 
-     #signIFacebook, #signIGoogle{
-         font-size: 0.7em;   
-     }
  }
  
 /*Tablets en horizonal y escritorios normales */
@@ -233,36 +214,11 @@ section{
         margin-right: 4.5em;
 
     }
+
     #descriptionDesktop{
         margin-left: 4em;
         }
  }
  
-.fa-times{
-    color: #EC3747;
-}
 
-.fa-check{
-    color: #6D9B41;
-}
-.danger{
- border-color: #EC3747 !important;
-}
-.danger:focus{
-    border-color: #EC3747 !important;
-    box-shadow:0 0 0 .2rem rgba(255, 38, 0, 0.25) !important;
-}
-.valid{
 
-    border-color: #6D9B41 !important;
-}
-.valid:focus{
-    border-color: #6D9B41 !important;
-    box-shadow:0 0 0 .2rem rgba(68, 126, 29, 0.25) !important;
-}
-.none {
-    display: none;
-}
-.block{
-    display: initial;
-}
