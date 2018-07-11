@@ -192,20 +192,12 @@ document.getElementById('signGoogle').addEventListener('click', function () {
     sesionGoogle();
     document.getElementById('signUp').classList.replace('block', 'none');
 });
-document.getElementById('signFacebook').addEventListener('click', function () {
-    sesionFacebook();
-    document.getElementById('signUp').classList.replace('block', 'none');
 
-});
 document.getElementById('signIGoogle').addEventListener('click', function () {
     sesionGoogle();
     document.getElementById('signIn').classList.replace('block', 'none');
 });
-document.getElementById('signIFacebook').addEventListener('click', function () {
 
-    sesionFacebook();
-    document.getElementById('signIn').classList.replace('block', 'none');
-});
 
 btnEnviar.addEventListener('click', function () {
     if (name.value === '' || email.value === '' || password.value === '' || rpassword.value === '') {
@@ -244,14 +236,7 @@ document.getElementById('signInButton').addEventListener('click', function () {
     }
 })
 
-/* document.getElementById("submitbutton").addEventListener('click', ()=>{
-    document.getElementById("signUp").style.display = 'none';
-    document.getElementById("signIn").style.display = 'initial';
-});
-document.getElementById("signInButton").addEventListener('click', ()=>{
-    document.getElementById("signUp").style.display = 'initial';
-    document.getElementById("signIn").style.display = 'none';
-}); */
+
 
 document.getElementById("signUpLink").addEventListener('click', () => {
 
