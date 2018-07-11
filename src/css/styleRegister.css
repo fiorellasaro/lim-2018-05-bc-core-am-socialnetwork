@@ -2,6 +2,14 @@ body{
 font-size: 20px;
 }
 
+#signIn{
+display:none;
+}
+
+#signIn, #signUp{
+    border:none;
+}
+
 header{
     overflow: auto;
 }
@@ -26,7 +34,7 @@ display: none;
 #description{
     font-size: 1em;
 }
-#description, #alreadysignin{
+#description, #alreadysignin, #notSignin{
     text-align: center;
     font-family: 'Titillium Web', sans-serif;
     font-weight: bolder;
@@ -38,9 +46,14 @@ display: none;
 }
 
 
-#buttonContainer{
+#buttonContainer, #buttonSignInContainer{
     overflow: auto;
 }
+
+#buttonSignInContainer{
+    margin-top: 2em;
+}
+
 
 #signFacebook{
     float: left;
@@ -69,7 +82,11 @@ font-family: 'Titillium Web', sans-serif;
 margin-top: 1em;
 }
 
-#submitbutton{
+#orIn{
+    margin-top: 2.3em;
+}
+
+#submitbutton, #signInButton{
     background:  #F8AD34 ;
     border: none;
     margin-top: 0.7em;
@@ -82,9 +99,18 @@ margin-top: 1em;
     font-family: 'Titillium Web', sans-serif;
     color: white;
 }
+
+#signInButton{
+    margin-top: 1em;
+}
 #submitbutton:hover, focus{
 background: #EC3747;
 transition: 0.2s;
+}
+
+#signInButton:hover, focus{
+    background: #EC3747;
+    transition: 0.2s;
 }
 
 
@@ -102,19 +128,28 @@ section{
 }
 
 
-#usr,#pwd,#email,#rpwd,#alreadysignin {
+#usr,#pwd,#email,#rpwd, #alreadysignin, #notSignin {
     font-family: 'Titillium Web', sans-serif;
     font-size: 0.7em;
 }
 
-#logIn{
+#notSignin{
+    margin-top: 5em;
+}
+
+#signInLink, #signUpLink{
     color: #F8AD34;
 }
 
-#logIn:hover, focus{
+#signInLink:hover, focus{
     color: #EC3747;
     transition: 0.1s;
     }
+
+#signUpLink:hover, focus{
+        color: #EC3747;
+        transition: 0.1s;
+}
 
 
 
@@ -145,7 +180,7 @@ section{
         float: left;
         width: 40%;
         font-size: 1.7em;
-        font-family: 'Pacifico';
+        font-family: 'Titillium Web', sans-serif;
         text-align: center;
         margin-left: 0.5em;
         }

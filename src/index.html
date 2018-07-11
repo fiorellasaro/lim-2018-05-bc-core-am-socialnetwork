@@ -23,45 +23,79 @@
 
 <main class="container  ">
 
-  <p id="descriptionDesktop">Registrate para poder hablar de comida cuando quieras, como quieras.</p>
+ <section id="signUp">
+    <p id="descriptionDesktop">Registrate para poder hablar de comida cuando quieras, como quieras.</p>
 
-  <section class="col-12 col-sm-8 col-md-6 col-lg-4">
-     
-      <p id="description">Registrate para poder hablar de comida cuando quieras, como quieras.</p>
+    <section class="col-12 col-sm-8 col-md-6 col-lg-4">
+       
+        <p id="description">Regístrate para poder hablar de comida cuando quieras, como quieras.</p>
+    
+        <div id="buttonContainer">
+          <a class="btn btn-social btn-facebook" id="signFacebook">
+            <span class="fab fa-facebook-f"></span> Sign in with Facebook
+          </a>
+    
+          <a class="btn btn-social btn-google" id="signGoogle">
+              <span class="fab fa-google"></span> Sign in with Google
+          </a>
+        </div>
+        
+    
+    
+       
+            <p class="or">O regístrate con:</p>
+            <form action="" class="input-group">   
+                    
+                    <label for="usr" class="col-12" id="label" >Nombre </label>
+                    <input type="text" class="form-control" id="usr" placeholder="Nombre">
+    
+                    <label for="email" class="col-12" id="label">Correo electrónico </label>
+                    <input type="email" class="form-control" id="email" placeholder="example@example.com">
+    
+                    <label for="pwd" class="col-12" id="label">Contraseña</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Password">
+    
+                    <label for="rpwd" class="col-12" id="label">Repetir contraseña</label>
+                    <input type="password" class="form-control" id="rpwd" placeholder="Retype password">
+            </form>
+            <input type="submit" class="col-6" id="submitbutton" value="Registrarse"> 
+            <p id="alreadysignin">¿Ya tienes cuenta? inicia sesión <a href="#" id='signUpLink'>aquí.</a></p>
+       
+    
+          </section>
+ </section> 
+
+ <section id="signIn">
+    <p id="descriptionDesktop">Ingresa para poder hablar de comida cuando quieras, como quieras.</p>
+
+    <section class="col-12 col-sm-8 col-md-6 col-lg-4">
+       
+        <p id="description">Ingresa para poder hablar de comida cuando quieras, como quieras.</p>
+    
+        <div id="buttonSignInContainer">
+          <a class="btn btn-social btn-facebook" id="signFacebook">
+            <span class="fab fa-facebook-f"></span> Sign in with Facebook
+          </a>
+    
+          <a class="btn btn-social btn-google" id="signGoogle">
+              <span class="fab fa-google"></span> Sign in with Google
+          </a>
+        </div>
+            <p class="or" id="orIn">O ingresa con:</p>
+            <form action="" class="input-group">   
+                    <label for="email" class="col-12" id="label">Correo electrónico </label>
+                    <input type="email" class="form-control" id="email" placeholder="example@example.com">
+    
+                    <label for="pwd" class="col-12" id="label">Contraseña</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Password">
+            </form>
+            <input type="submit" class="col-6" id="signInButton" value="Ingresar"> 
+            <p id="notSignin">¿No tienes cuenta? regístrate <a href="#" id='signInLink'>aquí.</a></p>
+    
+          </section>
+ </section> 
+
   
-      <div id="buttonContainer">
-        <a class="btn btn-social btn-facebook" id="signFacebook">
-          <span class="fab fa-facebook-f"></span> Sign in with Facebook
-        </a>
-  
-        <a class="btn btn-social btn-google" id="signGoogle">
-            <span class="fab fa-google"></span> Sign in with Google
-        </a>
-      </div>
-      
-  
-  
-     
-          <p class="or">O regístrate con:</p>
-          <form action="" class="input-group">   
-                  
-                  <label for="usr" class="col-12" id="label" >Nombre </label>
-                  <input type="text" class="form-control" id="usr" placeholder="Nombre">
-  
-                  <label for="email" class="col-12" id="label">Correo electrónico </label>
-                  <input type="email" class="form-control" id="email" placeholder="example@example.com">
-  
-                  <label for="pwd" class="col-12" id="label">Contraseña</label>
-                  <input type="password" class="form-control" id="pwd" placeholder="Password">
-  
-                  <label for="rpwd" class="col-12" id="label">Repetir contraseña</label>
-                  <input type="password" class="form-control" id="rpwd" placeholder="Retype password">
-          </form>
-          <input type="submit" class="col-6" id="submitbutton" value="Registrarse"> 
-          <p id="alreadysignin">¿Ya tienes cuenta? inicia sesión <a href="#" id='logIn'>aquí.</a></p>
-     
-  
-        </section>
 
 </main>
 
