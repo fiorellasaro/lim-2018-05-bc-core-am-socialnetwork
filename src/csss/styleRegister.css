@@ -2,9 +2,14 @@ body{
 font-size: 20px;
 }
 
+#signIn, #signUp{
+    border:none;
+}
+
 header{
     overflow: auto;
 }
+
 #title{
     font-family: 'Pacifico', cursive;
     font-size: 2.8em;
@@ -20,13 +25,13 @@ header{
 }
 
 #descriptionDesktop{
-display: none;
+    display: none;
 }
 
 #description{
     font-size: 1em;
 }
-#description, #alreadysignin{
+#description, #alreadysignin, #notSignin{
     text-align: center;
     font-family: 'Titillium Web', sans-serif;
     font-weight: bolder;
@@ -38,9 +43,14 @@ display: none;
 }
 
 
-#buttonContainer{
+#buttonContainer, #buttonSignInContainer{
     overflow: auto;
 }
+
+#buttonSignInContainer{
+    margin-top: 2em;
+}
+
 
 #signFacebook{
     float: left;
@@ -59,6 +69,20 @@ display: none;
     border-radius: 0.5em;
 }
 
+#signIFacebook{
+  float: left;
+}
+#signIGoogle{
+  float: right;
+}
+     
+#signIFacebook, #signIGoogle{
+  color: white;
+  font-weight: bold;
+  font-size: 0.5em;
+  width: 48%; 
+  border-radius: 0.5em;
+}
 #alreadysignin, .or{
     font-size: 0.8em;
 }
@@ -69,7 +93,11 @@ font-family: 'Titillium Web', sans-serif;
 margin-top: 1em;
 }
 
-#submitbutton{
+#orIn{
+    margin-top: 2.3em;
+}
+
+#submitbutton, #signInButton{
     background:  #F8AD34 ;
     border: none;
     margin-top: 0.7em;
@@ -82,9 +110,18 @@ margin-top: 1em;
     font-family: 'Titillium Web', sans-serif;
     color: white;
 }
+
+#signInButton{
+    margin-top: 1em;
+}
 #submitbutton:hover, focus{
 background: #EC3747;
 transition: 0.2s;
+}
+
+#signInButton:hover, focus{
+    background: #EC3747;
+    transition: 0.2s;
 }
 
 
@@ -102,19 +139,28 @@ section{
 }
 
 
-#usr,#pwd,#email,#rpwd,#alreadysignin {
+#usr,#pwd,#email,#rpwd, #alreadysignin, #notSignin {
     font-family: 'Titillium Web', sans-serif;
     font-size: 0.7em;
 }
 
-#logIn{
+#notSignin{
+    margin-top: 5em;
+}
+
+#signInLink, #signUpLink{
     color: #F8AD34;
 }
 
-#logIn:hover, focus{
+#signInLink:hover, focus{
     color: #EC3747;
     transition: 0.1s;
     }
+
+#signUpLink:hover, focus{
+        color: #EC3747;
+        transition: 0.1s;
+}
 
 
 
@@ -145,7 +191,7 @@ section{
         float: left;
         width: 40%;
         font-size: 1.7em;
-        font-family: 'Pacifico';
+        font-family: 'Titillium Web', sans-serif;
         text-align: center;
         margin-left: 0.5em;
         }
@@ -160,6 +206,14 @@ section{
     }
 
     #signFacebook, #signGoogle{
+        font-size: 0.7em;   
+    }
+
+    #signIFacebook, #signIGoogle{
+        margin-top: 1.5em;
+    }
+         
+    #signIFacebook, #signIGoogle{
         font-size: 0.7em;   
     }
  }
@@ -185,5 +239,33 @@ section{
         }
  }
  
-
+ .fa-times{
+        color: #EC3747;
+    }
+     
+    .fa-check{
+        color: #6D9B41;
+    }
+    .danger{
+     border-color: #EC3747 !important;
+    }
+    .danger:focus{
+        border-color: #EC3747 !important;
+        box-shadow:0 0 0 .2rem rgba(255, 38, 0, 0.25) !important;
+    }
+    .valid{
+     
+        border-color: #6D9B41 !important;
+    }
+    .valid:focus{
+        border-color: #6D9B41 !important;
+        box-shadow:0 0 0 .2rem rgba(68, 126, 29, 0.25) !important;
+    }
+    
+    .none {
+        display: none;
+    }
+    .block{
+        display: initial;
+    }
 
