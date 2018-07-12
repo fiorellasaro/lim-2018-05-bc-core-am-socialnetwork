@@ -20,15 +20,49 @@ const validusr = document.getElementById('usrOK');
 const valid = document.getElementById('rpwdOK');
 const validpwd = document.getElementById('pwdOK');
 
+   
+const obs = () => {
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          // User is signed in.
+          console.log(user.displayName);
+          
+          var displayName = user.displayName;
+          var email = user.email;
+          var emailVerified = user.emailVerified;
+          var photoURL = user.photoURL;
+          var isAnonymous = user.isAnonymous;
+          var uid = user.uid;
+          var providerData = user.providerData;
+
+          // ...
+        } else {
+          // User is signed out.
+          // ...
+        }
+      });
+}
+obs();
+
 const registrar = (emailVal, rpasswordVal, nameUs) => {
     firebase.auth().createUserWithEmailAndPassword(emailVal, rpasswordVal)
         .then(function (user) {
-            console.log(user.user)
-            const nom = user.user.updateProfile({ 'displayName': nameUs });
 
-            showGreeting(user.user);
-            document.getElementById('signUp').classList.replace('block', 'none');
-
+            user.user.updateProfile({ 'displayName': nameUs });
+            
+                const v = user.user;
+                
+            // console.log(user.user);
+                console.log(nameUs);
+                
+              
+        document.getElementById('saludo').innerHTML = `<div class="alert alert-success mb-1" role="alert">
+        <h4 class="alert-heading">Bienvenido  ${nameUs}!</h4>
+        <p>Aqui podras hablar de comida cuando quieras, como quieras.</p>
+        <button type="button" id="cerrar" onClick="logout()" class="btn btn-light">Cerrar Sesión</button>
+      </div>`; 
+            
+            
         })
         .catch(function (error) {
             // Handle Errors here.
@@ -163,11 +197,14 @@ const sesionFacebook = () => {
     }
 }
 const showGreeting = (user) => {
+   
     document.getElementById('saludo').innerHTML = `<div class="alert alert-success mb-1" role="alert">
     <h4 class="alert-heading">Bienvenido  ${user.displayName}!</h4>
     <p>Aqui podras hablar de comida cuando quieras, como quieras.</p>
     <button type="button" id="cerrar" onClick="logout()" class="btn btn-light">Cerrar Sesión</button>
-  </div>`;
+  </div>`; 
+    
+   
 }
 const logout = () => {
     firebase.auth().signOut().then(function () {
