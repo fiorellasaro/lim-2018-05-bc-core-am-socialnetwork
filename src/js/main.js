@@ -1,12 +1,19 @@
-var config = {
-    apiKey: "AIzaSyATCT7ucluJ0oGG7LdZCcmJSixpGkVar1Q",
-    authDomain: "usuarios-436bc.firebaseapp.com",
-    databaseURL: "https://usuarios-436bc.firebaseio.com",
-    projectId: "usuarios-436bc",
-    storageBucket: "usuarios-436bc.appspot.com",
-    messagingSenderId: "1028309699631"
-};
-firebase.initializeApp(config);
+window.onload = () => {
+    firebase.auth().onAuthStateChanged((user) =>{
+       if(user){
+        //ESTAMOS LOGUEADOS
+        //Aquí se implementa para que aparezca la pagina principal de la red social
+      //funciona
+        console.log(JSON.stringify(user));
+        window.location.href = "wall.html"; 
+       }else{
+        //NO ESTAMOS LOGUEADOS
+        //aqui implementar para que al salir, aparezca nuevamente la interfaz del login
+
+       }
+    }); 
+}
+
 
 const formRegisterUser = document.getElementById('register-user');
 const btnEnviar = document.getElementById('submitbutton');
@@ -15,10 +22,13 @@ let name = document.getElementById('usr');
 const password = document.getElementById('pwd');
 const rpassword = document.getElementById('rpwd');
 
+
 const valido = document.getElementById('emailOK');
 const validusr = document.getElementById('usrOK');
 const valid = document.getElementById('rpwdOK');
 const validpwd = document.getElementById('pwdOK');
+
+
 
 const registrar = (emailVal, rpasswordVal, nameUs) => {
     firebase.auth().createUserWithEmailAndPassword(emailVal, rpasswordVal)
@@ -42,11 +52,12 @@ const registrar = (emailVal, rpasswordVal, nameUs) => {
     email.classList.remove('danger');
 
 }
+
 const ingresar = (emailVal, passwordVal) => {
     firebase.auth().signInWithEmailAndPassword(emailVal, passwordVal)
         .then(function (user) {
-            showGreeting(user.user);
-            document.getElementById('signIn').classList.replace('block', 'none');
+           // showGreeting(user.user);          
+           window.location.href = "wall.html";
         })
         .catch(function (error) {
             // Handle Errors here.
@@ -59,7 +70,9 @@ const ingresar = (emailVal, passwordVal) => {
         });
     document.getElementById('login').reset();
 }
+
 const expresion = RegExp('\\w+@\\w+\\.+[a-z]');
+
 email.addEventListener('input', function () {
     const campo = event.target;
 
@@ -73,6 +86,7 @@ email.addEventListener('input', function () {
         valido.classList.replace('fa-check', 'fa-times');
     }
 });
+
 password.addEventListener('input', function () {
     const campo = event.target;
     validpwd.classList.add('fa-times');
@@ -85,6 +99,7 @@ password.addEventListener('input', function () {
         validpwd.classList.replace('fa-check', 'fa-times');
     }
 });
+
 rpassword.addEventListener('input', function () {
     const campo = event.target;
     valid.classList.add('fa-times');
@@ -116,14 +131,12 @@ const sesionGoogle = () => {
         provider.addScope('https://www.googleapis.com/auth/plus.login');
         firebase.auth().signInWithPopup(provider)
             .then(function (result) {
-                let token = result.credential.accesstoken;
-                let user = result.user;
-                const name = result.user.displayName;
-                showGreeting(user);
+
+                window.location.href = "wall.html";
                 console.log(user);
-
-
+                
             })
+
             .catch(function (error) {
                 const errorCode = error.code;
                 const errorMessage = error.message;
@@ -137,31 +150,7 @@ const sesionGoogle = () => {
         firebase.auth().signOut();
     }
 }
-const sesionFacebook = () => {
-    if (!firebase.auth().currentUser) {
-        let provider = new firebase.auth.FacebookAuthProvider();
-        provider.addScope('public_profile');
-        firebase.auth().signInWithPopup(provider)
-            .then(function (result) {
-                let token = result.credential.accesstoken;
-                let user = result.user;
-                showGreeting(user);
-                console.log(user);
 
-            })
-            .catch(function (error) {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                const errorEmail = error.email;
-                const credential = error.credential;
-                if (errorCode === 'auth/account-exits-with-different-credential') {
-                    alert('Es el mismo usuario');
-                }
-            });
-    } else {
-        firebase.auth().signOut();
-    }
-}
 const showGreeting = (user) => {
     document.getElementById('saludo').innerHTML = `<div class="alert alert-success mb-1" role="alert">
     <h4 class="alert-heading">Bienvenido  ${user.displayName}!</h4>
@@ -170,6 +159,7 @@ const showGreeting = (user) => {
   </div>`;
 }
 const logout = () => {
+    document.getElementById('saludo').innerHTML = '';
     firebase.auth().signOut().then(function () {
         // Sign-out successful.
         console.log('saliendo');
@@ -188,6 +178,8 @@ const logout = () => {
     validpwd.classList.remove('fa-check');
     validusr.classList.remove('fa-check');
 }
+
+
 document.getElementById('signGoogle').addEventListener('click', function () {
     sesionGoogle();
     document.getElementById('signUp').classList.replace('block', 'none');
@@ -200,39 +192,48 @@ document.getElementById('signIGoogle').addEventListener('click', function () {
 
 
 btnEnviar.addEventListener('click', function () {
-    if (name.value === '' || email.value === '' || password.value === '' || rpassword.value === '') {
+    let rpasswordVal = rpassword.value;
+    let emailVal = email.value;
+    let nameVal = name.value;
+    let passwordVal = password.value;
+
+    if (nameVal === '' || emailVal === '' || passwordVal === '' || rpasswordVal === '') {
         name.classList.add('danger');
         email.classList.add('danger');
         password.classList.add('danger');
         rpassword.classList.add('danger');
         alert('Todos los campos son requeridos')
-    } else if (password.value.length < 8) {
+    } else if (passwordVal.length < 8) {
         alert('password muy corto')
-    } else if (password.value !== rpassword.value) {
+    } else if (passwordVal !== rpasswordVal) {
         alert('password no coinciden');
-    } else if (!expresion.test(email.value)) {
+    } else if (!expresion.test(emailVal)) {
         alert('correo invalido');
     } else {
         // alert('datos correctos');
-        const nameUser = name.value;
-        const emailTo = email.value.replace(/ /g, '');
-        registrar(emailTo, rpassword.value, nameUser);
+       // const nameUser = name.value;
+        const emailTo = emailVal.replace(/ /g, '');
+        console.log(emailTo,nameVal)
+        registrar(emailTo, rpasswordVal, nameVal);
 
     }
-
 })
+
 document.getElementById('signInButton').addEventListener('click', function () {
     const emailSing = document.getElementById('email1');
     const passwordSing = document.getElementById('pwd1');
-    if (emailSing.value === '' || passwordSing.value === '') {
+    let emailVal = emailSing.value;
+    let passwordVal = passwordSing.value;
+    
+    if (emailVal === '' || passwordVal === '') {
         emailSing.classList.add('danger');
         passwordSing.classList.add('danger');
         alert('Todos los campos son requeridos')
     } else if (!expresion.test(emailSing.value)) {
         alert('correo invalido o contraseña');
     } else {
-        const emailTo = emailSing.value.replace(/ /g, '');
-        ingresar(emailTo, passwordSing.value);
+        const emailTo = emailVal.replace(/ /g, '');
+        ingresar(emailTo, passwordVal);
     }
 })
 
@@ -251,3 +252,4 @@ document.getElementById("signInLink").addEventListener('click', () => {
     document.getElementById("signIn").classList.replace('block', 'none');
 
 });
+
