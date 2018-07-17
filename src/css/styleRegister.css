@@ -245,4 +245,6 @@ section{
         display: initial;
     }
 
-
+footer{
+  overflow: auto;
+}

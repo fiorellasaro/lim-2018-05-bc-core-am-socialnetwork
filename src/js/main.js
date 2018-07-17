@@ -172,6 +172,7 @@ const showGreeting = (user) => {
 const logout = () => {
     firebase.auth().signOut().then(function () {
         // Sign-out successful.
+        document.getElementById('saludo').innerHTML='';
         console.log('saliendo');
 
     }).catch(function (error) {
