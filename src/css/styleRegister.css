@@ -7,7 +7,8 @@ font-size: 20px;
 }
 
 header{
-    overflow: auto;
+    width: 100%;
+   overflow: auto; 
 }
 
 #title{
@@ -17,9 +18,10 @@ header{
     text-align: left;  
     float: left; 
     width: 70%;
-    padding-top: 4%;
+  
 }
 #logoPrincipal{
+    margin-top: 0.5%;
     width: 20%; 
     float: right;
 }
@@ -50,7 +52,7 @@ header{
 #signGoogle, #signIGoogle{
     color: white;
     font-weight: bold;
-    font-size: 0.5em;
+    font-size: 0.8em;
     width: 70%; 
     border-radius: 0.5em;
     text-align: center;
@@ -75,15 +77,24 @@ margin-top: 1em;
 #submitbutton, #signInButton{
     background:  #F8AD34 ;
     border: none;
-    margin-top: 0.7em;
-    margin-left: 25%;
+    margin-top: 0.4em;
+    margin-left: 20%;
     font-size: 1.3em;
     border-radius: 0.3em;
     height: 1.6em;
     cursor: pointer;
-    margin-bottom: 0.7em;
+    margin-bottom: 0.4em;
     font-family: 'Titillium Web', sans-serif;
     color: white;
+    width: 60%;  
+}
+
+#submitbutton{
+    padding-left: 14%;
+}
+
+#signInButton{
+    padding-left: 18%;
 }
 
 #signInButton{
@@ -177,20 +188,10 @@ section{
         display: none;
     }
 
-    #signFacebook, #signGoogle{
+    #signGoogle, #signIGoogle {
        margin-top: 1.5em;
-    }
-
-    #signFacebook, #signGoogle{
-        font-size: 0.7em;   
-    }
-
-    #signIFacebook, #signIGoogle{
-        margin-top: 1.5em;
-    }
-         
-    #signIFacebook, #signIGoogle{
-        font-size: 0.7em;   
+       font-size: 0.7em; 
+       margin-left: 15%;
     }
  }
  
@@ -212,7 +213,15 @@ section{
 
     #descriptionDesktop{
         margin-left: 4em;
-        }
+    }
+
+    #signGoogle, #signIGoogle {
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 1.5em;
+        font-size: 0.7em; 
+     }
+
  }
  
  .fa-times{
