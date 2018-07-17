@@ -159,7 +159,30 @@ const sesionGoogle = () => {
         firebase.auth().signOut();
     }
 }
+const sesionFacebook = () => {
+  if (!firebase.auth().currentUser) {
+      let provider = new firebase.auth.FacebookAuthProvider();
+      provider.addScope('public_profile');
+      firebase.auth().signInWithPopup(provider)
+          .then(function (result) {
+             
+            window.location.href = "wall.html";
+            console.log(user);
 
+          })
+          .catch(function (error) {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              const errorEmail = error.email;
+              const credential = error.credential;
+              if (errorCode === 'auth/account-exits-with-different-credential') {
+                  alert('Es el mismo usuario');
+              }
+          });
+  } else {
+      firebase.auth().signOut();
+  }
+}
 const showGreeting = (user) => {
    
     document.getElementById('saludo').innerHTML = `<div class="alert alert-success mb-1" role="alert">
@@ -192,12 +215,20 @@ const logout = () => {
     validusr.classList.remove('fa-check');
 }
 
+document.getElementById('signFacebook').addEventListener('click', function () {
+  sesionFacebook();
+  document.getElementById('signUp').classList.replace('block', 'none');
 
+});
 document.getElementById('signGoogle').addEventListener('click', function () {
     sesionGoogle();
     document.getElementById('signUp').classList.replace('block', 'none');
 });
+document.getElementById('signIFacebook').addEventListener('click', function () {
 
+  sesionFacebook();
+  document.getElementById('signIn').classList.replace('block', 'none');
+});
 document.getElementById('signIGoogle').addEventListener('click', function () {
     sesionGoogle();
     document.getElementById('signIn').classList.replace('block', 'none');
