@@ -49,14 +49,13 @@ header{
     margin-top: 1em;
 }
 
-#signGoogle, #signIGoogle{
+#signGoogle, #signIGoogle, #signFacebook, #signIFacebook{
     color: white;
     font-weight: bold;
-    font-size: 0.8em;
-    width: 70%; 
+    font-size: 0.7em;
+    width: 48%; 
     border-radius: 0.5em;
     text-align: center;
-    margin-left: 3.3em;
 
 }
 
@@ -188,10 +187,9 @@ section{
         display: none;
     }
 
-    #signGoogle, #signIGoogle {
+    #signGoogle, #signIGoogle, #signFacebook, #signIFacebook {
        margin-top: 1.5em;
        font-size: 0.7em; 
-       margin-left: 15%;
     }
  }
  
@@ -215,12 +213,6 @@ section{
         margin-left: 4em;
     }
 
-    #signGoogle, #signIGoogle {
-        width: 80%;
-        margin-left: 10%;
-        margin-top: 1.5em;
-        font-size: 0.7em; 
-     }
 
  }
  
@@ -254,4 +246,6 @@ section{
         display: initial;
     }
 
-
+footer{
+  overflow: auto;
+}

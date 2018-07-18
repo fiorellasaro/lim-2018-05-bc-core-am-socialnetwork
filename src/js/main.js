@@ -29,16 +29,25 @@ const valid = document.getElementById('rpwdOK');
 const validpwd = document.getElementById('pwdOK');
 
 
-
 const registrar = (emailVal, rpasswordVal, nameUs) => {
     firebase.auth().createUserWithEmailAndPassword(emailVal, rpasswordVal)
         .then(function (user) {
-            console.log(user.user)
-            const nom = user.user.updateProfile({ 'displayName': nameUs });
 
-            showGreeting(user.user);
-            document.getElementById('signUp').classList.replace('block', 'none');
-
+            user.user.updateProfile({ 'displayName': nameUs });
+            
+                const v = user.user;
+                
+            // console.log(user.user);
+                console.log(nameUs);
+                
+              
+        document.getElementById('saludo').innerHTML = `<div class="alert alert-success mb-1" role="alert">
+        <h4 class="alert-heading">Bienvenido  ${nameUs}!</h4>
+        <p>Aqui podras hablar de comida cuando quieras, como quieras.</p>
+        <button type="button" id="cerrar" onClick="logout()" class="btn btn-light">Cerrar Sesión</button>
+      </div>`; 
+            
+            
         })
         .catch(function (error) {
             // Handle Errors here.
@@ -150,18 +159,45 @@ const sesionGoogle = () => {
         firebase.auth().signOut();
     }
 }
+const sesionFacebook = () => {
+  if (!firebase.auth().currentUser) {
+      let provider = new firebase.auth.FacebookAuthProvider();
+      provider.addScope('public_profile');
+      firebase.auth().signInWithPopup(provider)
+          .then(function (result) {
+             
+            window.location.href = "wall.html";
+            console.log(user);
 
+          })
+          .catch(function (error) {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              const errorEmail = error.email;
+              const credential = error.credential;
+              if (errorCode === 'auth/account-exits-with-different-credential') {
+                  alert('Es el mismo usuario');
+              }
+          });
+  } else {
+      firebase.auth().signOut();
+  }
+}
 const showGreeting = (user) => {
+   
     document.getElementById('saludo').innerHTML = `<div class="alert alert-success mb-1" role="alert">
     <h4 class="alert-heading">Bienvenido  ${user.displayName}!</h4>
     <p>Aqui podras hablar de comida cuando quieras, como quieras.</p>
     <button type="button" id="cerrar" onClick="logout()" class="btn btn-light">Cerrar Sesión</button>
-  </div>`;
+  </div>`; 
+    
+   
 }
 const logout = () => {
     document.getElementById('saludo').innerHTML = '';
     firebase.auth().signOut().then(function () {
         // Sign-out successful.
+        document.getElementById('saludo').innerHTML='';
         console.log('saliendo');
 
     }).catch(function (error) {
@@ -179,12 +215,20 @@ const logout = () => {
     validusr.classList.remove('fa-check');
 }
 
+document.getElementById('signFacebook').addEventListener('click', function () {
+  sesionFacebook();
+  document.getElementById('signUp').classList.replace('block', 'none');
 
+});
 document.getElementById('signGoogle').addEventListener('click', function () {
     sesionGoogle();
     document.getElementById('signUp').classList.replace('block', 'none');
 });
+document.getElementById('signIFacebook').addEventListener('click', function () {
 
+  sesionFacebook();
+  document.getElementById('signIn').classList.replace('block', 'none');
+});
 document.getElementById('signIGoogle').addEventListener('click', function () {
     sesionGoogle();
     document.getElementById('signIn').classList.replace('block', 'none');
