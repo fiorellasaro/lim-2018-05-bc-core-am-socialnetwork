@@ -22,41 +22,41 @@
     <img src="img/LogoPrincipal.png" alt="LogoPrincipal" id="logoPrincipal"> 
    </header>
 
+   <div class="input-group" id="search">
+      <input type="search" class="form-control" placeholder="Buscar">
+      <span class="input-group-btn">
+        <button class="btn" type="button"><span class="fas fa-search"></span></button>
+      </span>
+    </div>
+
+
 <main>
-<p>Hola!</p>
-
-<div class="custom-file">
-  <input type="file" class="custom-file-input" id="customFile">
-  <label class="custom-file-label" for="customFile">Choose file</label>
-</div>
-
-<div class="alert alert-success mb-1" role="alert">
-  <h4 class="alert-heading">Bienvenido! </h4>
-  <p>Aqui podras hablar de comida cuando quieras, como quieras.</p>
-  <button type="button" id="cerrar" onClick="logoutwall()" class="btn btn-light">Cerrar Sesión</button>
-</div>
-
-<form id="login" class="form-group" action="/wall.html">   
-  <label for="titleText" class="col-12" id="title">Título </label>
-  <input type="text" class="form-control" id="titleText" placeholder="Escriba el título aquí">
-  <label for="postText" class="col-12" id="post">Escribe aquí </label>
-  <input type="text" class="form-control" id="postText" placeholder="Escriba aquí">
 
 
-  <input type="button" class="input-group" id="public" value="publicar">
-  <input type="button" class="input-group" id="edit" value="editar">
-  <input type="button" class="input-group" id="delete" value="eliminar">
-  <input type="button" value="cerrar sesión" id="logout">
-  
-</form>
+<!-- <input type="button" value="cerrar sesión" id="logout"> -->
 
 
+ <div id="postcontainer" class="inherit"> </div>
+
+ <div class="col-10 none" id="post" >
+   <p id="titlePublic">Publicación</p>
+   <form class="form-group" id="postForm">
+      <button id="initial" class="col-2">N</button>
+       <textarea class="form-control col-9" rows="4" id="postText" placeholder="¿Qué estás pensando?"></textarea>
+    </form>
+    <button id="publicButton">Publicar</button> 
+ </div>
 
 </main>
 
-<div id="postcontainer"></div>
+<footer> 
+ <p class="menuIcons col-4" id="news"><span class="fas fa-home"></span></p>
+ <p class="menuIcons col-4" id="posting"><span class="fas fa-edit"></span></p>
+ <p class="menuIcons col-4" id="myProfile"><span class="fas fa-user"></span></p>
+</footer>
 
-   
+
+
 
 
 <script src="js/userRegister.js"></script>

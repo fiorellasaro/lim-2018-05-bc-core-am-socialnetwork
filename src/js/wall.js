@@ -8,6 +8,7 @@ window.onload = () => {
         });
         //ESTAMOS LOGUEADOS
         //Aquí se implementa para que aparezca la pagina principal de la red social
+        showPost();
         console.log(JSON.stringify(user));
        }else{
         //NO ESTAMOS LOGUEADOS
@@ -35,16 +36,17 @@ const logoutwall = () => {
 
 
 
-const createPost  = () =>{  
+const createPost  = () =>{ 
     const currentUser = firebase.auth().currentUser;
     const currentPost = postText.value;
-    const currentTitle = titleText.value;
+    /* const currentTitle = titleText.value; */
     const d = new Date;
+    const userId = currentUser.uid
 
     let postData = {
-        idUser: currentUser.uid,
+        idUser: userId,
         post: currentPost,
-        titlePost: currentTitle,
+       /*  titlePost: currentTitle, */
         likes: 0,
         type: 'receta', 
         timeData: {
@@ -63,28 +65,33 @@ const createPost  = () =>{
     updates['/user-posts/' + currentUser.uid + '/' + newpostKey] = postData;
   
     firebase.database().ref().update(updates);
+    showPost();
   //  return newPostKey;
 }
 
 const showPost  = () =>{
-    postcontainer.innerHTML = '';
+    const currentUser = firebase.auth().currentUser;
+    /* postcontainer.innerHTML = ''; */
     //Acá comenzamos a escuchar por nuevos mensajes usando el evento
     //on child_added
+    document.getElementById('post').classList.replace('inherit', 'none');
+    document.getElementById('postcontainer').classList.replace('none', 'inherit');
     firebase.database().ref(`/posts`)
     .on('child_added', (newPost)=>{
         postcontainer.innerHTML += `
-        <p>${newPost.val().likes}</p>
-        <p>${newPost.val().titlePost}</p>
+        <p>likes:  ${newPost.val().likes}</p>
         <p>${newPost.val().post}</p> 
         `;
     }); 
 }
 
-const publicPost = () =>{
-    createPost();
-    showPost();
-}
 
 
-document.getElementById('public').addEventListener('click', publicPost);
-document.getElementById('logout').addEventListener('click', logoutwall);
+document.getElementById('publicButton').addEventListener('click', createPost);
+/* document.getElementById('logout').addEventListener('click', logoutwall); */
+document.getElementById('posting').addEventListener('click', () =>{
+    postcontainer.innerHTML = '';
+    document.getElementById('post').classList.replace('none', 'inherit');
+    document.getElementById('postcontainer').classList.replace('inherit', 'none');
+});
+
