@@ -16,7 +16,7 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
 
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
->
+
   <title>SocialMeal</title>
 </head>
 
@@ -29,34 +29,34 @@
     <section class="container justify-content-center" id="section">
     <p id="description">Registrate para poder hablar de comida cuando quieras, como quieras</p>
 
-      <a class="btn btn-block btn-social btn-facebook" id="signInButtons">
+      <a class="btn btn-block btn-social btn-facebook signInButtons">
         <span class="fab fa-facebook-f"></span> Sign in with Facebook
       </a>
-      <a class="btn btn-block btn-social btn-google" id="signInButtons">
+      <a class=" signInButtons btn btn-block btn-social btn-google">
         <span class="fab fa-google"></span> Sign in with Google
       </a>
       <p class="or">Or sign up with</p>
       <form id="register-user" class="input-group">
 
-        <label for="usr" class="col-12" id="label">Name </label>
+        <label for="usr" class="col-12">Name </label>
         <input type="text" class="form-control" id="usr" placeholder="FullName">
 
-        <label for="email" class="col-12" id="label">E-mail </label>
+        <label for="email" class="col-12">E-mail </label>
         <input type="email" class="form-control" id="email" placeholder="example@example.com">
         <span>
           <i id="emailOK" class="fas"></i>
         </span>
 
-        <label for="pwd" class="col-12" id="label">Password</label>
+        <label for="pwd" class="col-12">Password</label>
         <input type="password" class="form-control" id="pwd" placeholder="Password">
 
-        <label for="rpwd" class="col-12" id="label">Repeat password</label>
+        <label for="rpwd" class="col-12">Repeat password</label>
         <input type="password" class="form-control" id="rpwd" placeholder="Retype password">
       </form>
       <input type="button" class="col-6" id="submitbutton" value="Register">
     </section>
     <p id="alreadysignin">¿Ya tienes cuenta? inicia sesión
-      <a href="#" id='logIn'>aquí.</a>
+      <a href="#" id="logIn">aquí.</a>
     </p>
   </main>
   <script src="js/main.js"></script>

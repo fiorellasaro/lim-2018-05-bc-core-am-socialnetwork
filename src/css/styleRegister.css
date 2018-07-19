@@ -26,11 +26,11 @@ font-size: 20px;
     background: #EC3747;
 }
 
-#signInButtons{
-    margin-left: 15%;
-    width: 70%;
-    text-align: center;
-    color: white;
+.signInButtons{
+    margin-left: 15% !important;
+    width: 70% !important;
+    text-align: center !important;
+    color: white !important;
 }
 
 .or{
