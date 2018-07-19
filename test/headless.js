@@ -1,4 +1,4 @@
 global.window = global;
 global.assert = require('chai').assert;
-require('../src/data');
+require('../src/js/data');
 require('./data.spec.js');

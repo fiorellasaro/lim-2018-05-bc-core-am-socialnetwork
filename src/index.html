@@ -1,72 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="css/styleRegister.css">
-
-  <link href="https://fonts.googleapis.com/css?family=Pacifico|Titillium+Web" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-    crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-    crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
-
-  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-
-  <title>SocialMeal</title>
-</head>
-
-<body>
-  <header class="col-12 socialheader">
-    <h1 id="title">SocialMeal</h1>
-    <img src="img/LogoPrincipal.png" alt="LogoPrincipal" id="logoPrincipal">
-  </header>
-  <main class="container col-12 col-sm-8 col-md-6 col-lg-4 ">
-    <section class="container justify-content-center" id="section">
-    <p id="description">Registrate para poder hablar de comida cuando quieras, como quieras</p>
-
-      <a class="btn btn-block btn-social btn-facebook signInButtons">
-        <span class="fab fa-facebook-f"></span> Sign in with Facebook
-      </a>
-      <a class=" signInButtons btn btn-block btn-social btn-google">
-        <span class="fab fa-google"></span> Sign in with Google
-      </a>
-      <p class="or">Or sign up with</p>
-      <form id="register-user" class="input-group">
-
-        <label for="usr" class="col-12">Name </label>
-        <input type="text" class="form-control" id="usr" placeholder="FullName">
-
-        <label for="email" class="col-12">E-mail </label>
-        <input type="email" class="form-control" id="email" placeholder="example@example.com">
-        <span>
-          <i id="emailOK" class="fas"></i>
-        </span>
-
-        <label for="pwd" class="col-12">Password</label>
-        <input type="password" class="form-control" id="pwd" placeholder="Password">
-
-        <label for="rpwd" class="col-12">Repeat password</label>
-        <input type="password" class="form-control" id="rpwd" placeholder="Retype password">
-      </form>
-      <input type="button" class="col-6" id="submitbutton" value="Register">
-    </section>
-    <p id="alreadysignin">¿Ya tienes cuenta? inicia sesión
-      <a href="#" id="logIn">aquí.</a>
-    </p>
-  </main>
-  <script src="js/main.js"></script>
-  <script src="js/userRegister.js"></script>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-    crossorigin="anonymous"></script>
-</body>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="css/styleRegister.css"/> 
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Titillium+Web" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css"/>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <title>SocialMeal</title>
+  </head>
+  <body>
+    <header class="socialheader"> 
+      <h1 id="title">SocialMeal</h1>
+      <img src="img/LogoPrincipal.png" alt="LogoPrincipal" id="logoPrincipal"/> 
+    </header>
+    <main class="container">
+      <section id="signUp"  class="block">
+        <p id="descriptionDesktop">Regístrate y hablarás de comida cuando quieras, como quieras.</p>
+        <section class="col-12 col-sm-8 col-md-6 col-lg-4">
+          <p id="description">Regístrate y hablarás de comida cuando quieras, como quieras.</p>
+          <div id="buttonContainer">
+            <a class="btn btn-social btn-facebook" id="signFacebook">
+              <span class="fab fa-facebook-f"></span> Inicia sesión con Facebook
+            </a>
+            <a class="btn btn-social btn-google" id="signGoogle">
+              <span class="fab fa-google"></span> Inicia sesión con Google
+            </a>
+          </div> 
+          <p class="or">O regístrate con:</p>
+          <form id="register-user" class="form-group">
+            <label for="usr" class="col-12" id="label" >Nombre </label>
+            <input type="text" class="form-control" id="usr" placeholder="Nombre">
+            <span><i id="usrOK" class="fas"></i></span>
+            <label for="email" class="col-12" id="label">Correo electrónico </label>
+            <input type="email" class="form-control" id="email" placeholder="ejemplo@ejemplo.com">
+            <span><i id="emailOK" class="fas"></i></span>
+            <label for="pwd" class="col-12" id="label">Contraseña</label>
+            <input type="password" class="form-control" id="pwd" placeholder="contraseña">
+            <span><i id="pwdOK" class="fas"></i></span>
+            <label for="rpwd" class="col-12" id="label">Repetir contraseña</label>
+            <input type="password" class="form-control" id="rpwd" placeholder="repetir contraseña">
+            <span><i id="rpwdOK" class="fas"></i></span>
+            <input type="button" class="input-group" id="submitbutton" value="Registrarse"> 
+          </form>
+          <p id="alreadysignin">¿Ya tienes cuenta? inicia sesión <a href="#" id='signUpLink'>aquí.</a></p>
+        </section>
+      </section>
+      <section id="signIn" class="none">
+        <p id="descriptionDesktop">Ingresa y hablarás de comida cuando quieras, como quieras.</p>
+        <section class="col-12 col-sm-8 col-md-6 col-lg-4">
+          <p id="description">Ingresa y hablarás de comida cuando quieras, como quieras.</p>
+          <div id="buttonSignInContainer">
+            <a class="btn btn-social btn-facebook" id="signIFacebook">
+              <span class="fab fa-facebook-f"></span> Inicia sesión con Facebook
+            </a>
+            <a class="btn btn-social btn-google" id="signIGoogle">
+              <span class="fab fa-google"></span> Inicia sesión con Google
+            </a>
+          </div>
+          <p class="or" id="orIn">O ingresa con:</p>
+          <form id="login" class="form-group" action="/wall.html">   
+            <label for="email" class="col-12" id="label">Correo electrónico </label>
+            <input type="email" class="form-control" id="email1" placeholder="ejemplo@ejemplo.com">
+            <label for="pwd" class="col-12" id="label">Contraseña</label>
+            <input type="password" class="form-control" id="pwd1" placeholder="contraseña">
+            <input type="button" class="input-group" id="signInButton" value="Ingresar">
+          </form>
+          <p id="notSignin">¿No tienes cuenta? regístrate <a href="#" id='signInLink'>aquí.</a></p>
+        </section>
+      </section> 
+      <section id="saludo"></section>
+    </main>
+    <script src="js/conexion.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
 </html>
