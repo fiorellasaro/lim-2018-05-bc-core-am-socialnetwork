@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style-wall.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Titillium+Web" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
+
+      <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+
+    <title>SocialMeal</title>
+  </head>
+  <body>
+   <header class="col-12 socialheader"> 
+    <h1 id="title">SocialMeal</h1>
+    <img src="img/LogoPrincipal.png" alt="LogoPrincipal" id="logoPrincipal"> 
+   </header>
+
+   <div class="input-group" id="search">
+      <input type="search" class="form-control" placeholder="Buscar">
+      <span class="input-group-btn">
+        <button class="btn" type="button"><span class="fas fa-search"></span></button>
+      </span>
+    </div>
+
+
+<main>
+
+
+<!-- <input type="button" value="cerrar sesión" id="logout"> -->
+
+
+ <div id="postcontainer" class="inherit"> </div>
+
+ <div class="col-10 none" id="post" >
+   <p id="titlePublic">Publicación</p>
+   <form class="form-group" id="postForm">
+      <button id="initial" class="col-2">N</button>
+       <textarea class="form-control col-9" rows="4" id="postText" placeholder="¿Qué estás pensando?"></textarea>
+    </form>
+    <button id="publicButton">Publicar</button> 
+ </div>
+
+</main>
+
+<footer> 
+ <p class="menuIcons col-4" id="news"><span class="fas fa-home"></span></p>
+ <p class="menuIcons col-4" id="posting"><span class="fas fa-edit"></span></p>
+ <p class="menuIcons col-4" id="myProfile"><span class="fas fa-user"></span></p>
+</footer>
+<script src="js/conexion.js"></script>
+<script src="js/wall.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -20,9 +20,9 @@
     </header>
     <main class="container">
       <section id="signUp"  class="block">
-        <p id="descriptionDesktop">Regístrate y hablarás de comida cuando quieras, como quieras.</p>
+        <p class="descriptionDesktop">Regístrate y hablarás de comida cuando quieras, como quieras.</p>
         <section class="col-12 col-sm-8 col-md-6 col-lg-4">
-          <p id="description">Regístrate y hablarás de comida cuando quieras, como quieras.</p>
+          <p class="description">Regístrate y hablarás de comida cuando quieras, como quieras.</p>
           <div id="buttonContainer">
             <a class="btn btn-social btn-facebook" id="signFacebook">
               <span class="fab fa-facebook-f"></span> Inicia sesión con Facebook
@@ -33,27 +33,27 @@
           </div> 
           <p class="or">O regístrate con:</p>
           <form id="register-user" class="form-group">
-            <label for="usr" class="col-12" id="label" >Nombre </label>
+            <label for="usr" class="col-12 label" >Nombre </label>
             <input type="text" class="form-control" id="usr" placeholder="Nombre">
             <span><i id="usrOK" class="fas"></i></span>
-            <label for="email" class="col-12" id="label">Correo electrónico </label>
+            <label for="email" class="col-12 label">Correo electrónico </label>
             <input type="email" class="form-control" id="email" placeholder="ejemplo@ejemplo.com">
             <span><i id="emailOK" class="fas"></i></span>
-            <label for="pwd" class="col-12" id="label">Contraseña</label>
+            <label for="pwd" class="col-12 label">Contraseña</label>
             <input type="password" class="form-control" id="pwd" placeholder="contraseña">
             <span><i id="pwdOK" class="fas"></i></span>
-            <label for="rpwd" class="col-12" id="label">Repetir contraseña</label>
+            <label for="rpwd" class="col-12 label">Repetir contraseña</label>
             <input type="password" class="form-control" id="rpwd" placeholder="repetir contraseña">
             <span><i id="rpwdOK" class="fas"></i></span>
             <input type="button" class="input-group" id="submitbutton" value="Registrarse"> 
           </form>
-          <p id="alreadysignin">¿Ya tienes cuenta? inicia sesión <a href="#" id='signUpLink'>aquí.</a></p>
+          <p id="alreadysignin">¿Ya tienes cuenta? inicia sesión <a href="#" id="signUpLink">aquí.</a></p>
         </section>
       </section>
       <section id="signIn" class="none">
-        <p id="descriptionDesktop">Ingresa y hablarás de comida cuando quieras, como quieras.</p>
+        <p class="descriptionDesktop">Ingresa y hablarás de comida cuando quieras, como quieras.</p>
         <section class="col-12 col-sm-8 col-md-6 col-lg-4">
-          <p id="description">Ingresa y hablarás de comida cuando quieras, como quieras.</p>
+          <p class="description">Ingresa y hablarás de comida cuando quieras, como quieras.</p>
           <div id="buttonSignInContainer">
             <a class="btn btn-social btn-facebook" id="signIFacebook">
               <span class="fab fa-facebook-f"></span> Inicia sesión con Facebook
@@ -64,13 +64,13 @@
           </div>
           <p class="or" id="orIn">O ingresa con:</p>
           <form id="login" class="form-group" action="/wall.html">   
-            <label for="email" class="col-12" id="label">Correo electrónico </label>
+            <label for="email" class="col-12 label">Correo electrónico </label>
             <input type="email" class="form-control" id="email1" placeholder="ejemplo@ejemplo.com">
-            <label for="pwd" class="col-12" id="label">Contraseña</label>
+            <label for="pwd" class="col-12 label">Contraseña</label>
             <input type="password" class="form-control" id="pwd1" placeholder="contraseña">
             <input type="button" class="input-group" id="signInButton" value="Ingresar">
           </form>
-          <p id="notSignin">¿No tienes cuenta? regístrate <a href="#" id='signInLink'>aquí.</a></p>
+          <p id="notSignin">¿No tienes cuenta? regístrate <a href="#" id="signInLink">aquí.</a></p>
         </section>
       </section> 
       <section id="saludo"></section>

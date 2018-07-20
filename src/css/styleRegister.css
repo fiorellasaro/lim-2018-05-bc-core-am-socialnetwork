@@ -27,15 +27,15 @@ header {
   float: right;
 }
 
-#descriptionDesktop {
+.descriptionDesktop {
   display: none;
 }
 
-#description {
+.description {
   font-size: 1em;
 }
 
-#description, 
+.description, 
 #alreadysignin,
 #notSignin {
   text-align: center;
@@ -120,7 +120,7 @@ section{
     
 }
 
-#label{
+.label{
     margin-top: 0.5em;
     font-size: 0.7em;
     font-weight: bolder;
@@ -175,7 +175,7 @@ section{
         width: 15%; 
     }
 
-    #descriptionDesktop{
+    .descriptionDesktop{
         margin-top: 6em;
         display: initial;
         float: left;
@@ -187,7 +187,7 @@ section{
         }
         
 
-    #description{
+    .description{
         display: none;
     }
 
@@ -213,7 +213,7 @@ section{
 
     }
 
-    #descriptionDesktop{
+    .descriptionDesktop{
         margin-left: 4em;
     }
 
