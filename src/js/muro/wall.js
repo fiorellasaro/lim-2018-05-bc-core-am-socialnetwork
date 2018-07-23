@@ -30,6 +30,8 @@ const logoutwall = () => {
   });
 
 }
+
+
 const createPost  = () =>{ 
     const currentUser = firebase.auth().currentUser;
     const currentPost = postText.value;
@@ -88,3 +90,5 @@ document.getElementById('posting').addEventListener('click', () =>{
     document.getElementById('post').classList.replace('none', 'inherit');
     document.getElementById('postcontainer').classList.replace('inherit', 'none');
 });
+
+document.getElementById('logout').addEventListener('click',logoutwall);
