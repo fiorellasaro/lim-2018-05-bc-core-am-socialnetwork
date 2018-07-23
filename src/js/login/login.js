@@ -1,21 +1,10 @@
-window.observerUser = () => {
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-    //ESTAMOS LOGUEADOS
-    console.log('usuario activo');
-    console.log(user);
-    } else {
-    //NO ESTAMOS LOGUEADOS
-    console.log('usuario no activo');
-    
-    }
-  }); 
-}
+
 window.sesionGoogle = (callback) => {
   const provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/plus.login');
   firebase.auth().signInWithPopup(provider)
   .then(function (result) {    
+    callback()
   })
   .catch(function (error) {
   });
@@ -42,7 +31,7 @@ window.checkUser = () => {
 }
 window.registerUser = (emailVal, rpasswordVal, nameUs, callback) => {
   firebase.auth().createUserWithEmailAndPassword(emailVal, rpasswordVal)
-  .then(() => {
+  .then((user) => {
     user.user.updateProfile({ 'displayName': nameUs });
     checkUser();
   })

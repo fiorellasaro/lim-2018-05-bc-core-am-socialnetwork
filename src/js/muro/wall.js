@@ -1,8 +1,9 @@
-   //Cerrando sesion
+//Cerrando sesion
 window.logoutwall = (callback) => {
   firebase.auth().signOut().then(function () {
     // window.location.href = "index.html";
     // Sign-out successful.
+    callback()
     console.log('saliendo');
   }).catch(function (error) {
     // An error happened.
@@ -11,10 +12,15 @@ window.logoutwall = (callback) => {
 
 }
 window.showPost  = (callback) =>{
-    const currentUser = firebase.auth().currentUser;
     /* postcontainer.innerHTML = ''; */
     //Acá comenzamos a escuchar por nuevos mensajes usando el evento
     //on child_added
+    callback();
+  /*   const users = firebase.database().ref(`/users`)
+    .on('value')
+  
+    console.log(users);
+     */
     firebase.database().ref(`/posts`)
     .on('child_added', (newPost)=>{
         postcontainer.innerHTML += `
@@ -23,19 +29,16 @@ window.showPost  = (callback) =>{
         `;
     }); 
 }
-window.createPost  = (callback) =>{ 
-  const currentUser = firebase.auth().currentUser;
-  console.log(currentUser);
-  
+window.createPost  = (callback,currentUser) =>{ 
   const currentPost = postText.value;
   /* const currentTitle = titleText.value; */
   const userId = currentUser.uid
   let postData = {
       idUser: userId,
       post: currentPost,
-      /*  titlePost: currentTitle, */
+      // titlePost: currentTitle,
       likes: 0,
-      type: 'receta', 
+      type: 'receta',
       timeData: firebase.database.ServerValue.TIMESTAMP,
   };
 

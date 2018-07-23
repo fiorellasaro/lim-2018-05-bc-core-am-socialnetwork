@@ -96,6 +96,8 @@ btnEnviar.addEventListener('click', () => {
   const emailValue = email.value;
   const repeatPasswordValue = repeatPassword.value;
   const nameUser = name.value; 
+  console.log(nameUser);
+  
   userRegister(emailValue,repeatPasswordValue, nameUser);
 });
 //Direccionando al muro
