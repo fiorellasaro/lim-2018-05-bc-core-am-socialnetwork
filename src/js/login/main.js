@@ -68,10 +68,10 @@ const handleError = (error) => {
   }
 }
 //funcion para registrar usuario con email y password
-const userRegister = (emailValue,repeatPasswordValue) => {
+const userRegister = (emailValue,repeatPasswordValue, nameUser) => {
   menssageErrorEmail.innerHTML = '';
   menssageErrorPassword.innerHTML = '';
-  registerUser(emailValue,repeatPasswordValue,handleError);
+  registerUser(emailValue,repeatPasswordValue,nameUser, handleError);
 }
 //Cambiando iconos segun lo que escriba el usuario
 email.addEventListener('input', () => {
@@ -95,7 +95,8 @@ repeatPassword.addEventListener('input', function () {
 btnEnviar.addEventListener('click', () => {
   const emailValue = email.value;
   const repeatPasswordValue = repeatPassword.value;
-  userRegister(emailValue,repeatPasswordValue);
+  const nameUser = name.value; 
+  userRegister(emailValue,repeatPasswordValue, nameUser);
 });
 //Direccionando al muro
 const directionPageMuro = () => {

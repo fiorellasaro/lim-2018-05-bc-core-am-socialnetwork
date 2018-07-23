@@ -40,9 +40,10 @@ window.checkUser = () => {
   // An error happened.
   });
 }
-window.registerUser = (emailVal, rpasswordVal,callback) => {
+window.registerUser = (emailVal, rpasswordVal, nameUs, callback) => {
   firebase.auth().createUserWithEmailAndPassword(emailVal, rpasswordVal)
   .then(() => {
+    user.user.updateProfile({ 'displayName': nameUs });
     checkUser();
   })
   .catch((error) => {
