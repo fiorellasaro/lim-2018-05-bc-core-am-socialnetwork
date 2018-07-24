@@ -1,4 +1,14 @@
+/* const firebase = require('firebase');
 
+const config = {
+  apiKey: "AIzaSyATCT7ucluJ0oGG7LdZCcmJSixpGkVar1Q",
+  authDomain: "usuarios-436bc.firebaseapp.com",
+  databaseURL: "https://usuarios-436bc.firebaseio.com",
+  projectId: "usuarios-436bc",
+  storageBucket: "usuarios-436bc.appspot.com",
+  messagingSenderId: "1028309699631"
+  };
+firebase.initializeApp(config); */
 window.sesionGoogle = (callback) => {
   const provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/plus.login');
@@ -45,13 +55,11 @@ window.validateEmail = (email) => {
 }
 window.loginUser = (emailVal, passwordVal,callback,callbackError) => {
   firebase.auth().signInWithEmailAndPassword(emailVal, passwordVal)
-  .then(function (user) {
+  .then((user) => {
+    callback();
   })
-  .catch(function (error) {
-      // Handle Errors here.
-      // ...
-    callbackError(error)
-    console.log(error);
+  .catch((error) => {
+    callbackError(error);
     
   });
 }

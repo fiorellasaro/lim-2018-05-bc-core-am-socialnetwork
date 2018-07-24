@@ -1,3 +1,4 @@
+const userContainer = document.getElementById('user-container');
 const redirectionLogin = () => {
     window.location.href = "index.html";
 }

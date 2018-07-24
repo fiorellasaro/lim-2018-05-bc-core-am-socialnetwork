@@ -16,11 +16,24 @@ window.showPost  = (callback) =>{
     //Acá comenzamos a escuchar por nuevos mensajes usando el evento
     //on child_added
     callback();
-  /*   const users = firebase.database().ref(`/users`)
-    .on('value')
+   /*  firebase.database().ref(`/users`).on('child_added', user => {
+      userContainer.innerHTML += `
+      <p>nombre:  ${user.val().username}</p>
+      <p>${user.val().email}</p> 
+      `;
+    }) */
+    firebase.database().ref(`/users`).on('child_added', user => {
+      firebase.database().ref('/user-post').on('child_added', post => {
+        userContainer.innerHTML += `
+        <p>nombre:  ${user.val().username}</p>
+        <p>${user.val().email}</p> 
+        `;
+      })
+     
+    })
   
-    console.log(users);
-     */
+    // console.log(users);
+    
     firebase.database().ref(`/posts`)
     .on('child_added', (newPost)=>{
         postcontainer.innerHTML += `
