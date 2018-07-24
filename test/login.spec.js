@@ -25,5 +25,17 @@ describe('login', () => {
       assert.equal(validateEmail('yunoshe1@gmail.com'), true);
       assert.equal(validateEmail('yuno@she1@gmail.com'), false);
     })
+    it('debería retornar false para yunoshe1@gmail.com', () => {
+      assert.equal(validateEmail('yuno@she1@gmail.com'), false);
+    })
+  });
+  describe('loginUser', () => {
+  const stub = sinon.stub(FIREBASE_API_REF.auth(), "signInWithEmailAndPassword",  () => { 
+    return {
+      name: 'bella',
+      email: 'yunoshe1@gmail.com',
+    } 
+  });
+  
   });
 });

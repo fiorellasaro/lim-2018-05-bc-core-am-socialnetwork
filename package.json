@@ -16,7 +16,11 @@
     "eslint": "^4.19.1",
     "htmlhint": "^0.9.13",
     "mocha": "^5.1.1",
+    "mocha-sinon": "^2.1.0",
     "nyc": "^11.7.1",
     "opener": "^1.4.3"
+  },
+  "devDependencies": {
+    "firebase-mock": "^2.2.4"
   }
 }
