@@ -8,6 +8,23 @@ const addClass = () => {
     document.getElementById('post').classList.replace('inherit', 'none');
     document.getElementById('postcontainer').classList.replace('none', 'inherit');
 }
+let options = {
+  data: null,
+  post: '',
+}
+firebase.database().ref().child('users').on('value', snap => {
+const data = snap.val();
+options.data = Object.keys(data)
+  console.log(Object.keys(data));
+
+})
+firebase.database().ref().child('posts').on('value', post => {
+ const posts = post.val();  
+  console.log(Object.values(posts));
+  
+})
+
+
 
   firebase.auth().onAuthStateChanged((user) =>{
     if (user) {

@@ -31,29 +31,14 @@ window.showPost  = (callback) =>{
       })
      
     }) */
-      let datos = [];
-      let posts = {};
     
-    firebase.database().ref().child('users').once('value',snap => {
-      const dataUsers = [];
-      datos.push(snap.val());
-      
-    })
-    firebase.database().ref().child('posts').on('value', post => {
-      posts = post.val();    
-    })
-    console.log(datos);
+console.log(options);  
     
-    datos.map(dato => {
-      console.log(dato);
-      
-    })
-    
-    // console.log(options);
     
     firebase.database().ref(`/posts`)
     .on('child_added', (newPost)=>{
         postcontainer.innerHTML += `
+        <p>name: ${newPost}
         <p>likes:  ${newPost.val().likes}</p>
         <p>${newPost.val().post}</p> 
         `;

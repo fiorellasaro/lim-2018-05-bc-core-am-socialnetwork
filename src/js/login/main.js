@@ -17,9 +17,20 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     //ESTAMOS LOGUEADOS
     console.log(user);
-    if (user.emailVerified) {
+    if (user.emailVerified || user.providerData[0].providerId === 'facebook.com') {
       window.location.href = 'wall.html'
-    } 
+    } else {
+      firebase.auth().signOut().then(function () {
+        // window.location.href = "index.html";
+        // Sign-out successful.
+       
+      window.location.href = 'index.html'
+        console.log('saliendo');
+      }).catch(function (error) {
+        // An error happened.
+        console.log(error);
+      });
+    }
   } else {
   //NO ESTAMOS LOGUEADOS
     console.log('usuario no activo');
@@ -97,7 +108,6 @@ btnEnviar.addEventListener('click', () => {
   const repeatPasswordValue = repeatPassword.value;
   const nameUser = name.value; 
   console.log(nameUser);
-  
   userRegister(emailValue,repeatPasswordValue, nameUser);
 });
 //Direccionando al muro
