@@ -8,32 +8,61 @@ header{
      position: fixed;
      z-index: 100;
 }
-
-footer, .socialheader{
-    background: #EC3747;
+#socialHeader{
+    border-bottom: 1px solid #C4C4C4;
+    overflow: auto; 
 }
-
-#title{
-    font-family: 'Pacifico', cursive;
-    font-size: 1.6em;
-    color: white;
-    text-align: left;  
-    float: left; 
-    width: 50%;
-    padding-top: 2%;
-}
-
 #logoPrincipal{
-    width: 15%; 
-    float: right;
+    width: 3em; 
+    float: left;
+    margin-top: 0.3em;
+}
+
+#settingsIcon{
+    width: 1.5em;
+    margin-top: 1em;
 }
 
 #search{
     font-family: 'Titillium Web', sans-serif;
+    float: left;  
+}
+
+#searchInput,#searchIcon{
+    font-size: 0.8em;
+    margin-top: 1.2em;
+    height: 2em; 
+}
+
+#searchButton{
+    padding: 0;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#posting{
+    width: 3em;
+    position: absolute;
+    top: 70%;
+    right: 5%;
+    z-index: 300;
+    opacity: 0.6;
+}
+
+/* Estilos de publicación */
+#backIcon-container{
+    overflow: auto;
+}
+#backIcon{
+   float: right;
+   width: 1em;
+   margin-top: 0.2em;
+   margin-right: 0;
 }
 
 #titlePublic{
-    border-bottom: 1px solid #C4C4C4;
     font-family: 'Titillium Web', sans-serif;
     margin-bottom: -0.2em;
 }
@@ -52,62 +81,102 @@ footer, .socialheader{
 
 #postForm{
     overflow: auto;
-    border-bottom: 1px solid #C4C4C4;
-    padding-bottom: 5%;
-    padding-top: 5%;
+    padding-bottom: 3%;
+    padding-top: 3%;
 }
 
-#initial, #postText{
+#initial, #postText, #postImage{
     float: left;
     font-family: 'Titillium Web', sans-serif;
 }
 
+#postImage{
+    margin-top: 1em;
+    height: 8em;
+}
+
 #post{
     margin-left: 8%;
-    box-shadow:0.2em 0.2em 0.2em grey; 
+    border-radius: 0.3em;
     border: 1px solid #C4C4C4;
-    margin-top: 35%;
+    margin-top: 1.5em;
+}
+
+#privacityContainer{
+ margin-top: -1em;
+ margin-bottom: 0.8em;
+ overflow: auto;
+ font-size: 0.8em;
+
+}
+
+#privacityForm{
+ float: left;
+}
+
+#selectPrivacy{
+ padding: 0.5em;
+}
+
+#privacyTitle{
+    margin-bottom: 0.3em;
+  
+    text-align: left;
+    margin-left: -1.2em;
+}
+
+#publicIcon, #privateIcon{
+    margin-bottom: 0.3em;
+    width: 1em;
 }
 
 #publicButton{
-    background:  #F8AD34 ;
     border: none;
     margin-left: 30%;
-    font-size: 1.3em;
-    border-radius: 0.3em;
-    height: 1.6em;
+    border-radius: 0.2em;
+    height: 2.7em;
     cursor: pointer;
-    margin-bottom: 0.4em;
-    margin-top: -0.4em;
+    margin-top: -2.7em;
     font-family: 'Titillium Web', sans-serif;
-    color: white;
-    width: 40%;  
+    width: 40%;
+    float: right;
+    border: 1px solid #939CA3;
+
 }
 
 
 
+/* Estilos de footer */
+
 footer{
-    background-color: #EC3747;
     position: fixed;
     z-index: 100;
     bottom: 0;
     width: 100%;
     height: 3em;
-    color: white;
-    overflow: auto;
+    color: #8492A6;
     text-align: center;
+    border-top: 1px solid #C4C4C4;
     
+}
+
+.containerIcon{
+    float: left;
+    margin-left: 0.6em;
 }
   
 .menuIcons{
-    float: left;
-    font-size: 2em;
+    margin-top: 0.1em;
+    width: 2em; 
+    margin-left: -0.4em;
 }
 
-.menuIcons:hover, focus{
-    color: #F8AD34;
-    transition: 0.2s;
+.textIcon{
+    font-size: 0.6em;
+    text-align: center;
+    margin-left: -0.6em;
 }
+
 
 .none {
     display: none;

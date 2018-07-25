@@ -93,5 +93,13 @@ document.getElementById('posting').addEventListener('click', () =>{
     postcontainer.innerHTML = '';
     document.getElementById('post').classList.replace('none', 'inherit');
     document.getElementById('postcontainer').classList.replace('inherit', 'none');
+    document.getElementById('posting').classList.replace('inherit', 'none');
+});
+
+document.getElementById('backIcon').addEventListener('click', () =>{
+    postcontainer.innerHTML = '';
+    document.getElementById('post').classList.replace('inherit', 'none');
+    document.getElementById('postcontainer').classList.replace('none', 'inherit');
+    document.getElementById('posting').classList.replace('none', 'inherit');
 });
 
