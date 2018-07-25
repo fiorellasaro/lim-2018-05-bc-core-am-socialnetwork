@@ -22,17 +22,34 @@ window.showPost  = (callback) =>{
       <p>${user.val().email}</p> 
       `;
     }) */
-    firebase.database().ref(`/users`).on('child_added', user => {
-      firebase.database().ref('/user-post').on('child_added', post => {
+    /* firebase.database().ref(`/users`).on('child_added', user => {
+      firebase.database().ref(`/users-post/${user.uid}`).on('child_added', post => {
         userContainer.innerHTML += `
         <p>nombre:  ${user.val().username}</p>
         <p>${user.val().email}</p> 
         `;
       })
      
+    }) */
+      let datos = [];
+      let posts = {};
+    
+    firebase.database().ref().child('users').once('value',snap => {
+      const dataUsers = [];
+      datos.push(snap.val());
+      
     })
-  
-    // console.log(users);
+    firebase.database().ref().child('posts').on('value', post => {
+      posts = post.val();    
+    })
+    console.log(datos);
+    
+    datos.map(dato => {
+      console.log(dato);
+      
+    })
+    
+    // console.log(options);
     
     firebase.database().ref(`/posts`)
     .on('child_added', (newPost)=>{
