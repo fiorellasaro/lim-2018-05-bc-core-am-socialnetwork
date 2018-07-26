@@ -16,33 +16,41 @@ window.showPost  = (callback) =>{
     //Acá comenzamos a escuchar por nuevos mensajes usando el evento
     //on child_added
     callback();
-   /*  firebase.database().ref(`/users`).on('child_added', user => {
-      userContainer.innerHTML += `
-      <p>nombre:  ${user.val().username}</p>
-      <p>${user.val().email}</p> 
-      `;
-    }) */
-    /* firebase.database().ref(`/users`).on('child_added', user => {
-      firebase.database().ref(`/users-post/${user.uid}`).on('child_added', post => {
-        userContainer.innerHTML += `
-        <p>nombre:  ${user.val().username}</p>
-        <p>${user.val().email}</p> 
+    firebase.database().ref().child('users').on('value', snap => {
+      const datos = snap.val();
+      firebase.database().ref().child('posts').on('value', post => {
+        const posts = Object.values(post.val());  
+        const userWithPost = posts.map(postElement => {
+          for (const key in datos) {
+            if(postElement.idUser === key){
+              const stats = {
+                name: datos[key].username,
+                post: postElement.post,
+                likes: postElement.likes,
+              }
+              return stats;
+            }
+          }
+      });
+      // console.log(userWithPost)
+      postcontainer.innerHTML = '';
+      for (const i in userWithPost) {
+        postcontainer.innerHTML += `
+        <p>name: ${userWithPost[i].name}</p>
+        <p>likes:  ${userWithPost[i].likes}</p>
+        <p>${userWithPost[i].post}</p> 
         `;
-      })
-     
-    }) */
-    
-console.log(options);  
-    
-    
-    firebase.database().ref(`/posts`)
+      }
+      });
+    });
+    /* firebase.database().ref(`/posts`)
     .on('child_added', (newPost)=>{
         postcontainer.innerHTML += `
         <p>name: ${newPost}
         <p>likes:  ${newPost.val().likes}</p>
         <p>${newPost.val().post}</p> 
         `;
-    }); 
+    });  */
 }
 window.createPost  = (callback,currentUser) =>{ 
   const currentPost = postText.value;
