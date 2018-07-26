@@ -1,117 +1,300 @@
 body{
     font-size: 20px;
-    }
-    
+}
+main{
+    margin-bottom: 3.5em;
+}    
 header{
      overflow: auto;
      height: 3.5em;
      position: fixed;
      z-index: 100;
 }
-
-footer, .socialheader{
-    background: #EC3747;
+#socialHeader{
+    border-bottom: 1px solid #C4C4C4;
+    overflow: auto; 
 }
-
-#title{
-    font-family: 'Pacifico', cursive;
-    font-size: 1.6em;
-    color: white;
-    text-align: left;  
-    float: left; 
-    width: 50%;
-    padding-top: 2%;
-}
-
 #logoPrincipal{
-    width: 15%; 
-    float: right;
+    width: 3em; 
+    float: left;
+    margin-top: 0.3em;
 }
 
-#search{
-    font-family: 'Titillium Web', sans-serif;
+#settingsIcon{
+    width: 1.5em;
+    margin-top: 1em;
 }
+
+#settingsText{
+    font-size: 0.8em;
+    margin-left: 1em;
+    margin-top: 1.5em;
+}
+
+#search, #settingsText{
+    font-family: 'Titillium Web', sans-serif;
+    float: left;  
+}
+
+.settingsButton{
+    border: none;
+    border-radius: 0.2em;
+    height: 2.7em;
+    cursor: pointer;
+    font-family: 'Titillium Web', sans-serif;
+    width: 100%;
+    border: 1px solid #939CA3;
+    float: left;
+    margin-bottom: 5%;
+
+}
+
+.settingsButton:hover, focus{
+    background-color:   #C4C4C4;
+    transition: 0.1s;
+}
+
+#settingsOptions{
+    overflow: none;
+    margin-left: 16%;
+    margin-top: 20%;
+}
+
+#searchInput,#searchIcon{
+    font-size: 0.8em;
+    margin-top: 1.2em;
+    height: 2em; 
+}
+
+#searchButton{
+    padding: 0;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#posting{
+    width: 3em;
+    position: fixed;
+    top: 80%;
+    right: 5%;
+    z-index: 300;
+    opacity: 0.6;
+}
+
+/* Estilos de publicación */
+#backIcon-container, #headerpost-container, #like-container{
+    overflow: auto;
+}
+
+#headerpost-container{
+    margin-top: 0.4em;
+
+}
+#backIcon{
+   float: right;
+   width: 1em;
+   margin-top: 0.2em;
+   margin-right: 0;
+}
+
+#moreIcon{
+    float: right;
+    width: 1.5em;
+    margin-top: -0.4em;
+    margin-right: 0.4em;
+}
+
 
 #titlePublic{
-    border-bottom: 1px solid #C4C4C4;
     font-family: 'Titillium Web', sans-serif;
     margin-bottom: -0.2em;
 }
 
+#creatorName{
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1em;
+    font-weight: bolder;
+}
+
+#datePost{
+    font-size: 0.6em;
+    margin-top: -0.5em;
+}
+#privateIcon, #datePost{
+    float: left;
+}
+
 #initial{
-    background: #F8AD34;
+    background: #C4C4C4;
     border: none;
     width: 2.5em;
     height: 2.5em;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    margin-right: 1em;
     font-weight: bolder;
+    float: left;
+    margin-left: 0.4em;
 }
 
-#postForm{
+#postForm, #postSection{
     overflow: auto;
-    border-bottom: 1px solid #C4C4C4;
-    padding-bottom: 5%;
-    padding-top: 5%;
+    padding-bottom: 3%;
+    padding-top: 3%;
 }
 
-#initial, #postText{
+#initial, #postText, #postImage, #postTextSection, #postImageSection{
     float: left;
     font-family: 'Titillium Web', sans-serif;
+    text-align: justify;
 }
 
+#postImageSection{
+    background: #C4C4C4;
+    text-align: center;
+    margin:0;
+    height: 6em;
+}
+
+#postTextSection{
+    font-size: 0.9em;
+}
+
+#postImage{
+    margin-top: 1em;
+    height: 8em;
+}
+
+#post, #postwall{ 
+    border-radius: 0.3em;
+    border: 1px solid #C4C4C4;
+    margin-top: 1.5em;
+}
 #post{
     margin-left: 8%;
-    box-shadow:0.2em 0.2em 0.2em grey; 
-    border: 1px solid #C4C4C4;
-    margin-top: 35%;
+}
+
+#postwall{
+    margin-left: 4%;
+    padding: 0;
+}
+#privacityContainer{
+ margin-top: -1em;
+ margin-bottom: 0.8em;
+ overflow: auto;
+ font-size: 0.8em;
+
+}
+
+#selectPrivacy{
+ padding: 0.5em;
+}
+
+#privacyTitle{
+    margin-bottom: 0.3em;
+    text-align: left;
+    margin-left: -1.2em;
+}
+
+#publicIcon, #privateIcon{
+    margin-top: -0.2em;
+    margin-left: 0.2em;
+    width: 1em;
 }
 
 #publicButton{
-    background:  #F8AD34 ;
     border: none;
     margin-left: 30%;
-    font-size: 1.3em;
-    border-radius: 0.3em;
-    height: 1.6em;
+    border-radius: 0.2em;
+    height: 2.7em;
     cursor: pointer;
-    margin-bottom: 0.4em;
-    margin-top: -0.4em;
+    margin-top: -2.7em;
     font-family: 'Titillium Web', sans-serif;
-    color: white;
-    width: 40%;  
+    width: 40%;
+    float: right;
+    border: 1px solid #939CA3;
 }
 
 
 
+#likeIcon{
+    width: 2em;
+    margin-left: 0.7em;
+    float: left;
+}
+
+#likeText{
+    font-size: 0.7em;
+    float: left;
+    margin-left: 1.5em;
+    margin-top: 0.5em;
+}
+
+
+#dropdownMenuButton{
+    border: none;
+    background: none;    
+}
+
+#dropdownMenuButton:focus { 
+    outline: none;
+} 
+
+#dropdownPost{
+ min-width: 0;
+ padding: 0;
+ font-size: 0.6em;
+ margin-top: 1em;
+}
+
+.dropdown-text:hover, focus{
+    color:  #939CA3;
+    transition: 0.1s;
+}
+
+
+
+
+/* Estilos de footer */
+
 footer{
-    background-color: #EC3747;
-    position: fixed;
-    z-index: 100;
-    bottom: 0;
-    width: 100%;
     height: 3em;
-    color: white;
-    overflow: auto;
+    color: #8492A6;
     text-align: center;
-    
+    border-top: 1px solid #C4C4C4;
+    background-color: white; 
+}
+
+.containerIcon{
+    float: left;
+    margin-left: 0.6em;
 }
   
 .menuIcons{
-    float: left;
-    font-size: 2em;
+    margin-top: 0.1em;
+    width: 2em; 
+    margin-left: -0.4em;
 }
 
-.menuIcons:hover, focus{
-    color: #F8AD34;
-    transition: 0.2s;
+.textIcon{
+    font-size: 0.6em;
+    text-align: center;
+    margin-left: -0.6em;
 }
 
 .none {
-    display: none;
+    display: none !important;
 }
 .inherit{
-    display: inherit;
+    display: inherit; 
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
 }

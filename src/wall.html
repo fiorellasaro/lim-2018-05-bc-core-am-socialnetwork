@@ -14,47 +14,89 @@
 
       <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 
-    <title>SocialMeal</title>
+    <title>Social Sweet</title>
   </head>
   <body>
-   <header class="col-12 socialheader"> 
-    <h1 id="title">SocialMeal</h1>
-    <img src="img/LogoPrincipal.png" alt="LogoPrincipal" id="logoPrincipal"> 
-   </header>
+   <header class="col-12" id="socialHeader"> 
+    <img src="img/LogoPrincipal.png" alt="LogoPrincipal" id="logoPrincipal" class= "inherit"> 
 
-   <div class="input-group" id="search">
-      <input type="search" class="form-control" placeholder="Buscar">
-      <span class="input-group-btn">
-        <button class="btn" type="button"><span class="fas fa-search"></span></button>
+    <div class="input-group col-9" id="search">
+      <input type="search" class="form-control" id="searchInput" placeholder="Buscar" >
+      <span class="input-group-btn" id="searchIcon">
+        <button class="btn" id="searchButton" type="button" ><span class="fas fa-search" ></span></button>
       </span>
     </div>
+
+    <img src="img/settings.png" alt="settings icon" id="settingsIcon" class="left">
+    <p class= "none left" id="settingsText">Configuración</p>
+
+   </header>
 
 
 <main>
 
+ <img src="img/pencil.png" alt="write post button" id="posting" class= "inherit">
+<!-- <input type="button" value="cerrar sesión" id="logout"> -->
 
- <input type="button" value="cerrar sesión" id="logout"> 
+    <div class="col-10 none" id="post" >
+        <div id="backIcon-container">
+            <img src="img/error.png" alt="back to wall" id="backIcon">
+        </div>
+           <p id="titlePublic">Publicación</p>
 
+           <form class="form-group" id="postForm">
+               <textarea class="form-control" rows="5" id="postText" placeholder="¿Qué quieres decir hoy?"></textarea>
+               <button class="form-control" id="postImage">Elegir foto</button>      
+           </form>
 
- <div id="postcontainer" class="inherit"> </div>
- <div id="user-container"></div>
-
- <div class="col-10 none" id="post" >
-   <p id="titlePublic">Publicación</p>
-   <form class="form-group" id="postForm">
-      <button id="initial" class="col-2">N</button>
-       <textarea class="form-control col-9" rows="4" id="postText" placeholder="¿Qué estás pensando?"></textarea>
-    </form>
-    <button id="publicButton">Publicar</button> 
- </div>
+           
+              <div class="form-group" id="privacityContainer" >
+                   <select title="Privacidad:" class="privacityForm col-5 left" id="selectPrivacy" >
+                             <option>Privacidad</option>
+                             <option>Público </option>
+                             <option>Privado</option>         
+                   </select>
+                   <button id="publicButton" class="col-5">Publicar</button>
+              </div>    
+     </div> 
+   
+    <div id="postcontainer" class="inherit"> </div>
+    <div id="settingsOptions" class="none col-8">
+            <button class="settingsButton" >Editar perfil</button>    
+            <button class="settingsButton" id="logout">Cerrar sesión</button>    
+            <button class="settingsButton" id="backButton" >Volver</button>    
+    </div>
 
 </main>
 
-<footer> 
- <p class="menuIcons col-4" id="news"><span class="fas fa-home"></span></p>
- <p class="menuIcons col-4" id="posting"><span class="fas fa-edit"></span></p>
- <p class="menuIcons col-4" id="myProfile"><span class="fas fa-user"></span></p>
+<footer class="fixed-bottom"> 
+
+<div class="col-2 containerIcon">
+    <img class="menuIcons" id="inspirationIcon" src="img/magic-wand.png" alt="inspiration icon">
+    <p class="textIcon">Inspiración</p> 
+</div>
+<div class="col-2 containerIcon">
+    <img class="menuIcons" id="marketIcon" src="img/picnic-basket-full-of-raw-vegetables.png" alt="sell/buy icon">
+    <p class="textIcon">Tienda</p>
+</div>
+<div class="col-2 containerIcon">
+    <img class="menuIcons" id="menuIcon" src="img/menu.png" alt="recepy icon">
+    <p class="textIcon">Recetas</p>
+</div>
+<div class="col-2 containerIcon">
+    <img class="menuIcons" id="questionIcon" src="img/conversation.png" alt="doubts icon">
+    <p class="textIcon">Dudas</p>
+</div>
+<div class="col-2 containerIcon">
+    <img class="menuIcons" id="profileIcon" src="img/chef.png" alt="user icon">
+    <p class="textIcon">Perfil</p>
+</div>
 </footer>
+
+
+
+
+
 <script src="js/conexion.js"></script>
 <script src="js/muro/wall.js"></script>
 <script src="js/muro/muro.js"></script>

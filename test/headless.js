@@ -1,4 +1,4 @@
 global.window = global;
 global.assert = require('chai').assert;
-require('../src/js/login/login');
+require('../src/js/validation');
 require('./login.spec.js');

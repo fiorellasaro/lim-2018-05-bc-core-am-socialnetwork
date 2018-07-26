@@ -16,7 +16,6 @@ const signInBtn = document.getElementById('signInButton');
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     //ESTAMOS LOGUEADOS
-    console.log(user);
       window.location.href = 'wall.html'
   } else {
   //NO ESTAMOS LOGUEADOS
