@@ -33,7 +33,7 @@ window.showPost  = (callback) =>{
           }
       });
       console.log(userWithPost)
-      // postcontainer.innerHTML = '';
+      postcontainer.innerHTML = '';
       for (const i in userWithPost) {
         postcontainer.innerHTML += `
         <p>name: ${userWithPost[i].name}</p>

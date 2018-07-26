@@ -11,11 +11,12 @@ const addClass = () => {
 
   firebase.auth().onAuthStateChanged((user) =>{
     if (user) {
-      const currentUser = firebase.auth().currentUser;
+      console.log(user);
+    const currentUser = firebase.auth().currentUser;
       firebase.database().ref('users/' + currentUser.uid).set({
       username: currentUser.displayName,
       email: currentUser.email
-    });
+    }); 
     
     document.getElementById('publicButton').addEventListener('click', function (){
       createPost(addClass, currentUser)

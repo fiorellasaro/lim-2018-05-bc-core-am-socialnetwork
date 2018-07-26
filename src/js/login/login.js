@@ -30,20 +30,18 @@ window.sesionFacebook = (callback) => {
   });
 
 }
-window.checkUser = () => {
-  const user = firebase.auth().currentUser;
-  user.sendEmailVerification()
-  .then(() => {
-  // Email sent.
-  }).catch((error) => {
-  // An error happened.
-  });
-}
+
 window.registerUser = (emailVal, rpasswordVal, nameUs, callback) => {
   firebase.auth().createUserWithEmailAndPassword(emailVal, rpasswordVal)
   .then((user) => {
+    console.log(user);
     user.user.updateProfile({ 'displayName': nameUs });
-    checkUser();
+    firebase.database().ref('users/' + user.user.uid).set({
+    username: nameUs,
+    email: user.user.email
+  });
+    
+
   })
   .catch((error) => {
     callback(error);
