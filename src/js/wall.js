@@ -35,7 +35,6 @@ const logoutwall = () => {
 }
 
 
-
 const createPost  = () =>{ 
     const currentUser = firebase.auth().currentUser;
     const currentPost = postText.value;
@@ -82,12 +81,12 @@ const showPost  = () =>{
         <div class="col-11" id="postwall" >
         <div id="headerpost-container">
                 <button id="initial" class="col-2">N</button>
-                <div id="infoPost" class="col-6">
+                <div id="infoPost" class="col-6 left">
                         <h1 id="creatorName">Nombre</h1>
                         <p id="datePost">${newPost.val().timeData.date}/${newPost.val().timeData.month}/${newPost.val().timeData.year}</p>
                         <img src="img/icon.png" alt="private icon" id="privateIcon">
                 </div>
-        <div id="dropdown-container">
+        <div class="right" id="dropdown-container">
             <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="img/more.png" alt="more icon" id="moreIcon">
             </button>
@@ -118,7 +117,8 @@ const showPost  = () =>{
 
 
 document.getElementById('publicButton').addEventListener('click', createPost);
-/* document.getElementById('logout').addEventListener('click', logoutwall); */
+document.getElementById('logout').addEventListener('click', logoutwall);
+
 document.getElementById('posting').addEventListener('click', () =>{
     postcontainer.innerHTML = '';
     document.getElementById('post').classList.replace('none', 'inherit');
@@ -126,10 +126,31 @@ document.getElementById('posting').addEventListener('click', () =>{
     document.getElementById('posting').classList.replace('inherit', 'none');
 });
 
-document.getElementById('backIcon').addEventListener('click', () =>{
-    postcontainer.innerHTML = '';
+document.getElementById('backIcon').addEventListener('click',  () =>{
     document.getElementById('post').classList.replace('inherit', 'none');
     document.getElementById('postcontainer').classList.replace('none', 'inherit');
-    document.getElementById('posting').classList.replace('none', 'inherit');
+    document.getElementById('posting').classList.replace('none', 'inherit');   
+});
+
+document.getElementById('backButton').addEventListener('click', () =>{
+    document.getElementById('postcontainer').classList.replace('none', 'inherit');
+    document.getElementById('posting').classList.replace('none', 'inherit');   
+
+    document.getElementById('logoPrincipal').classList.replace('none', 'inherit');
+    document.getElementById('search').classList.remove('none');
+
+    document.getElementById('settingsText').classList.replace('inherit', 'none');
+    document.getElementById('settingsOptions').classList.replace('inherit', 'none');
+});
+
+
+document.getElementById('settingsIcon').addEventListener('click', () =>{
+    document.getElementById('logoPrincipal').classList.replace('inherit', 'none');
+    document.getElementById('search').classList.add( 'none');
+    document.getElementById('settingsIcon').classList.add('left');
+    document.getElementById('settingsText').classList.replace('none', 'inherit');
+    document.getElementById('postcontainer').classList.replace('inherit', 'none');
+    document.getElementById('settingsOptions').classList.replace('none', 'inherit');
+    document.getElementById('posting').classList.replace('inherit', 'none');   
 });
 

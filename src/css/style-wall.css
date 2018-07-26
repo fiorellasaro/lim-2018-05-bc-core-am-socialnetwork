@@ -25,9 +25,39 @@ header{
     margin-top: 1em;
 }
 
-#search{
+#settingsText{
+    font-size: 0.8em;
+    margin-left: 1em;
+    margin-top: 1.5em;
+}
+
+#search, #settingsText{
     font-family: 'Titillium Web', sans-serif;
     float: left;  
+}
+
+.settingsButton{
+    border: none;
+    border-radius: 0.2em;
+    height: 2.7em;
+    cursor: pointer;
+    font-family: 'Titillium Web', sans-serif;
+    width: 100%;
+    border: 1px solid #939CA3;
+    float: left;
+    margin-bottom: 5%;
+
+}
+
+.settingsButton:hover, focus{
+    background-color:   #C4C4C4;
+    transition: 0.1s;
+}
+
+#settingsOptions{
+    overflow: none;
+    margin-left: 16%;
+    margin-top: 20%;
 }
 
 #searchInput,#searchIcon{
@@ -75,7 +105,6 @@ header{
     margin-top: -0.4em;
     margin-right: 0.4em;
 }
-
 
 
 #titlePublic{
@@ -159,11 +188,6 @@ header{
 
 }
 
-#privacityForm, #infoPost{
- float: left;
-}
-
-
 #selectPrivacy{
  padding: 0.5em;
 }
@@ -191,8 +215,9 @@ header{
     width: 40%;
     float: right;
     border: 1px solid #939CA3;
-
 }
+
+
 
 #likeIcon{
     width: 2em;
@@ -207,15 +232,10 @@ header{
     margin-top: 0.5em;
 }
 
-#dropdown-container{
-    float: right;
-}
 
 #dropdownMenuButton{
     border: none;
-    background: none;
-    
-  
+    background: none;    
 }
 
 #dropdownMenuButton:focus { 
@@ -265,8 +285,16 @@ footer{
 }
 
 .none {
-    display: none;
+    display: none !important;
 }
 .inherit{
-    display: inherit;
+    display: inherit; 
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
 }
