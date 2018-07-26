@@ -16,8 +16,7 @@ firebase.auth().onAuthStateChanged((user) =>{
     username: currentUser.displayName,
     email: currentUser.email
   });
-  
-  document.getElementById('publicButton').addEventListener('click',() => {
+    document.getElementById('publicButton').addEventListener('click',() => {
     createPost(addClass, currentUser)
   });
   /* document.getElementById('logout').addEventListener('click', logoutwall); */

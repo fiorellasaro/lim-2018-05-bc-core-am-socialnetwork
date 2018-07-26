@@ -18,12 +18,16 @@ window.sesionFacebook = (callback) => {
   .catch((error) => {
   });
 }
-
+window.empezar = () => {
+  window.location.href = 'wall.html'
+}
 window.registerUser = (emailVal, rpasswordVal, nameUs, callback) => {
   firebase.auth().createUserWithEmailAndPassword(emailVal, rpasswordVal)
   .then((user) => {
+    // setTimeout(function(){location.reload();},0)
+    
     user.user.updateProfile({ 'displayName': nameUs });
-    checkUser();
+    // window.location.href = 'wall.html'
   })
   .catch((error) => {
     callback(error);
