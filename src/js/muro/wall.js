@@ -31,7 +31,7 @@ window.showPost  = (callback) =>{
           }
         }
     });
-    console.log(userWithPost)
+    // console.log(userWithPost)
     postcontainer.innerHTML = '';
     for (const i in userWithPost) {
       postcontainer.innerHTML += ` 
@@ -94,19 +94,30 @@ window.createPost  = (callback,currentUser) => {
   showPost(callback);
 //  return newPostKey;
 }
-
-/* document.getElementById('logout').addEventListener('click', logoutwall); */
-document.getElementById('posting').addEventListener('click', () =>{
-    postcontainer.innerHTML = '';
-    document.getElementById('post').classList.replace('none', 'inherit');
-    document.getElementById('postcontainer').classList.replace('inherit', 'none');
-    document.getElementById('posting').classList.replace('inherit', 'none');
-});
-
-document.getElementById('backIcon').addEventListener('click', () =>{
-    postcontainer.innerHTML = '';
+document.getElementById('backIcon').addEventListener('click',  () =>{
     document.getElementById('post').classList.replace('inherit', 'none');
     document.getElementById('postcontainer').classList.replace('none', 'inherit');
-    document.getElementById('posting').classList.replace('none', 'inherit');
+    document.getElementById('posting').classList.replace('none', 'inherit');   
 });
 
+document.getElementById('backButton').addEventListener('click', () =>{
+    document.getElementById('postcontainer').classList.replace('none', 'inherit');
+    document.getElementById('posting').classList.replace('none', 'inherit');   
+
+    document.getElementById('logoPrincipal').classList.replace('none', 'inherit');
+    document.getElementById('search').classList.remove('none');
+
+    document.getElementById('settingsText').classList.replace('inherit', 'none');
+    document.getElementById('settingsOptions').classList.replace('inherit', 'none');
+});
+
+
+document.getElementById('settingsIcon').addEventListener('click', () =>{
+    document.getElementById('logoPrincipal').classList.replace('inherit', 'none');
+    document.getElementById('search').classList.add( 'none');
+    document.getElementById('settingsIcon').classList.add('left');
+    document.getElementById('settingsText').classList.replace('none', 'inherit');
+    document.getElementById('postcontainer').classList.replace('inherit', 'none');
+    document.getElementById('settingsOptions').classList.replace('none', 'inherit');
+    document.getElementById('posting').classList.replace('inherit', 'none');   
+});
