@@ -12,6 +12,7 @@ window.logoutwall = (callback) => {
 window.showPostHtml = (userWithPost) => {
   postcontainer.innerHTML = '';
     for (const i in userWithPost) {
+      if(userWithPost[i].privacy === 'publico')
       postcontainer.innerHTML += ` 
       <div class="col-11" id="postwall" >
       <div id="headerpost-container">
@@ -63,6 +64,7 @@ window.showPost  = (callback) =>{
               post: postElement.post,
               likes: postElement.likes,
               timeData: postElement.timeData,
+              privacy: postElement.privacy,
             }
             return stats;
           }
@@ -74,14 +76,16 @@ window.showPost  = (callback) =>{
   });
 
 }
-window.createPost  = (callback,currentUser) => { 
-  const currentPost = postText.value;
+window.createPost  = (callback,currentUser,textPost,privacy) => { 
+  const currentPost = textPost.value;
+  const currentPrivacy = privacy.value;
   /* const currentTitle = titleText.value; */
   const datePost = new Date();
   const userId = currentUser.uid
   let postData = {
       idUser: userId,
       post: currentPost,
+      privacy: currentPrivacy,
       // titlePost: currentTitle,
       likes: 0,
       type: 'receta',

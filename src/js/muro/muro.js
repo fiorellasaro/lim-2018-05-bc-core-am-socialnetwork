@@ -8,7 +8,8 @@ const addClass = () => {
   document.getElementById('postcontainer').classList.replace('none', 'inherit');
   document.getElementById('posting').classList.replace('none', 'inherit');   
 }
-
+const textPost = document.getElementById('postText');
+const privacityPost = document.getElementById('selectPrivacy'); 
 firebase.auth().onAuthStateChanged((user) =>{
   if (user) {
     const currentUser = firebase.auth().currentUser;
@@ -17,7 +18,8 @@ firebase.auth().onAuthStateChanged((user) =>{
     email: currentUser.email
   });
     document.getElementById('publicButton').addEventListener('click',() => {
-    createPost(addClass, currentUser)
+      
+    createPost(addClass, currentUser,textPost,privacityPost)
   });
   /* document.getElementById('logout').addEventListener('click', logoutwall); */
   document.getElementById('posting').addEventListener('click', () =>{
