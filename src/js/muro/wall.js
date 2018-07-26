@@ -9,45 +9,43 @@ window.logoutwall = (callback) => {
   });
 
 }
-
-const showPostsHtml = (userWithPost) => {
+window.showPostHtml = (userWithPost) => {
   postcontainer.innerHTML = '';
-  for (const i in userWithPost) {
-    postcontainer.innerHTML += ` 
-    <div class="col-11" id="postwall" >
-    <div id="headerpost-container">
-            <button id="initial" class="col-2">N</button>
-            <div id="infoPost" class="col-6">
-                    <h1 id="creatorName">${userWithPost[i].name}</h1>
-                    <p id="datePost">${userWithPost[i].timeData}</p>
-                    <img src="img/icon.png" alt="private icon" id="privateIcon">
-            </div>
-    <div id="dropdown-container">
-        <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="img/more.png" alt="more icon" id="moreIcon">
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownPost">
-            <a class="dropdown-item dropdown-text" href="#">Editar</a>
-            <a class="dropdown-item dropdown-text" href="#">Eliminar</a>
-            <a class="dropdown-item dropdown-text" href="#">Guardar</a>
-            <a class="dropdown-item dropdown-text" href="#">Cancelar</a>
-        </div>
-    </div>          
-    </div>
-    <section id="postSection">
-        <p id="postTextSection" class="col-12">${userWithPost[i].post}</p>
-        <p id="postImageSection" class="col-12">Foto</p>      
-    </section> 
-    <div id="like-container">
-            <img src="img/cookie.png" alt="cookie like" id="likeIcon">
-            <p id="likeText"> ${userWithPost[i].likes} Me gusta</p>
+    for (const i in userWithPost) {
+      postcontainer.innerHTML += ` 
+      <div class="col-11" id="postwall" >
+      <div id="headerpost-container">
+              <button id="initial" class="col-2">N</button>
+              <div id="infoPost" class="col-6">
+                      <h1 id="creatorName">${userWithPost[i].name}</h1>
+                      <p id="datePost">${userWithPost[i].timeData}</p>
+                      <img src="img/icon.png" alt="private icon" id="privateIcon">
+              </div>
+      <div id="dropdown-container">
+          <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="img/more.png" alt="more icon" id="moreIcon">
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownPost">
+              <a class="dropdown-item dropdown-text" href="#">Editar</a>
+              <a class="dropdown-item dropdown-text" href="#">Eliminar</a>
+              <a class="dropdown-item dropdown-text" href="#">Guardar</a>
+              <a class="dropdown-item dropdown-text" href="#">Cancelar</a>
+          </div>
+      </div>          
+      </div>
+      <section id="postSection">
+          <p id="postTextSection" class="col-12">${userWithPost[i].post}</p>
+          <p id="postImageSection" class="col-12">Foto</p>      
+      </section> 
+      <div id="like-container">
+              <img src="img/cookie.png" alt="cookie like" id="likeIcon">
+              <p id="likeText"> ${userWithPost[i].likes} Me gusta</p>
+      </div> 
+      
     </div> 
-    
-  </div> 
-    `;
-  }
+      `;
+    }
 }
-
 window.showPost  = (callback) =>{
   /* postcontainer.innerHTML = ''; */
   //Acá comenzamos a escuchar por nuevos mensajes usando el evento
@@ -70,10 +68,11 @@ window.showPost  = (callback) =>{
           }
         }
       });
-    showPostsHtml(userWithPost)
+      showPostHtml(userWithPost)
     // console.log(userWithPost)
-    });
+    })
   });
+
 }
 window.createPost  = (callback,currentUser) => { 
   const currentPost = postText.value;
