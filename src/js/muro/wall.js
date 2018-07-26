@@ -9,30 +9,8 @@ window.logoutwall = (callback) => {
   });
 
 }
-window.showPost  = (callback) =>{
-  /* postcontainer.innerHTML = ''; */
-  //Acá comenzamos a escuchar por nuevos mensajes usando el evento
-  //on child_added
-  callback();
-  firebase.database().ref().child('users').on('value', snap => {
-    const datos = snap.val();
-    firebase.database().ref().child('posts').on('value', post => {
-      const posts = Object.values(post.val());  
-      const userWithPost = posts.map(postElement => {
-        for (const key in datos) {
-          if(postElement.idUser === key){
-            const stats = {
-              name: datos[key].username,
-              post: postElement.post,
-              likes: postElement.likes,
-              timeData: postElement.timeData,
-            }
-            return stats;
-          }
-        }
-    });
-    // console.log(userWithPost)
-    postcontainer.innerHTML = '';
+window.showPostHtml = (userWithPost) => {
+  postcontainer.innerHTML = '';
     for (const i in userWithPost) {
       postcontainer.innerHTML += ` 
       <div class="col-11" id="postwall" >
@@ -67,8 +45,34 @@ window.showPost  = (callback) =>{
     </div> 
       `;
     }
-    });
+}
+window.showPost  = (callback) =>{
+  /* postcontainer.innerHTML = ''; */
+  //Acá comenzamos a escuchar por nuevos mensajes usando el evento
+  //on child_added
+  callback();
+  firebase.database().ref().child('users').on('value', snap => {
+    const datos = snap.val();
+    firebase.database().ref().child('posts').on('value', post => {
+      const posts = Object.values(post.val());  
+      const userWithPost = posts.map(postElement => {
+        for (const key in datos) {
+          if(postElement.idUser === key){
+            const stats = {
+              name: datos[key].username,
+              post: postElement.post,
+              likes: postElement.likes,
+              timeData: postElement.timeData,
+            }
+            return stats;
+          }
+        }
+      });
+      showPostHtml(userWithPost)
+    // console.log(userWithPost)
+    })
   });
+
 }
 window.createPost  = (callback,currentUser) => { 
   const currentPost = postText.value;

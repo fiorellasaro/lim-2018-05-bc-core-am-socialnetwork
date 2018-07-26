@@ -15,8 +15,14 @@ const signInBtn = document.getElementById('signInButton');
 //observador de firebase
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
+      
+    // location.reload();
     //ESTAMOS LOGUEADOS
-      window.location.href = 'wall.html'
+    if(user.displayName !== null)
+    {
+        window.location.href = 'wall.html'
+    }
+    //   window.location.href = 'wall.html'
   } else {
   //NO ESTAMOS LOGUEADOS
     console.log('usuario no activo');
@@ -92,9 +98,13 @@ repeatPassword.addEventListener('input', function () {
 btnEnviar.addEventListener('click', () => {
   const emailValue = email.value;
   const repeatPasswordValue = repeatPassword.value;
-  const nameUser = name.value; 
+  window.nameUser = name.value; 
   console.log(nameUser);
+
   userRegister(emailValue,repeatPasswordValue, nameUser);
+   
+  document.getElementById("signUp").classList.replace('block', 'none');
+  document.getElementById("signIn").classList.replace('none', 'block');
 });
 //Direccionando al muro
 const directionPageMuro = () => {

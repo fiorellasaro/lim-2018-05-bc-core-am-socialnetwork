@@ -21,15 +21,9 @@ window.sesionFacebook = (callback) => {
 
 window.registerUser = (emailVal, rpasswordVal, nameUs, callback) => {
   firebase.auth().createUserWithEmailAndPassword(emailVal, rpasswordVal)
-  .then((user) => {
-    console.log(user);
+  .then((user) => {    
     user.user.updateProfile({ 'displayName': nameUs });
-    firebase.database().ref('users/' + user.user.uid).set({
-    username: nameUs,
-    email: user.user.email
-  });
-    
-
+    // window.location.href = 'wall.html'
   })
   .catch((error) => {
     callback(error);
