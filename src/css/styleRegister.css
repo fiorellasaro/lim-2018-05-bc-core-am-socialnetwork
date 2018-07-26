@@ -1,42 +1,46 @@
-body{
-font-size: 20px;
+body {
+  font-size: 20px;
 }
 
-#signIn, #signUp{
-    border:none;
+#signIn, 
+#signUp {
+  border:none;
 }
 
-header{
-    width: 100%;
-   overflow: auto; 
+header {
+  width: 100%;
+  overflow: auto; 
 }
 
-#title{
-    font-family: 'Pacifico', cursive;
-    font-size: 2.8em;
-    color: white;
-    text-align: left;  
-    float: left; 
-    width: 70%;
-  
-}
-#logoPrincipal{
-    margin-top: 0.5%;
-    width: 20%; 
-    float: right;
+#title {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.8em;
+  color: white;
+  text-align: left;  
+  float: left; 
+  width: 70%;
 }
 
-#descriptionDesktop{
-    display: none;
+#logoPrincipal {
+  margin-top: 0.5%;
+  width: 20%; 
+  float: right;
 }
 
-#description{
-    font-size: 1em;
+.descriptionDesktop {
+  display: none;
 }
-#description, #alreadysignin, #notSignin{
-    text-align: center;
-    font-family: 'Titillium Web', sans-serif;
-    font-weight: bolder;
+
+.description {
+  font-size: 1em;
+}
+
+.description, 
+#alreadysignin,
+#notSignin {
+  text-align: center;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: bolder;
 }
 
 
@@ -116,7 +120,7 @@ section{
     
 }
 
-#label{
+.label{
     margin-top: 0.5em;
     font-size: 0.7em;
     font-weight: bolder;
@@ -144,108 +148,112 @@ section{
     }
 
 #signUpLink:hover, focus{
-        color: #EC3747;
-        transition: 0.1s;
+  color: #EC3747;
+  transition: 0.1s;
 }
-
-
 
 /*Móviles en horizontal o tablets en vertical */
 @media (min-width: 768px) {
-    main{
-        overflow: auto;
-    }
-    section{
-        border: solid 2px whitesmoke;
-        margin-bottom: 0.3em;
-        float: right;  
-        margin-right: 1em;
+  main {
+    overflow: auto;
+  }
 
-    }
+  section {
+    border: solid 2px whitesmoke;
+    margin-bottom: 0.3em;
+    float: right;  
+    margin-right: 1em;
 
-    #title{
-        font-size: 3.5em;
-    }
+  }
 
-    #logoPrincipal{
-        width: 15%; 
-    }
+  #title {
+    font-size: 3.5em;
+  }
 
-    #descriptionDesktop{
-        margin-top: 6em;
-        display: initial;
-        float: left;
-        width: 40%;
-        font-size: 1.7em;
-        font-family: 'Titillium Web', sans-serif;
-        text-align: center;
-        margin-left: 0.5em;
-        }
-        
+  #logoPrincipal {
+    width: 15%; 
+  }
 
-    #description{
-        display: none;
-    }
+  .descriptionDesktop {
+    margin-top: 6em;
+    display: initial;
+    float: left;
+    width: 40%;
+    font-size: 1.7em;
+    font-family: 'Titillium Web', sans-serif;
+    text-align: center;
+    margin-left: 0.5em;
+  }
 
-    #signGoogle, #signIGoogle, #signFacebook, #signIFacebook {
-       margin-top: 1.5em;
-       font-size: 0.7em; 
-    }
- }
- 
+  .description {
+    display: none;
+  }
+
+  #signGoogle, 
+  #signIGoogle, 
+  #signFacebook, 
+  #signIFacebook {
+    margin-top: 1.5em;
+    font-size: 0.7em; 
+  }
+
+}
+
 /*Tablets en horizonal y escritorios normales */
 @media (min-width: 1024px) {
-    #title{
-        font-size: 5.3em;
-        padding-top: 2%;
-    }
+  #title {
+    font-size: 5.3em;
+    padding-top: 2%;
+  }
 
-    #logoPrincipal{
-        width: 12%; 
-    }
+  #logoPrincipal {
+    width: 12%; 
+  }
 
-    section{
-        margin-right: 4.5em;
+  section {
+    margin-right: 4.5em;
+  }
 
-    }
+  .descriptionDesktop {
+    margin-left: 4em;
+  }
 
-    #descriptionDesktop{
-        margin-left: 4em;
-    }
+}
 
+.fa-times,
+.message {
+  color: #EC3747;
+}
 
- }
- 
- .fa-times{
-        color: #EC3747;
-    }
-     
-    .fa-check{
-        color: #6D9B41;
-    }
-    .danger{
-     border-color: #EC3747 !important;
-    }
-    .danger:focus{
-        border-color: #EC3747 !important;
-        box-shadow:0 0 0 .2rem rgba(255, 38, 0, 0.25) !important;
-    }
-    .valid{
-     
-        border-color: #6D9B41 !important;
-    }
-    .valid:focus{
-        border-color: #6D9B41 !important;
-        box-shadow:0 0 0 .2rem rgba(68, 126, 29, 0.25) !important;
-    }
-    
-    .none {
-        display: none;
-    }
-    .block{
-        display: initial;
-    }
+.fa-check {
+  color: #6D9B41;
+}
+.danger {
+  border-color: #EC3747 !important;
+}
 
-footer{
+.danger:focus {
+  border-color: #EC3747 !important;
+  box-shadow: 0 0 0 .2rem rgba(255, 38, 0, 0.25) !important;
+}
+
+.valid {
+  border-color: #6D9B41 !important;
+}
+
+.valid:focus {
+  border-color: #6D9B41 !important;
+  box-shadow: 0 0 0 .2rem rgba(68, 126, 29, 0.25) !important;
+}
+
+.none {
+  display: none;
+}
+
+.block {
+  display: initial;
+}
+
+footer {
   overflow: auto;
 }
