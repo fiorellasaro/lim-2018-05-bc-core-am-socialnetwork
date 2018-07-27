@@ -10,18 +10,25 @@ const addClass = () => {
 }
 const textPost = document.getElementById('postText');
 const privacityPost = document.getElementById('selectPrivacy'); 
-firebase.auth().onAuthStateChanged((user) =>{
+
+firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     const currentUser = firebase.auth().currentUser;
     firebase.database().ref('users/' + currentUser.uid).set({
     username: currentUser.displayName,
-    email: currentUser.email
+    email: currentUser.email,
+    photoURL: (currentUser.photoURL !== null) ? currentUser.photoURL : 'https://image.flaticon.com/icons/svg/1034/1034680.svg',
   });
     document.getElementById('publicButton').addEventListener('click',() => {
-      
+      postcontainer.innerHTML = '';
     createPost(addClass, currentUser,textPost,privacityPost)
   });
-  /* document.getElementById('logout').addEventListener('click', logoutwall); */
+  document.getElementById('guardarButton').addEventListener('click', () => {
+    postEditNow(addClass)
+    showPost(addClass);
+  })
+  /* do
+  cument.getElementById('logout').addEventListener('click', logoutwall); */
   document.getElementById('posting').addEventListener('click', () =>{
     postcontainer.innerHTML = '';
     document.getElementById('post').classList.replace('none', 'inherit');
@@ -58,3 +65,23 @@ firebase.auth().onAuthStateChanged((user) =>{
 //     return post;
 //   });
 // }
+/* 
+
+  btnUpdate.addEventListener('click', () => {
+    const newUpdate = document.getElementById(newPost);
+    const nuevoPost = {
+      body: newUpdate.value,
+    };
+
+    var updatesUser = {};
+    var updatesPost = {};
+
+    updatesUser['/user-posts/' + userId + '/' + newPost] = nuevoPost;
+    updatesPost['/posts/' + newPost ] = nuevoPost;
+
+    firebase.database().ref().update(updatesUser);
+    firebase.database().ref().update(updatesPost);
+    
+  });
+ */
+

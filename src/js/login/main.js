@@ -15,8 +15,6 @@ const signInBtn = document.getElementById('signInButton');
 //observador de firebase
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-      
-    // location.reload();
     //ESTAMOS LOGUEADOS
     if(user.displayName !== null)
     {
