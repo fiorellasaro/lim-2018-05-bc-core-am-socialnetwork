@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Titillium+Web');
 body {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 main {
@@ -52,8 +53,7 @@ main {
   margin-bottom: 5%;
 }
 
-.settingsButton:hover, 
-focus {
+.settingsButton:hover, focus {
   background-color:#C4C4C4;
   transition: 0.1s;
 }

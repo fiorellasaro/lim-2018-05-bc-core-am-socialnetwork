@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Titillium+Web');
 body {
   font-size: 20px;
 }
@@ -53,10 +54,13 @@ header {
   margin-top: 1em;
 }
 
-#signGoogle, #signIGoogle, #signFacebook, #signIFacebook {
+#signGoogle, 
+#signIGoogle, 
+#signFacebook, 
+#signIFacebook {
   color: white;
   font-weight: bold;
-  font-size: 0.7em;
+  font-size: 12px;
   width: 48%; 
   border-radius: 0.5em;
   text-align: center;
@@ -197,7 +201,7 @@ section {
   #signFacebook, 
   #signIFacebook {
     margin-top: 1.5em;
-    font-size: 0.7em; 
+    font-size: 12px; 
   }
 
 }
