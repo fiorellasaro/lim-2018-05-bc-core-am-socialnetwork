@@ -16,10 +16,9 @@ const signInBtn = document.getElementById('signInButton');
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     //ESTAMOS LOGUEADOS
-    if(user.displayName !== null)
-    {
-        window.location.href = 'wall.html'
-    }
+    if (user.displayName !== null) {
+        window.location.href = 'wall.html';
+      }
     //   window.location.href = 'wall.html'
   } else {
   //NO ESTAMOS LOGUEADOS
@@ -68,12 +67,7 @@ const handleError = (error) => {
       break;
   }
 }
-//funcion para registrar usuario con email y password
-const userRegister = (emailValue,repeatPasswordValue, nameUser) => {
-  menssageErrorEmail.innerHTML = '';
-  menssageErrorPassword.innerHTML = '';
-  registerUser(emailValue,repeatPasswordValue,nameUser, handleError);
-}
+
 //Cambiando iconos segun lo que escriba el usuario
 email.addEventListener('input', () => {
   const campo = event.target;  
@@ -92,15 +86,15 @@ repeatPassword.addEventListener('input', function () {
   addClassIcon(repeatPassword, valid);
   campo.value === password.value ? replaceClassIconValid(repeatPassword, valid) : replaceClassIconDanger(repeatPassword, valid);
 });
+
 //Enviando informacion a firebase del nuevo registro
 btnEnviar.addEventListener('click', () => {
   const emailValue = email.value;
   const repeatPasswordValue = repeatPassword.value;
-  window.nameUser = name.value; 
-  console.log(nameUser);
-
-  userRegister(emailValue,repeatPasswordValue, nameUser);
-   
+  const nameUser = name.value;
+  menssageErrorEmail.innerHTML = '';
+  menssageErrorPassword.innerHTML = '';
+  registerUser(emailValue,repeatPasswordValue,nameUser, handleError);
   document.getElementById("signUp").classList.replace('block', 'none');
   document.getElementById("signIn").classList.replace('none', 'block');
 });

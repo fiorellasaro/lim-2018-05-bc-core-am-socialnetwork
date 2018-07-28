@@ -29,7 +29,7 @@ window.showPostHtml = (userWithPost) => {
               <img src="img/more.png" alt="more icon" id="moreIcon">
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownPost">
-              <a class="dropdown-item dropdown-text" href="#" onclick="postEdit('${userWithPost[i].id}','${userWithPost[i].post}','${userWithPost[i].privacy}')">Editar</a>
+              <a class="dropdown-item dropdown-text" href="#" onclick="postEdit('${userWithPost[i].id}','${userWithPost[i].post}','${userWithPost[i].privacy}','${userWithPost[i].likes}')">Editar</a>
               <a class="dropdown-item dropdown-text" href="#" onclick="postDelete('${userWithPost[i].id}')">Eliminar</a>
               <a class="dropdown-item dropdown-text" href="#" >Guardar</a>
               <a class="dropdown-item dropdown-text" href="#" >Cancelar</a>
@@ -53,39 +53,33 @@ window.postDelete = (idpost) => {
   firebase.database().ref().child('/user-posts/' + userId + '/' + idpost).remove();
   firebase.database().ref().child('posts/' + idpost).remove();
 }
-
-window.postEdit = (idPost, post, privacyEdit) => {
-  postEditNow(idPost,post,privacyEdit)
+const create = 'Publicar';
+const update = 'Guardar';
+let modo = create;
+let editPost = {
+  idPost: '',
+  post: '',
+  privacyEdit: '',
+  like: '',
+}
+window.postEdit = (idPost, post, privacyEdit, like) => {
   document.getElementById('post').classList.replace('none', 'inherit');
   document.getElementById('postcontainer').classList.replace('inherit', 'none');
   document.getElementById('posting').classList.replace('inherit', 'none');
-  
+  btnEnviar.value = update;
+  modo = update;
+  editPost.idPost = idPost;
+  editPost.post = post;
+  editPost.privacyEdit = privacyEdit;
+  editPost.like = like;
+  postEditNow(post,privacyEdit)
 }
 
-window.postEditNow = (idPost,post,privacyEdit) => {
-  const userId = firebase.auth().currentUser.uid;
+window.postEditNow = (post, privacy) => {
   textPost.value = post;
-  const currentPost = textPost.value;
-  privacityPost.value = privacyEdit;
-  const currentPrivacy = privacityPost.value;
-  let postData = {
-    idUser: userId,
-    post: currentPost,
-    privacy: currentPrivacy,
-    likes: 0,
-    type: 'receta',
-    timeData: new Date(),
-};
-  var updatesUser = {};
-  var updatesPost = {};
-  console.log(postData);
-  
-  updatesUser['/user-posts/' + userId + '/' + idPost] = postData;
-  updatesPost['/posts/' + idPost ] = postData;
-
-  firebase.database().ref().update(updatesUser);
-  firebase.database().ref().update(updatesPost); 
+  privacityPost.value = privacy;
 }
+
 window.showPost  = (callback) => {
   /* postcontainer.innerHTML = ''; */
   //Acá comenzamos a escuchar por nuevos mensajes usando el evento
@@ -117,30 +111,80 @@ window.showPost  = (callback) => {
   });
  
 }
-window.createPost  = (callback,currentUser,textPost,privacy) => { 
-  const currentPost = textPost.value;
-  const currentPrivacy = privacy.value;
-  /* const currentTitle = titleText.value; */
-  const datePost = new Date();
-  const userId = currentUser.uid
-  let postData = {
-      idUser: userId,
-      post: currentPost,
-      privacy: currentPrivacy,
-      likes: 0,
-      type: 'receta',
-      timeData: datePost,
-  };
-  //para tener una nueva llave en la colección posts
-  const newpostKey = firebase.database().ref(`/posts`).push().key;
-  let updates = {};
-  updates['/posts/' + newpostKey] = postData;
-  updates['/user-posts/' + currentUser.uid + '/' + newpostKey] = postData;
 
-  firebase.database().ref().update(updates);
-  showPost(callback);
-//  return newPostKey;
+window.sendPostFirebase = (callback,currentUser,textPost,privacy) => {
+  switch (modo) {
+    case create:
+    const userId = currentUser.uid
+    let postDat = {
+        idUser: userId,
+        post: textPost.value,
+        privacy: privacy.value,
+        likes: 0,
+        type: 'receta',
+        timeData: new Date(),
+    };
+    //para tener una nueva llave en la colección posts
+    const newpostKey = firebase.database().ref(`/posts`).push().key;
+    let updates = {};
+    updates['/posts/' + newpostKey] = postDat;
+    updates['/user-posts/' + currentUser.uid + '/' + newpostKey] = postDat;
+    firebase.database().ref().update(updates);
+    showPost(callback);
+    break;
+    case update:
+    let postData = {
+      idUser: currentUser.uid,    
+      post: textPost.value,
+      privacy: privacityPost.value,
+      likes: parseInt(editPost.like),
+      type: 'receta',
+      timeData: new Date(),
+    };
+    const updatesUser = {};
+    const updatesPost = {};
+    updatesUser['/user-posts/' + currentUser.uid + '/' + editPost.idPost] = postData;
+    updatesPost['/posts/' + editPost.idPost ] = postData;
+    firebase.database().ref().update(updatesUser);
+    firebase.database().ref().update(updatesPost); 
+    btnEnviar.value = create;
+      modo = create;
+      showPost(callback);
+    break;
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

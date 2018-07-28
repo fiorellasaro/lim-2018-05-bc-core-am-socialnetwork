@@ -2,7 +2,6 @@ const redirectionLogin = () => {
     window.location.href = "index.html";
 }
 const addClass = () => {
-    
   postcontainer.innerHTML = '';
   document.getElementById('post').classList.replace('inherit', 'none');
   document.getElementById('postcontainer').classList.replace('none', 'inherit');
@@ -10,7 +9,7 @@ const addClass = () => {
 }
 const textPost = document.getElementById('postText');
 const privacityPost = document.getElementById('selectPrivacy'); 
-
+const btnEnviar = document.getElementById('publicButton');
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     const currentUser = firebase.auth().currentUser;
@@ -19,14 +18,13 @@ firebase.auth().onAuthStateChanged((user) => {
     email: currentUser.email,
     photoURL: (currentUser.photoURL !== null) ? currentUser.photoURL : 'https://image.flaticon.com/icons/svg/1034/1034680.svg',
   });
-    document.getElementById('publicButton').addEventListener('click',() => {
-      postcontainer.innerHTML = '';
-    createPost(addClass, currentUser,textPost,privacityPost)
-  });
-  document.getElementById('guardarButton').addEventListener('click', () => {
-    postEditNow(addClass)
-    showPost(addClass);
-  })
+ const btnEnviar = document.getElementById('publicButton');
+  const sendPost = () => {
+    postcontainer.innerHTML = '';    
+    sendPostFirebase(addClass, currentUser,textPost,privacityPost)
+
+  }
+    btnEnviar.addEventListener('click',sendPost,false);
   /* do
   cument.getElementById('logout').addEventListener('click', logoutwall); */
   document.getElementById('posting').addEventListener('click', () =>{
