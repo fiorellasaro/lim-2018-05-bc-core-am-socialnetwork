@@ -12,17 +12,30 @@ const menssageErrorEmail = document.getElementById('mesage');
 const menssageErrorPassword = document.getElementById('mesage-pwd');
 const menssageErrorLogin = document.getElementById('mesage-login');
 const signInBtn = document.getElementById('signInButton');
+const formSignIn = document.getElementById("signIn");
+const formSingUp = document.getElementById("signUp");
+const linkSignUp = document.getElementById("signUpLink");
+const linkSignIn = document.getElementById("signInLink");
+const btnSignUpFacebook = document.getElementById('signFacebook');
+const btnSignUpGoogle = document.getElementById('signGoogle');
+const btnSignInFacebook = document.getElementById('signIFacebook');
+const btnSignInGoogle = document.getElementById('signIGoogle');
+
+//cambiando de clases a los formularios
+const replaceClass = (formFirst, formSecond) => {
+  formFirst.classList.replace('block', 'none');
+  formSecond.classList.replace('none', 'block');
+}
+
 //observador de firebase
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     //ESTAMOS LOGUEADOS
     if (user.displayName !== null) {
-        window.location.href = 'wall.html';
-      }
-    //   window.location.href = 'wall.html'
+      window.location.href = 'wall.html'
+    }
   } else {
   //NO ESTAMOS LOGUEADOS
-    console.log('usuario no activo');
   }
 });
 //funcion para añadir clases de los iconos a usar
@@ -31,7 +44,7 @@ const addClassIcon = (inputElement, spanElement) => {
   inputElement.classList.add('danger');
 } 
 //funcion de remplazo de clases a los iconos para cuando es valido lo que escribio en el input
-const replaceClassIconValid = (inputElement, spanElement) =>{
+const replaceClassIconValid = (inputElement, spanElement) => {
   inputElement.classList.replace('danger', 'valid')
   spanElement.classList.replace('fa-times', 'fa-check');
 }
@@ -64,10 +77,11 @@ const handleError = (error) => {
       menssageErrorLogin.innerHTML = 'La contraseña no es válida o el usuario no tiene una contraseña.';
     break;
     default:
-      break;
+      menssageErrorPassword.innerHTML = error.message;
+      menssageErrorLogin.innerHTML = error.message;
+    break;
   }
 }
-
 //Cambiando iconos segun lo que escriba el usuario
 email.addEventListener('input', () => {
   const campo = event.target;  
@@ -75,28 +89,34 @@ email.addEventListener('input', () => {
   addClassIcon(email,valido);
   validateEmail(campo.value) ? replaceClassIconValid(email,valido) : replaceClassIconDanger(email,valido);
 });
-password.addEventListener('input', function () {
+password.addEventListener('input', () => {
+  const campo = event.target;
+  addClassIcon(password,validpwd);
+  passwordLength(campo.value) ? replaceClassIconValid(password, validpwd) : replaceClassIconDanger(password, validpwd);
+});
+repeatPassword.addEventListener('input', () => {
   const campo = event.target;
   menssageErrorPassword.innerHTML = '';
-  addClassIcon(password,validpwd);
-  campo.value.length >= 6 ? replaceClassIconValid(password, validpwd) : replaceClassIconDanger(password, validpwd);
-});
-repeatPassword.addEventListener('input', function () {
-  const campo = event.target;
   addClassIcon(repeatPassword, valid);
-  campo.value === password.value ? replaceClassIconValid(repeatPassword, valid) : replaceClassIconDanger(repeatPassword, valid);
+  passwordRepeatValid(campo.value, password.value) ? replaceClassIconValid(repeatPassword, valid) : replaceClassIconDanger(repeatPassword, valid);
 });
-
+//funcion para registrar usuario con email y password
+const userRegister = (emailValue,repeatPasswordValue, nameUser) => {
+  menssageErrorEmail.innerHTML = '';
+  menssageErrorPassword.innerHTML = '';
+  registerUser(emailValue,repeatPasswordValue,nameUser, handleError);
+}
 //Enviando informacion a firebase del nuevo registro
 btnEnviar.addEventListener('click', () => {
   const emailValue = email.value;
   const repeatPasswordValue = repeatPassword.value;
-  const nameUser = name.value;
-  menssageErrorEmail.innerHTML = '';
-  menssageErrorPassword.innerHTML = '';
-  registerUser(emailValue,repeatPasswordValue,nameUser, handleError);
-  document.getElementById("signUp").classList.replace('block', 'none');
-  document.getElementById("signIn").classList.replace('none', 'block');
+  const nameUser = name.value; 
+  if (passwordRepeatValid(repeatPasswordValue, password.value) === false) {
+    menssageErrorPassword.innerHTML = 'Contraseña no coincide';
+  } else {
+    userRegister(emailValue,repeatPasswordValue, nameUser);
+    replaceClass(formSingUp, formSignIn);
+  }
 });
 //Direccionando al muro
 const directionPageMuro = () => {
@@ -110,24 +130,22 @@ signInBtn.addEventListener('click', () => {
   
 })
 //Cambiando de interfaz de Registro a Login
-document.getElementById("signUpLink").addEventListener('click', () => {    
-  document.getElementById("signUp").classList.replace('block', 'none');
-  document.getElementById("signIn").classList.replace('none', 'block');
+linkSignUp.addEventListener('click', () => {    
+  replaceClass(formSingUp, formSignIn);
 });
-document.getElementById("signInLink").addEventListener('click', () => {
-  document.getElementById("signUp").classList.replace('none', 'block');
-  document.getElementById("signIn").classList.replace('block', 'none');
+linkSignIn.addEventListener('click', () => {
+  replaceClass(formSignIn, formSingUp);
 });
 //Iniciando sesion con facebook y google
-document.getElementById('signFacebook').addEventListener('click', function () {
-  sesionFacebook(directionPageMuro);
+btnSignUpFacebook.addEventListener('click', () => {
+  sesionFacebook(directionPageMuro,handleError);
 });
-document.getElementById('signGoogle').addEventListener('click', function () {
-    sesionGoogle(directionPageMuro);
+btnSignUpGoogle.addEventListener('click', () => {
+  sesionGoogle(directionPageMuro,handleError);
 });
-document.getElementById('signIFacebook').addEventListener('click', function () {
-  sesionFacebook(directionPageMuro);
+btnSignInFacebook.addEventListener('click', () => {
+  sesionFacebook(directionPageMuro,handleError);
 });
-document.getElementById('signIGoogle').addEventListener('click', function () {
-    sesionGoogle(directionPageMuro);
+btnSignInGoogle.addEventListener('click', () => {
+  sesionGoogle(directionPageMuro,handleError);
 });
