@@ -34,9 +34,8 @@
 
 
 <main>
-
- <img src="img/pencil.png" alt="write post button" id="posting" class= "inherit">
-<!-- <input type="button" value="cerrar sesión" id="logout"> -->
+    
+    <img src="img/pencil.png" alt="write post button" id="posting" class= "inherit">
 
     <div class="col-10 none" id="post" >
         <div id="backIcon-container">
@@ -53,8 +52,8 @@
               <div class="form-group" id="privacityContainer" >
                    <select title="Privacidad:" class="privacityForm col-5 left" id="selectPrivacy" >
                              <option>Privacidad</option>
-                             <option>Público </option>
-                             <option>Privado</option>         
+                             <option>Público <i class="fas fa-globe-americas"></i></a></option>
+                             <option>Privado <a href="img/icon.png"></a></option>         
                    </select>
                    <button id="publicButton" class="col-5">Publicar</button>
               </div>    
@@ -67,34 +66,34 @@
             <button class="settingsButton" id="backButton" >Volver</button>    
     </div>
 
+    <div id="profilecontainer" class="none"></div>
+
+    <div id="userPostcontainer" class="none"></div>
+
 </main>
 
 <footer class="fixed-bottom"> 
-
-<div class="col-2 containerIcon">
-    <img class="menuIcons" id="inspirationIcon" src="img/magic-wand.png" alt="inspiration icon">
-    <p class="textIcon">Inspiración</p> 
-</div>
-<div class="col-2 containerIcon">
-    <img class="menuIcons" id="marketIcon" src="img/picnic-basket-full-of-raw-vegetables.png" alt="sell/buy icon">
-    <p class="textIcon">Tienda</p>
-</div>
-<div class="col-2 containerIcon">
-    <img class="menuIcons" id="menuIcon" src="img/menu.png" alt="recepy icon">
-    <p class="textIcon">Recetas</p>
-</div>
-<div class="col-2 containerIcon">
-    <img class="menuIcons" id="questionIcon" src="img/conversation.png" alt="doubts icon">
-    <p class="textIcon">Dudas</p>
-</div>
-<div class="col-2 containerIcon">
-    <img class="menuIcons" id="profileIcon" src="img/chef.png" alt="user icon">
-    <p class="textIcon">Perfil</p>
-</div>
+    <div class="col-2 containerIcon">
+        <img class="menuIcons" id="inspirationIcon" src="img/dust.png" alt="inspiration icon">
+        <p class="textIcon">Inspiración</p> 
+    </div>
+    <div class="col-2 containerIcon">
+        <img class="menuIcons" id="marketIcon" src="img/cart.png" alt="sell/buy icon">
+        <p class="textIcon">Tienda</p>
+    </div>
+    <div class="col-2 containerIcon">
+        <img class="menuIcons" id="menuIcon" src="img/menu.png" alt="recepy icon">
+        <p class="textIcon">Recetas</p>
+    </div>
+    <div class="col-2 containerIcon">
+        <img class="menuIcons" id="questionIcon" src="img/question.png" alt="doubts icon">
+        <p class="textIcon">Dudas</p>
+    </div>
+    <div class="col-2 containerIcon">
+        <img class="menuIcons" id="profileIcon" src="img/chef.png" alt="user icon">
+        <p class="textIcon">Perfil</p>
+    </div>
 </footer>
-
-
-
 
 
 <script src="js/conexion.js"></script>

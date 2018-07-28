@@ -2,8 +2,7 @@ body {
   font-size: 20px;
 }
 
-#signIn, 
-#signUp {
+#signIn, #signUp {
   border:none;
 }
 
@@ -14,17 +13,20 @@ header {
 
 #title {
   font-family: 'Pacifico', cursive;
-  font-size: 2.8em;
+  font-size: 2em;
   color: white;
   text-align: left;  
   float: left; 
   width: 70%;
+  margin-top: 0.3em;
+  margin-left: 0.1em;
+
 }
 
 #logoPrincipal {
-  margin-top: 0.5%;
-  width: 20%; 
+  width: 4em; 
   float: right;
+  width: 20%;
 }
 
 .descriptionDesktop {
@@ -89,20 +91,11 @@ margin-top: 1em;
     margin-bottom: 0.4em;
     font-family: 'Titillium Web', sans-serif;
     color: white;
-    width: 60%;  
-}
-
-#submitbutton{
-    padding-left: 14%;
-}
-
-#signInButton{
-    padding-left: 18%;
-}
-
-#signInButton{
+    width: 60%; 
+    text-align: center; 
     margin-top: 1em;
 }
+
 #submitbutton:hover, focus{
 background: #EC3747;
 transition: 0.2s;
@@ -166,12 +159,26 @@ section{
 
   }
 
+  header{
+    height: 5.5em;
+  }
+
   #title {
-    font-size: 3.5em;
+    font-size: 3em;
+    margin-bottom: 0;
   }
 
   #logoPrincipal {
-    width: 15%; 
+    margin-top: 0.3em;
+    margin-right: 0.5em;
+    width: 5em; 
+  }
+
+  .label{
+    font-size: 1em;
+  }
+  #usr, #pwd, #email, #rpwd{
+    font-size: 0.8em;
   }
 
   .descriptionDesktop {
@@ -201,14 +208,6 @@ section{
 
 /*Tablets en horizonal y escritorios normales */
 @media (min-width: 1024px) {
-  #title {
-    font-size: 5.3em;
-    padding-top: 2%;
-  }
-
-  #logoPrincipal {
-    width: 12%; 
-  }
 
   section {
     margin-right: 4.5em;

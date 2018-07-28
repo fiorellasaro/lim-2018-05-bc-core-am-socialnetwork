@@ -36,40 +36,122 @@ window.showPost  = (callback) =>{
     for (const i in userWithPost) {
       postcontainer.innerHTML += ` 
       <div class="col-11" id="postwall" >
-      <div id="headerpost-container">
-              <button id="initial" class="col-2">N</button>
-              <div id="infoPost" class="col-6">
-                      <h1 id="creatorName">${userWithPost[i].name}</h1>
-                      <p id="datePost">${userWithPost[i].timeData}</p>
+          <div id="headerpost-container">
+                  <button class="initial">N</button>
+                  <div id="infoPost" class="col-8">
+                      <h1 class="creatorName">${userWithPost[i].name}</h1>
+                      <p id="datePost" class="col-8">${userWithPost[i].timeData}</p>
                       <img src="img/icon.png" alt="private icon" id="privateIcon">
-              </div>
-      <div id="dropdown-container">
-          <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="img/more.png" alt="more icon" id="moreIcon">
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownPost">
-              <a class="dropdown-item dropdown-text" href="#">Editar</a>
-              <a class="dropdown-item dropdown-text" href="#">Eliminar</a>
-              <a class="dropdown-item dropdown-text" href="#">Guardar</a>
-              <a class="dropdown-item dropdown-text" href="#">Cancelar</a>
+                  </div>
+                  <div id="dropdown-container" class="show">
+                  <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="img/more.png" alt="more icon" id="moreIcon">
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownPost">
+                      <a class="dropdown-item dropdown-text" href="#">Editar</a>
+                      <a class="dropdown-item dropdown-text" href="#">Eliminar</a>
+                      <a class="dropdown-item dropdown-text" href="#">Guardar</a>
+                      <a class="dropdown-item dropdown-text" href="#">Cancelar</a>
+                  </div>
+              </div>  
           </div>
-      </div>          
-      </div>
-      <section id="postSection">
-          <p id="postTextSection" class="col-12">${userWithPost[i].post}</p>
-          <p id="postImageSection" class="col-12">Foto</p>      
-      </section> 
-      <div id="like-container">
+          <section id="postSection">
+              <p id="postTextSection" class="col-12">${userWithPost[i].post}</p>
+              <p id="postImageSection" class="col-12">Foto</p>      
+          </section> 
+          <div id="like-container">
               <img src="img/cookie.png" alt="cookie like" id="likeIcon">
               <p id="likeText"> ${userWithPost[i].likes} Me gusta</p>
+          </div> 
       </div> 
-      
-    </div> 
       `;
     }
     });
   });
 }
+
+window.showProfile  = (currentUser) =>{
+    
+    profilecontainer.innerHTML = `
+        <div class="userInfo col-12">
+                <button class="initial col-12" id="userButton">N</button>
+                <h1 class="creatorName col-12" id="profileName">${currentUser.displayName}</h1>
+
+                <table  class="col-7" id="tableInfo">
+                        <thead id="tablever">
+                          <tr>
+                            <th scope="col">Post</th>
+                            <th scope="col">Siguiendo</th>
+                            <th scope="col">Seguidores</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                        </tbody>
+                </table>
+        </div>
+    
+        <div class="col-12" role="group"  id="menuProfile">
+                  <button type="button" class="dropdown-toggle col-6 menuButton" data-toggle="dropdown" >
+                        <img class="iconsProfile" id="inspirationIconProfile" src="img/dust-on.png" alt="inspiration icon">
+                    Inspiración
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#"> <img class="iconsProfile" id="marketIconProfile" src="img/cart-on.png" alt="sell/buy icon"> Market</a>
+                    <a class="dropdown-item" href="#"> <img class="iconsProfile" id="menuIconProfile" src="img/menu-on.png" alt="recepy icon"> Recetas</a>
+                    <a class="dropdown-item" href="#"> <img class="iconsProfile" id="questionIconProfile" src="img/question-on.png" alt="doubts icon"> Dudas</a>
+                  </div>
+                <button type="button" class="col-5 menuButton"> <img class="iconsProfile" src="img/star.png" alt="fav icon">Favoritos</button>
+        </div>
+        `;
+
+
+        firebase.database().ref().child('user-posts/'+currentUser.uid).on('value', snap => {
+          const datos = snap.val();
+          const datosKey = Object.keys(datos);
+          userPostcontainer.innerHTML = '';
+          for (const key of datosKey) {
+            userPostcontainer.innerHTML += ` 
+            <div class="col-11" id="postwall" >
+                <div id="headerpost-container">
+                        <button class="initial">N</button>
+                        <div id="infoPost" class="col-8">
+                            <h1 class="creatorName">${currentUser.displayName}</h1>
+                            <p id="datePost" class="col-8">${datos[key].timeData}</p>
+                            <img src="img/icon.png" alt="private icon" id="privateIcon">
+                        </div>
+                        <div id="dropdown-container" class="show">
+                        <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="img/more.png" alt="more icon" id="moreIcon">
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownPost">
+                            <a class="dropdown-item dropdown-text" href="#">Editar</a>
+                            <a class="dropdown-item dropdown-text" href="#">Eliminar</a>
+                            <a class="dropdown-item dropdown-text" href="#">Guardar</a>
+                            <a class="dropdown-item dropdown-text" href="#">Cancelar</a>
+                        </div>
+                    </div>  
+                </div>
+                <section id="postSection">
+                    <p id="postTextSection" class="col-12">${datos[key].post}</p>
+                    <p id="postImageSection" class="col-12">Foto</p>      
+                </section> 
+                <div id="like-container">
+                    <img src="img/cookie.png" alt="cookie like" id="likeIcon">
+                    <p id="likeText"> ${datos[key].likes} Me gusta</p>
+                </div> 
+            </div> 
+            `;
+          }
+          });
+    
+}
+
+
 window.createPost  = (callback,currentUser) => { 
   const currentPost = postText.value;
   /* const currentTitle = titleText.value; */
@@ -94,30 +176,3 @@ window.createPost  = (callback,currentUser) => {
   showPost(callback);
 //  return newPostKey;
 }
-document.getElementById('backIcon').addEventListener('click',  () =>{
-    document.getElementById('post').classList.replace('inherit', 'none');
-    document.getElementById('postcontainer').classList.replace('none', 'inherit');
-    document.getElementById('posting').classList.replace('none', 'inherit');   
-});
-
-document.getElementById('backButton').addEventListener('click', () =>{
-    document.getElementById('postcontainer').classList.replace('none', 'inherit');
-    document.getElementById('posting').classList.replace('none', 'inherit');   
-
-    document.getElementById('logoPrincipal').classList.replace('none', 'inherit');
-    document.getElementById('search').classList.remove('none');
-
-    document.getElementById('settingsText').classList.replace('inherit', 'none');
-    document.getElementById('settingsOptions').classList.replace('inherit', 'none');
-});
-
-
-document.getElementById('settingsIcon').addEventListener('click', () =>{
-    document.getElementById('logoPrincipal').classList.replace('inherit', 'none');
-    document.getElementById('search').classList.add( 'none');
-    document.getElementById('settingsIcon').classList.add('left');
-    document.getElementById('settingsText').classList.replace('none', 'inherit');
-    document.getElementById('postcontainer').classList.replace('inherit', 'none');
-    document.getElementById('settingsOptions').classList.replace('none', 'inherit');
-    document.getElementById('posting').classList.replace('inherit', 'none');   
-});
