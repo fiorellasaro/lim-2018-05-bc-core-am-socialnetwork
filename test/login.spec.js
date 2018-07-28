@@ -1,21 +1,12 @@
-describe('login', () => {
-  it('debería exponer función registerUser en objeto global', () => {
-    assert.isFunction(registerUser);
-  });
+describe('validation', () => {
   it('debería exponer función validateEmail en objeto global', () => {
     assert.isFunction(validateEmail);
   });
-  it('debería exponer función checkUser en objeto global', () => {
-    assert.isFunction(checkUser);
+  it('debería exponer función passwordLength en objeto global', () => {
+    assert.isFunction(passwordLength);
   });
-  it('debería exponer función loginUser en objeto global', () => {
-    assert.isFunction(loginUser);
-  });
-  it('debería exponer función sesionFacebook en objeto global', () => {
-    assert.isFunction(sesionFacebook);
-  });
-  it('debería exponer función sesionGoogle en objeto global', () => {
-    assert.isFunction(sesionGoogle);
+  it('debería exponer función passwordRepeatValid en objeto global', () => {
+    assert.isFunction(passwordRepeatValid);
   });
   describe('validateEmail(email)', () => {
     it('debería retornar true para yunoshe1@gmail.com', () => {
@@ -25,24 +16,20 @@ describe('login', () => {
       assert.equal(validateEmail('yuno@she1@gmail.com'), false);
     })
   });
-  describe('loginUser(email,password)', () => {
-    it('deberia logear un usuario con email y password', () => {
-      mocksdk.auth().autoFlush();
-      // create user
-      mocksdk.auth().createUser({
-        uid: '123',
-        email: 'test@test.com',
-        password: 'abc123'
-      }).then((user) => {
-        mocksdk.auth().changeAuthState(user);
-      });
-      const callback = () => {
-        console.log('hola')
-      }
-      const callbackError = () => {
-        console.log('error')
-      }
-      loginUser('test@test.com','abc123',callback,callbackError) 
+  describe('passwordLength', () => {
+    it('deberia devolver true para Ald1023.', () => {
+      assert.deepEqual(passwordLength('Ald1023.'),true)
+    })
+    it('deberia devolver false para 1023', () => {
+      assert.deepEqual(passwordLength('1023'),false)
+    })
+  });
+  describe('passwordRepeatValid', () => {
+    it('deberia devolver true para Ald1023 y Ald1023.', () => {
+      assert.deepEqual(passwordRepeatValid('Ald1023.','Ald1023.'),true)
+    })
+    it('deberia devolver false para Ald1023 y 1023', () => {
+      assert.deepEqual(passwordRepeatValid('Ald1023.','1023'),false)
     })
   });
 });

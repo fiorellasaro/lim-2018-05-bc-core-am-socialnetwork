@@ -113,7 +113,6 @@ window.showProfile  = (currentUser) =>{
         </div>
         `;
 
-
         firebase.database().ref().child('user-posts/'+currentUser.uid).on('value', snap => {
           const datos = snap.val();
           const datosKey = Object.keys(datos);
