@@ -4,103 +4,82 @@
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style-wall.css">
-
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Titillium+Web" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
-
-      <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-
     <title>Social Sweet</title>
   </head>
   <body>
-   <header class="col-12" id="socialHeader"> 
-    <img src="img/LogoPrincipal.png" alt="LogoPrincipal" id="logoPrincipal" class= "inherit"> 
-
-    <div class="input-group col-9" id="search">
-      <input type="search" class="form-control" id="searchInput" placeholder="Buscar" >
-      <span class="input-group-btn" id="searchIcon">
-        <button class="btn" id="searchButton" type="button" ><span class="fas fa-search" ></span></button>
-      </span>
-    </div>
-
-    <img src="img/settings.png" alt="settings icon" id="settingsIcon" class="left">
-    <p class= "none left" id="settingsText">Configuración</p>
-
-   </header>
-
-
-<main>
-    
-    <img src="img/pencil.png" alt="write post button" id="posting" class= "inherit">
-
-    <div class="col-10 none" id="post" >
+    <header class="col-12" id="socialHeader"> 
+      <img src="img/LogoPrincipal.png" alt="LogoPrincipal" id="logoPrincipal" class= "inherit"> 
+      <div class="input-group col-9" id="search">
+        <input type="search" class="form-control" id="searchInput" placeholder="Buscar" >
+        <span class="input-group-btn" id="searchIcon">
+          <button class="btn" id="searchButton" type="button" ><span class="fas fa-search" ></span></button>
+        </span>
+      </div>
+      <img src="img/settings.png" alt="settings icon" id="settingsIcon" class="left">
+      <p class="none left" id="settingsText">Configuración</p>
+    </header>
+    <main>
+      <img src="img/pencil.png" alt="write post button" id="posting" class= "inherit">
+      <div class="col-10 none" id="post" >
         <div id="backIcon-container">
-            <img src="img/error.png" alt="back to wall" id="backIcon">
+          <img src="img/error.png" alt="back to wall" id="backIcon">
         </div>
-           <p id="titlePublic">Publicación</p>
-
-           <form class="form-group" id="postForm">
-               <textarea class="form-control" rows="5" id="postText" placeholder="¿Qué quieres decir hoy?"></textarea>
-               <button class="form-control" id="postImage">Elegir foto</button>      
-           </form>
-
-           
-              <div class="form-group" id="privacityContainer" >
-                   <select title="Privacidad:" class="privacityForm col-5 left" id="selectPrivacy" >
-                             <option>Privacidad</option>
-                             <option>Público <i class="fas fa-globe-americas"></i></option>
-                             <option>Privado <a href="img/icon.png"></a></option>         
-                   </select>
-                   <button id="publicButton" class="col-5">Publicar</button>
-              </div>    
+        <p id="titlePublic">Publicación</p>
+        <form class="form-group" id="postForm">
+          <textarea class="form-control" rows="5" id="postText" placeholder="¿Qué quieres decir hoy?"></textarea>
+          <button class="form-control" id="postImage">Elegir foto</button>      
+        </form>        
+        <div class="form-group" id="privacityContainer" >
+          <select title="Privacidad:" class="privacityForm col-5 left" id="selectPrivacy" >
+            <option value="Publico"> Público <i class="fas fa-globe-americas"></i></option>
+            <option value="Privado"> Privado <a href="img/icon.png"></a></option>         
+          </select>
+          <input type="button" id="publicButton" class="col-5" value="Publicar" />
+        </div>    
      </div> 
-   
-    <div id="postcontainer" class="inherit"> </div>
-    <div id="settingsOptions" class="none col-8">
-            <button class="settingsButton" >Editar perfil</button>    
-            <button class="settingsButton" id="logout">Cerrar sesión</button>    
-            <button class="settingsButton" id="backButton" >Volver</button>    
-    </div>
-
-    <div id="profilecontainer" class="none"></div>
-
-    <div id="userPostcontainer" class="none"></div>
-
-</main>
-
-<footer class="fixed-bottom"> 
-    <div class="col-2 containerIcon">
+      <div id="postcontainer" class="inherit"> </div>
+      <div id="settingsOptions" class="none col-8">
+        <button class="settingsButton" >Editar perfil</button>    
+        <button class="settingsButton" id="logout">Cerrar sesión</button>    
+        <button class="settingsButton" id="backButton" >Volver</button>    
+      </div>
+      <div id="profilecontainer" class="none"></div>
+      <div id="userPostcontainer" class="none"></div>
+    </main>
+    <footer class="fixed-bottom"> 
+      <div class="col-2 containerIcon">
         <img class="menuIcons" id="inspirationIcon" src="img/dust.png" alt="inspiration icon">
         <p class="textIcon">Inspiración</p> 
-    </div>
-    <div class="col-2 containerIcon">
+      </div>
+      <div class="col-2 containerIcon">
         <img class="menuIcons" id="marketIcon" src="img/cart.png" alt="sell/buy icon">
         <p class="textIcon">Tienda</p>
-    </div>
-    <div class="col-2 containerIcon">
+      </div>
+      <div class="col-2 containerIcon">
         <img class="menuIcons" id="menuIcon" src="img/menu.png" alt="recepy icon">
         <p class="textIcon">Recetas</p>
-    </div>
-    <div class="col-2 containerIcon">
+      </div>
+      <div class="col-2 containerIcon">
         <img class="menuIcons" id="questionIcon" src="img/question.png" alt="doubts icon">
         <p class="textIcon">Dudas</p>
-    </div>
-    <div class="col-2 containerIcon">
+      </div>
+      <div class="col-2 containerIcon">
         <img class="menuIcons" id="profileIcon" src="img/chef.png" alt="user icon">
         <p class="textIcon">Perfil</p>
-    </div>
-</footer>
-
-
-<script src="js/conexion.js"></script>
-<script src="js/muro/wall.js"></script>
-<script src="js/muro/muro.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+      </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="js/conexion.js"></script>
+    <script src="js/muro/wall.js"></script>
+    <script src="js/muro/muro.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
   </body>
 </html>

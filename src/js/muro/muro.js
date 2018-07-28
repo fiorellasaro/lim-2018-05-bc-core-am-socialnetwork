@@ -1,8 +1,11 @@
+const textPost = document.getElementById('postText');
+const privacityPost = document.getElementById('selectPrivacy'); 
+const btnEnviar = document.getElementById('publicButton');
+
 const redirectionLogin = () => {
     window.location.href = "index.html";
 }
 const addClass = () => {
-    
   postcontainer.innerHTML = '';
   document.getElementById('post').classList.replace('inherit', 'none');
   document.getElementById('postcontainer').classList.replace('none', 'inherit');
@@ -13,19 +16,21 @@ firebase.auth().onAuthStateChanged((user) =>{
   if (user) {
     const currentUser = firebase.auth().currentUser;
     firebase.database().ref('users/' + currentUser.uid).set({
-    username: currentUser.displayName,
-    email: currentUser.email
-  });
-    document.getElementById('publicButton').addEventListener('click',() => {
-    createPost(addClass, currentUser)
-  });
-  /* document.getElementById('logout').addEventListener('click', logoutwall); */
-  document.getElementById('posting').addEventListener('click', () =>{
-    postcontainer.innerHTML = '';
-    document.getElementById('post').classList.replace('none', 'inherit');
-    document.getElementById('postcontainer').classList.replace('inherit', 'none');
-    document.getElementById('posting').classList.replace('inherit', 'none');
-  });
+      username: currentUser.displayName,
+      email: currentUser.email,
+      photoURL: (currentUser.photoURL !== null) ? currentUser.photoURL : 'https://image.flaticon.com/icons/svg/1034/1034680.svg',
+    });
+    const sendPost = () => {
+      postcontainer.innerHTML = '';    
+      sendPostFirebase(addClass, currentUser,textPost,privacityPost);
+    }
+    btnEnviar.addEventListener('click', sendPost, false);
+    document.getElementById('posting').addEventListener('click', () =>{
+      postcontainer.innerHTML = '';
+      document.getElementById('post').classList.replace('none', 'inherit');
+      document.getElementById('postcontainer').classList.replace('inherit', 'none');
+      document.getElementById('posting').classList.replace('inherit', 'none');
+    });
     showPost(addClass);
     showProfile(currentUser);
   } else {
@@ -39,8 +44,6 @@ document.getElementById('logout').addEventListener('click', () =>{
 });
 
 
-  
-  
 
 // function toggleStar(postRef, uid) {
 //   postRef.transaction(function(post) {
