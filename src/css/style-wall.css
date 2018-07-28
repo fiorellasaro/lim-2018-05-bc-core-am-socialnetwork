@@ -3,21 +3,24 @@ body{
 }
 main{
     margin-bottom: 3.5em;
+    margin-top: 3.5em;
 }    
-header{
-     overflow: auto;
-     height: 3.5em;
-     position: fixed;
-     z-index: 100;
-}
+
 #socialHeader{
     border-bottom: 1px solid #C4C4C4;
-    overflow: auto; 
+    z-index: 100;
+    overflow: auto;
+    background-color: white;
+	top: 0; 
+    position: fixed; 
+    margin-top: -0.2em;
+    height: 3.4em;
 }
+
 #logoPrincipal{
     width: 3em; 
     float: left;
-    margin-top: 0.3em;
+    margin-top: 0.35em;
 }
 
 #settingsIcon{
@@ -31,9 +34,10 @@ header{
     margin-top: 1.5em;
 }
 
+
 #search, #settingsText{
     font-family: 'Titillium Web', sans-serif;
-    float: left;  
+    float: left;
 }
 
 .settingsButton{
@@ -84,13 +88,13 @@ header{
 }
 
 /* Estilos de publicación */
-#backIcon-container, #headerpost-container, #like-container{
+#backIcon-container, #headerpost-container, #like-container, #infoPost{
     overflow: auto;
 }
 
 #headerpost-container{
     margin-top: 0.4em;
-
+    padding: 0;
 }
 #backIcon{
    float: right;
@@ -112,21 +116,24 @@ header{
     margin-bottom: -0.2em;
 }
 
-#creatorName{
+.creatorName{
     font-family: 'Titillium Web', sans-serif;
-    font-size: 1em;
-    font-weight: bolder;
+    font-size: 0.9em;
+    font-weight: bold;
+    float: left;
 }
 
 #datePost{
     font-size: 0.6em;
     margin-top: -0.5em;
+    margin-bottom: 0;
+    padding-right: 0;
 }
 #privateIcon, #datePost{
     float: left;
 }
 
-#initial{
+.initial{
     background: #C4C4C4;
     border: none;
     width: 2.5em;
@@ -232,6 +239,11 @@ header{
     margin-top: 0.5em;
 }
 
+#dropdown-container{
+    float: right;
+    margin-top: -3em;
+}
+
 
 #dropdownMenuButton{
     border: none;
@@ -242,10 +254,16 @@ header{
     outline: none;
 } 
 
+#infoPost{
+    height: 3em;
+    padding: 0;
+    margin-right: 0;
+}
+
 #dropdownPost{
  min-width: 0;
  padding: 0;
- font-size: 0.6em;
+ font-size: 1em;
  margin-top: 1em;
 }
 
@@ -255,13 +273,61 @@ header{
 }
 
 
+/* Estilos de perfil */
+.userInfo{
+    text-align: center;
+    margin-top: 3.5em;
+    height: 10em;
+}
+
+#profileName{
+    font-size: 1.2em;
+}
+
+#userButton{
+    margin-left: 40%;
+    width: 4em;
+    height: 4em;
+    margin-bottom: 0.5em;
+}
+
+#tableInfo{
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 0.8em; 
+    margin-left: 21%;
+    font-weight: bolder;
+    
+}
+
+#tablever{
+ margin-right: 0.5em;
+}
+
+.iconsProfile{
+    width: 1.5em;
+}
+
+#menuProfile{
+    border-top: 1px solid #91949D;
+    border-bottom: 1px solid #91949D;
+    padding: 0;
+}
+
+.menuButton{
+    border: none; 
+    background: none;
+    color: #5F5F60;
+}
+
+
+
 
 
 /* Estilos de footer */
 
 footer{
     height: 3em;
-    color: #8492A6;
+    color: black;
     text-align: center;
     border-top: 1px solid #C4C4C4;
     background-color: white; 
