@@ -24,7 +24,10 @@ window.sesionFacebook = (callback, callbackError) => {
 window.registerUser = (emailVal, rpasswordVal, nameUs, callbackError) => {
   firebase.auth().createUserWithEmailAndPassword(emailVal, rpasswordVal)
   .then((user) => {    
-    user.user.updateProfile({ 'displayName': nameUs });
+    user.user.updateProfile({ 
+      'displayName': nameUs,
+      'photoURL' : 'https://image.flaticon.com/icons/svg/1034/1034680.svg', 
+    });
   })
   .catch((error) => {
     callbackError(error);
