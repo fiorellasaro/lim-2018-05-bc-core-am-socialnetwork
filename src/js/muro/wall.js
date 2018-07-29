@@ -176,11 +176,10 @@ window.showProfile  = (currentUser) =>{
       <button type="button" class="col-5 menuButton"> <img class="iconsProfile" src="img/star.png" alt="fav icon">Favoritos</button>
     </div>
     `;
-  firebase.database().ref().child('user-posts/'+currentUser.uid).on('value', snap => {
+  firebase.database().ref().child('user-posts/' + currentUser.uid).on('value', snap => {
     const datos = snap.val();
-    const datosKey = Object.keys(datos);
     userPostcontainer.innerHTML = '';
-    for (const key of datosKey) {
+    for (const key in datos) {
       userPostcontainer.innerHTML += ` 
       <div class="col-11 postwall" id="${key}" >
         <div id="headerpost-container">
@@ -208,7 +207,7 @@ window.showProfile  = (currentUser) =>{
           <p id="postImageSection" class="col-12">Foto</p>      
         </section> 
         <div id="like-container">
-        <input type="button" onclick="clickPost('${key}','${datos[key].likes}')" class="likeIconImg imgDisLike" id="${'li'+ key}"/>
+        <input type="button" onclick="clickPost('${key}','${datos[key].likes}','${datos[key].idUser}')" class="likeIconImg imgDisLike" id="${'li'+ key}"/>
         <p id="likeText"> ${datos[key].likes} Me gusta</p>
         </div> 
       </div> 
@@ -225,6 +224,7 @@ window.sendPostFirebase = (callback,currentUser,textPost,privacy) => {
           post: textPost.value,
           privacy: privacy.value,
           likes: 0,
+          likeUser: {},
           type: 'receta',
           timeData: new Date(),
       };
@@ -261,97 +261,60 @@ window.sendPostFirebase = (callback,currentUser,textPost,privacy) => {
 }
 
 window.clickPost = (postId,likes,usid) => {
-  const img = document.querySelector('#li'+postId);
-  console.log(img.id)
-  let idImg = img.id;
-  img.classList.replace('imgDisLike','imgLike');
   const userId = firebase.auth().currentUser.uid;
- 
-  let count = 0;
-  let countp = 0;
+const dbPost = firebase.database().ref('posts/' + postId);
+const postUsers = firebase.database().ref('/user-posts/'+ usid + '/' + postId);
+calculateLike(postUsers, userId);
+calculateLike(dbPost, userId);
+}
 
-  // firebase.database().ref('/posts/' + postId + '/likeUser/' + userId).set({
-  //   img: 'imgLike',
-  //   estado: true,
-  // });
- 
-
-  firebase.database().ref('posts/' + postId)
-    .transaction((post) => {
-      if (post) {
-        if(!post.hasOwnProperty('likeUser')){
-          firebase.database().ref('/posts/' + postId + '/likeUser/' + userId).set({
+window.calculateLike = (dbRef, userId) => {
+  
+  dbRef.transaction((post) => {
+    if (post) {
+      if(!post.hasOwnProperty('likeUser')){
+          post.likeUser = {}
+          post.likeUser[userId] = {
+            estado : true,
             img: 'imgLike',
-            estado: true,
-          });
-        } 
-        if (post.likes && post.likeUser[userId]  && post.likeUser[userId].estado) {
+          };
+      } else {
+        if(post.likes && post.likeUser[userId]  && post.likeUser[userId].estado) {
           post.likeUser[userId].estado = false;
           post.likeUser[userId].img = 'imgDeslike';
       } else {
         if (!post.likeUser[userId]) {
-            post.likeUser[userId] = {
-            estado : true,
-            img: 'imgLike',
-            };
-          }
-        post.likeUser[userId].estado = true;
-        post.likeUser[userId].img = 'imgLike';
-      }        
-    }    
-      return post;
-  });
-  firebase.database().ref().child('posts/' + postId).on('value', snap => {
-    const postEval = snap.val();
-    const likepost = Object.values(postEval.likeUser);
-      for (const key in likepost) {
-        if (likepost[key].hasOwnProperty('estado')) {
-          if(likepost[key].estado === true){
-            count++;
-          }
-        }
-      }
-  })
-  firebase.database().ref('posts/' + postId).update({
-    likes: count,
-    });
-    firebase.database().ref('user-posts/'+ usid + '/' + postId)
-    .transaction((post) => {
-      if (post) {
-        if(!post.hasOwnProperty('likeUser')){
-          firebase.database().ref('user-posts/'+ usid + '/' + postId + '/likeUser/' + userId).set({
-            img: 'imgLike',
-            estado: true,
-          });
-        }
-        if (post.likes && post.likeUser[userId]  && post.likeUser[userId].estado) {
-            post.likeUser[userId].estado = false;
-            post.likeUser[userId].img = 'imgDeslike';
-        } else {
-            if (!post.likeUser[userId]) {
               post.likeUser[userId] = {
                 estado : true,
                 img: 'imgLike',
               };
             }
-            post.likeUser[userId].estado = true;
-            post.likeUser[userId].img = 'imgLike';
-        }
-      }    
-      return post;
-  });
-  firebase.database().ref().child('user-posts/'+ usid + '/' + postId).on('value', snap => {
+          
+        post.likeUser[userId].estado = true;
+        post.likeUser[userId].img = 'imgLike';
+      } 
+  }   
+}
+return post;
+});
+// updateLike(dbRef)
+updateLike(dbRef)
+}
+window.updateLike = (dbRef) => {
+  let count = 0;
+
+  dbRef.on('value', snap => {
     const postEval = snap.val();
-    const likepost = Object.values(postEval.likeUser);
-      for (const key in likepost) {
-        if (likepost[key].hasOwnProperty('estado')) {
-          if(likepost[key].estado === true){
-            countp++;
-          }
-        }
-      }
-  })
-  firebase.database().ref('user-posts/'+ usid + '/' + postId).update({
-    likes: countp,
-    });
+     const likepost = Object.values(postEval.likeUser);
+       for (const key in likepost) {
+         if (likepost[key].hasOwnProperty('estado')) {
+           if(likepost[key].estado === true){
+             count++;
+           }
+         }
+       }
+   })
+   dbRef.update({
+     likes: count,
+     }); 
 }
