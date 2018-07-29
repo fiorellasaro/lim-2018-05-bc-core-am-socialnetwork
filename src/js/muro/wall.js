@@ -47,7 +47,7 @@ window.showPostHtml = (userWithPost) => {
           <p id="postImageSection" class="col-12">Foto</p>      
         </section> 
         <div id="like-container">
-          <input type="button" onclick="clickPost('${userWithPost[i].id}','${userWithPost[i].likes}','${userWithPost[i].uid}')" class="likeIconImg imgDisLike" id="${'li'+userWithPost[i].id}"/>
+          <input type="button" onclick="clickPost('${userWithPost[i].id}','${userWithPost[i].likes}','${userWithPost[i].uid}')" class="likeIconImg ${userWithPost[i].likeUser !== undefined && userWithPost[i].likeUser[userId] !==undefined && userWithPost[i].likeUser[userId].estado ? 'imgLike' : 'imgDisLike'}" id="${'li'+userWithPost[i].id}"/>
           <p id="likeText"> ${userWithPost[i].likes} Me gusta</p>
         </div> 
       </div> 
@@ -77,7 +77,7 @@ window.showPostHtml = (userWithPost) => {
           <p id="postImageSection" class="col-12">Foto</p>      
         </section> 
         <div id="like-container">
-          <input type="button" onclick="clickPost('${userWithPost[i].id}','${userWithPost[i].likes}','${userWithPost[i].uid}')" class="likeIconImg imgDisLike" id="${'li'+userWithPost[i].id}"/>
+          <input type="button" onclick="clickPost('${userWithPost[i].id}','${userWithPost[i].likes}','${userWithPost[i].uid}')" class="likeIconImg ${userWithPost[i].likeUser !== undefined && userWithPost[i].likeUser[userId] !== undefined && userWithPost[i].likeUser[userId].estado ? 'imgLike' : 'imgDisLike'}" id="${'li'+userWithPost[i].id}"/>
           <p id="likeText"> ${userWithPost[i].likes} Me gusta</p>
         </div> 
       </div> 
@@ -87,7 +87,6 @@ window.showPostHtml = (userWithPost) => {
 }
 window.postDelete = (idpost) => {
   const userId = firebase.auth().currentUser.uid;
-  firebase.database().ref().child('/user-posts/' + userId + '/' + idpost).remove();
   firebase.database().ref().child('posts/' + idpost).remove();
 }
 window.postEdit = (idPost, post, privacyEdit, like) => {
@@ -125,6 +124,7 @@ window.showPost  = (callback) =>{
               photoUser: datos[key].photoURL, 
               post: posts[i].post,
               likes:posts[i].likes,
+              likeUser: posts[i].likeUser,
               timeData: posts[i].timeData,
               privacy: posts[i].privacy,
             }
@@ -134,12 +134,12 @@ window.showPost  = (callback) =>{
       }
       console.log(arrayPostUser);
       showPostHtml(arrayPostUser);
+      showPostHtmlPerfil(arrayPostUser);
     });
   });
 }
 
 window.showProfile  = (currentUser) =>{
-  userPostcontainer.innerHTML = '';
   profilecontainer.innerHTML = '';
   profilecontainer.innerHTML = `
     <div class="userInfo col-12">
@@ -176,18 +176,21 @@ window.showProfile  = (currentUser) =>{
       <button type="button" class="col-5 menuButton"> <img class="iconsProfile" src="img/star.png" alt="fav icon">Favoritos</button>
     </div>
     `;
-  firebase.database().ref().child('user-posts/' + currentUser.uid).on('value', snap => {
-    const datos = snap.val();
-    userPostcontainer.innerHTML = '';
-    for (const key in datos) {
+}
+window.showPostHtmlPerfil = (userWithPost) => {
+  const userId = firebase.auth().currentUser.uid;
+  userPostcontainer.innerHTML = '';
+  for (const i in userWithPost) {
+    if(userId === userWithPost[i].uid) {
+      console.log(userWithPost[i].likeUser);
       userPostcontainer.innerHTML += ` 
-      <div class="col-11 postwall" id="${key}" >
+      <div class="col-11 postwall" id="${userWithPost[i].id}" >
         <div id="headerpost-container">
           <input type="button" class="initial" hidden/>
-          <img src="${currentUser.photoURL}" class="initial">
+          <img src="${userWithPost[i].photoUser}" class="initial">
           <div id="infoPost" class="col-8">
-            <h1 class="creatorName">${currentUser.displayName}</h1>
-            <p id="datePost" class="col-8">${datos[key].timeData}</p>
+            <h1 class="creatorName">${userWithPost[i].name}</h1>
+            <p id="datePost" class="col-8">${userWithPost[i].timeData}</p>
             <img src="img/icon.png" alt="private icon" id="privateIcon">
           </div>
           <div id="dropdown-container" class="show">
@@ -195,25 +198,25 @@ window.showProfile  = (currentUser) =>{
               <img src="img/more.png" alt="more icon" id="moreIcon">
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownPost">
-              <a class="dropdown-item dropdown-text" href="#" onclick="postEdit('${key}','${datos[key].post}','${datos[key].privacy}','${datos[key].likes}')">Editar</a>
-              <a class="dropdown-item dropdown-text" href="#" onclick="postDelete('${key}')">Eliminar</a>
+              <a class="dropdown-item dropdown-text" href="#" onclick="postEdit('${userWithPost[i].id}','${userWithPost[i].post}','${userWithPost[i].privacy}','${userWithPost[i].likes}')">Editar</a>
+              <a class="dropdown-item dropdown-text" href="#" onclick="postDelete('${userWithPost[i].id}')">Eliminar</a>
               <a class="dropdown-item dropdown-text" href="#">Guardar</a>
               <a class="dropdown-item dropdown-text" href="#">Cancelar</a>
             </div>
           </div>  
         </div>
         <section id="postSection">
-          <p id="postTextSection" class="col-12">${datos[key].post}</p>
+          <p id="postTextSection" class="col-12">${userWithPost[i].post}</p>
           <p id="postImageSection" class="col-12">Foto</p>      
         </section> 
         <div id="like-container">
-        <input type="button" onclick="clickPost('${key}','${datos[key].likes}','${datos[key].idUser}')" class="likeIconImg imgDisLike" id="${'li'+ key}"/>
-        <p id="likeText"> ${datos[key].likes} Me gusta</p>
+        <input type="button" onclick="clickPost('${userWithPost[i].id}','${userWithPost[i].likes}','${userWithPost[i].idUser}')" class="likeIconImg ${userWithPost[i].likeUser !== undefined && userWithPost[i].likeUser[userId] !== undefined && userWithPost[i].likeUser[userId].estado ? 'imgLike' : 'imgDisLike'}" id="${'li'+ userWithPost[i].id}"/>
+        <p id="likeText"> ${userWithPost[i].likes} Me gusta</p>
         </div> 
       </div> 
       `;
     }
-  });
+  }
 }
 window.sendPostFirebase = (callback,currentUser,textPost,privacy) => {
   switch (modo) {
@@ -224,7 +227,7 @@ window.sendPostFirebase = (callback,currentUser,textPost,privacy) => {
           post: textPost.value,
           privacy: privacy.value,
           likes: 0,
-          likeUser: {},
+          likeUser: {[userId]: 0},
           type: 'receta',
           timeData: new Date(),
       };
@@ -232,26 +235,16 @@ window.sendPostFirebase = (callback,currentUser,textPost,privacy) => {
       const newpostKey = firebase.database().ref(`/posts`).push().key;
       let updates = {};
       updates['/posts/' + newpostKey] = postData;
-      updates['/user-posts/' + currentUser.uid + '/' + newpostKey] = postData;
       firebase.database().ref().update(updates);
       showPost(callback);
       showProfile(currentUser);
       break;
     case update:
-      let postDataUpdate = {
-        idUser: currentUser.uid,    
+      firebase.database().ref('posts/' + editPost.idPost).update({
         post: textPost.value,
         privacy: privacityPost.value,
-        likes: parseInt(editPost.like),
-        type: 'receta',
         timeData: new Date(),
-      };
-      const updatesUser = {};
-      const updatesPost = {};
-      updatesUser['/user-posts/' + currentUser.uid + '/' + editPost.idPost] = postDataUpdate;
-      updatesPost['/posts/' + editPost.idPost ] = postDataUpdate;
-      firebase.database().ref().update(updatesUser);
-      firebase.database().ref().update(updatesPost); 
+      }); 
       btnEnviar.value = create;
       modo = create;
       showPost(callback);
@@ -262,14 +255,10 @@ window.sendPostFirebase = (callback,currentUser,textPost,privacy) => {
 
 window.clickPost = (postId,likes,usid) => {
   const userId = firebase.auth().currentUser.uid;
-const dbPost = firebase.database().ref('posts/' + postId);
-const postUsers = firebase.database().ref('/user-posts/'+ usid + '/' + postId);
-calculateLike(postUsers, userId);
+  const dbPost = firebase.database().ref('posts/' + postId);
 calculateLike(dbPost, userId);
 }
-
 window.calculateLike = (dbRef, userId) => {
-  
   dbRef.transaction((post) => {
     if (post) {
       if(!post.hasOwnProperty('likeUser')){
@@ -297,7 +286,6 @@ window.calculateLike = (dbRef, userId) => {
 }
 return post;
 });
-// updateLike(dbRef)
 updateLike(dbRef)
 }
 window.updateLike = (dbRef) => {

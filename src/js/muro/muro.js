@@ -48,27 +48,6 @@ document.getElementById('logout').addEventListener('click', () =>{
   logoutwall(redirectionLogin)
 });
 
-
-
-// function toggleStar(postRef, uid) {
-//   postRef.transaction(function(post) {
-//     if (post) {
-//       if (post.stars && post.stars[uid]) {
-//         post.starCount--;
-//         post.stars[uid] = null;
-//       } else {
-//         post.starCount++;
-//         if (!post.stars) {
-//           post.stars = {};
-//         }
-//         post.stars[uid] = true;
-//       }
-//     }
-//     return post;
-//   });
-// }
-
-
 document.getElementById('backIcon').addEventListener('click',  () =>{
   document.getElementById('post').classList.replace('inherit', 'none');
   document.getElementById('postcontainer').classList.replace('none', 'inherit');
