@@ -238,10 +238,32 @@ main {
   border: 1px solid #939CA3;
 }
 
-#likeIcon {
+.likeIcon {
   width: 2em;
   margin-left: 0.7em;
   float: left;
+}
+
+.likeIconImg {
+  background-repeat:no-repeat;
+  background-size: 2em;
+  height: 2.2em;
+  width:2em;
+  border-radius: 10px;
+  border: transparent;
+  background-color: transparent;
+  background-position:center;
+  margin-left: 0.7em;
+  margin-bottom: 0.7em;
+  float: left;
+}
+
+.imgLike {
+  background-image: url('../img/cookie-on.png');
+}
+
+.imgDisLike {
+  background-image: url('../img/cookie.png');
 }
 
 #likeText {

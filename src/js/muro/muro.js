@@ -2,37 +2,40 @@ const textPost = document.getElementById('postText');
 const privacityPost = document.getElementById('selectPrivacy'); 
 const btnEnviar = document.getElementById('publicButton');
 
+//funcion para dirigir al inicio
 const redirectionLogin = () => {
     window.location.href = "index.html";
 }
+//funcion para remplazar clases
 const addClass = () => {
   postcontainer.innerHTML = '';
   document.getElementById('post').classList.replace('inherit', 'none');
   document.getElementById('postcontainer').classList.replace('none', 'inherit');
   document.getElementById('posting').classList.replace('none', 'inherit');   
 }
-const textPost = document.getElementById('postText');
-const privacityPost = document.getElementById('selectPrivacy'); 
-const btnEnviar = document.getElementById('publicButton');
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     const currentUser = firebase.auth().currentUser;
+    //enviando informacion de usuario logueado a database
     firebase.database().ref('users/' + currentUser.uid).set({
       username: currentUser.displayName,
       email: currentUser.email,
       photoURL: (currentUser.photoURL !== null) ? currentUser.photoURL : 'https://image.flaticon.com/icons/svg/1034/1034680.svg',
     });
+    //funcion para enviar post a firebase
     const sendPost = () => {
       postcontainer.innerHTML = '';    
       sendPostFirebase(addClass, currentUser,textPost,privacityPost);
     }
     btnEnviar.addEventListener('click', sendPost, false);
+    //Evento para postear
     document.getElementById('posting').addEventListener('click', () =>{
       postcontainer.innerHTML = '';
       document.getElementById('post').classList.replace('none', 'inherit');
       document.getElementById('postcontainer').classList.replace('inherit', 'none');
       document.getElementById('posting').classList.replace('inherit', 'none');
     });
+    //Mostrando los posts
     showPost(addClass);
     showProfile(currentUser);
   } else {
@@ -40,7 +43,7 @@ firebase.auth().onAuthStateChanged((user) => {
   //aqui implementar para que al salir, aparezca nuevamente la interfaz del login
   }
 }); 
-
+//Cerrando sesion
 document.getElementById('logout').addEventListener('click', () =>{
   logoutwall(redirectionLogin)
 });

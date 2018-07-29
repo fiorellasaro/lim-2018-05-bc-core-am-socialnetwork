@@ -1,4 +1,3 @@
-//Cerrando sesion
 const create = 'Publicar';
 const update = 'Guardar';
 let modo = create;
@@ -8,6 +7,7 @@ let editPost = {
   privacyEdit: '',
   like: '',
 }
+//Cerrando sesion
 window.logoutwall = (callback) => {
   firebase.auth().signOut().then(() => {
     callback()
@@ -47,8 +47,7 @@ window.showPostHtml = (userWithPost) => {
           <p id="postImageSection" class="col-12">Foto</p>      
         </section> 
         <div id="like-container">
-          <input type="button" class="col-2" hidden/>
-          <img src="img/cookie.png" alt="cookie like" id="likeIcon">
+          <input type="button" onclick="clickPost('${userWithPost[i].id}','${userWithPost[i].likes}','${userWithPost[i].uid}')" class="likeIconImg imgDisLike" id="${'li'+userWithPost[i].id}"/>
           <p id="likeText"> ${userWithPost[i].likes} Me gusta</p>
         </div> 
       </div> 
@@ -78,8 +77,7 @@ window.showPostHtml = (userWithPost) => {
           <p id="postImageSection" class="col-12">Foto</p>      
         </section> 
         <div id="like-container">
-          <input type="button" class="col-2" hidden/>
-          <img src="img/cookie.png" alt="cookie like" id="likeIcon">
+          <input type="button" onclick="clickPost('${userWithPost[i].id}','${userWithPost[i].likes}','${userWithPost[i].uid}')" class="likeIconImg imgDisLike" id="${'li'+userWithPost[i].id}"/>
           <p id="likeText"> ${userWithPost[i].likes} Me gusta</p>
         </div> 
       </div> 
@@ -210,15 +208,14 @@ window.showProfile  = (currentUser) =>{
           <p id="postImageSection" class="col-12">Foto</p>      
         </section> 
         <div id="like-container">
-          <img src="img/cookie.png" alt="cookie like" id="likeIcon">
-          <p id="likeText"> ${datos[key].likes} Me gusta</p>
+        <input type="button" onclick="clickPost('${key}','${datos[key].likes}')" class="likeIconImg imgDisLike" id="${'li'+ key}"/>
+        <p id="likeText"> ${datos[key].likes} Me gusta</p>
         </div> 
       </div> 
       `;
     }
   });
 }
-
 window.sendPostFirebase = (callback,currentUser,textPost,privacy) => {
   switch (modo) {
     case create:
@@ -261,4 +258,100 @@ window.sendPostFirebase = (callback,currentUser,textPost,privacy) => {
       showProfile(currentUser);
     break;
   }
+}
+
+window.clickPost = (postId,likes,usid) => {
+  const img = document.querySelector('#li'+postId);
+  console.log(img.id)
+  let idImg = img.id;
+  img.classList.replace('imgDisLike','imgLike');
+  const userId = firebase.auth().currentUser.uid;
+ 
+  let count = 0;
+  let countp = 0;
+
+  // firebase.database().ref('/posts/' + postId + '/likeUser/' + userId).set({
+  //   img: 'imgLike',
+  //   estado: true,
+  // });
+ 
+
+  firebase.database().ref('posts/' + postId)
+    .transaction((post) => {
+      if (post) {
+        if(!post.hasOwnProperty('likeUser')){
+          firebase.database().ref('/posts/' + postId + '/likeUser/' + userId).set({
+            img: 'imgLike',
+            estado: true,
+          });
+        } 
+        if (post.likes && post.likeUser[userId]  && post.likeUser[userId].estado) {
+          post.likeUser[userId].estado = false;
+          post.likeUser[userId].img = 'imgDeslike';
+      } else {
+        if (!post.likeUser[userId]) {
+            post.likeUser[userId] = {
+            estado : true,
+            img: 'imgLike',
+            };
+          }
+        post.likeUser[userId].estado = true;
+        post.likeUser[userId].img = 'imgLike';
+      }        
+    }    
+      return post;
+  });
+  firebase.database().ref().child('posts/' + postId).on('value', snap => {
+    const postEval = snap.val();
+    const likepost = Object.values(postEval.likeUser);
+      for (const key in likepost) {
+        if (likepost[key].hasOwnProperty('estado')) {
+          if(likepost[key].estado === true){
+            count++;
+          }
+        }
+      }
+  })
+  firebase.database().ref('posts/' + postId).update({
+    likes: count,
+    });
+    firebase.database().ref('user-posts/'+ usid + '/' + postId)
+    .transaction((post) => {
+      if (post) {
+        if(!post.hasOwnProperty('likeUser')){
+          firebase.database().ref('user-posts/'+ usid + '/' + postId + '/likeUser/' + userId).set({
+            img: 'imgLike',
+            estado: true,
+          });
+        }
+        if (post.likes && post.likeUser[userId]  && post.likeUser[userId].estado) {
+            post.likeUser[userId].estado = false;
+            post.likeUser[userId].img = 'imgDeslike';
+        } else {
+            if (!post.likeUser[userId]) {
+              post.likeUser[userId] = {
+                estado : true,
+                img: 'imgLike',
+              };
+            }
+            post.likeUser[userId].estado = true;
+            post.likeUser[userId].img = 'imgLike';
+        }
+      }    
+      return post;
+  });
+  firebase.database().ref().child('user-posts/'+ usid + '/' + postId).on('value', snap => {
+    const postEval = snap.val();
+    const likepost = Object.values(postEval.likeUser);
+      for (const key in likepost) {
+        if (likepost[key].hasOwnProperty('estado')) {
+          if(likepost[key].estado === true){
+            countp++;
+          }
+        }
+      }
+  })
+  firebase.database().ref('user-posts/'+ usid + '/' + postId).update({
+    likes: countp,
+    });
 }
