@@ -20,13 +20,21 @@ firebase.auth().onAuthStateChanged((user) =>{
   document.getElementById('publicButton').addEventListener('click',() => {
     createPost(addClass, currentUser)
   });
-  /* document.getElementById('logout').addEventListener('click', logoutwall); */
+
+  userPostcontainer.classList.add('none');
+
   document.getElementById('posting').addEventListener('click', () =>{
-    postcontainer.innerHTML = '';
     document.getElementById('post').classList.replace('none', 'inherit');
-    document.getElementById('postcontainer').classList.replace('inherit', 'none');
+    document.getElementById('postcontainer').classList.add('none');
     document.getElementById('posting').classList.replace('inherit', 'none');
+    backIcon.classList.replace('none', 'inherit');
+    titlePublic.classList.replace('none', 'inherit');
+    postImage.classList.replace('none', 'inherit');
+    privacityContainer.classList.replace('none', 'inherit');
+    profilecontainer.classList.replace('inherit', 'none');
+
   });
+
     showPost(addClass);
     showProfile(currentUser);
   } else {
@@ -36,7 +44,7 @@ firebase.auth().onAuthStateChanged((user) =>{
 }); 
 
 document.getElementById('logout').addEventListener('click', () =>{
-  logoutwall(redirectionLogin)
+  logoutwall(redirectionLogin);
 });
 
 
@@ -63,13 +71,14 @@ document.getElementById('logout').addEventListener('click', () =>{
 
 
 document.getElementById('backIcon').addEventListener('click',  () =>{
+  document.getElementById('postcontainer').classList.remove('none');
   document.getElementById('post').classList.replace('inherit', 'none');
-  document.getElementById('postcontainer').classList.replace('none', 'inherit');
   document.getElementById('posting').classList.replace('none', 'inherit');   
 });
 
 document.getElementById('backButton').addEventListener('click', () =>{
-  document.getElementById('postcontainer').classList.replace('none', 'inherit');
+
+  document.getElementById('postcontainer').classList.remove('none');
   document.getElementById('posting').classList.replace('none', 'inherit');   
 
   document.getElementById('logoPrincipal').classList.replace('none', 'inherit');
@@ -85,9 +94,12 @@ document.getElementById('settingsIcon').addEventListener('click', () =>{
   document.getElementById('search').classList.add( 'none');
   document.getElementById('settingsIcon').classList.add('left');
   document.getElementById('settingsText').classList.replace('none', 'inherit');
-  document.getElementById('postcontainer').classList.replace('inherit', 'none');
+  document.getElementById('postcontainer').classList.add('none');
   document.getElementById('settingsOptions').classList.replace('none', 'inherit');
-  document.getElementById('posting').classList.replace('inherit', 'none');   
+  document.getElementById('posting').classList.replace('inherit', 'none'); 
+  containerInfo.classList.add('none');
+  userPostcontainer.classList.add('none');
+  
 });
 
 
@@ -99,19 +111,67 @@ document.getElementById("posting").addEventListener('mouseout', () =>{
   document.getElementById('posting').src = "img/pencil.png"; 
 });
 
+postText.addEventListener('focus', () =>{
+  backIcon.classList.replace('none', 'inherit');
+    titlePublic.classList.replace('none', 'inherit');
+    postImage.classList.replace('none', 'inherit');
+    privacityContainer.classList.replace('none', 'inherit'); 
+});
+
+postText.addEventListener('focusout', () =>{
+    backIcon.classList.replace('inherit', 'none');
+    titlePublic.classList.replace('inherit', 'none');
+    postImage.classList.replace('inherit', 'none');
+    privacityContainer.classList.replace('inherit', 'none'); 
+});
+
+
 
 document.getElementById("profileIcon").addEventListener('click', () =>{
-  profileIcon.src = "img/chef-on.png"; 
-  postcontainer.classList.replace('inherit', 'none');
-  profilecontainer.classList.replace('none', 'inherit');
-  userPostcontainer.classList.replace('none', 'inherit');
-  inspirationIcon.src = "img/dust.png";  
+    profileIcon.src = "img/chef-on.png"; 
+    postcontainer.classList.add('none');
+    profilecontainer.classList.replace('none', 'inherit');
+    userPostcontainer.classList.replace('none', 'inherit');
+    postMenuContainer.classList.remove('none');
+    post.classList.add('none');
+    inspirationIcon.src = "img/dust.png";  
+    settingsOptions.classList.replace('inherit', 'none');
+    logoPrincipal.classList.replace('none', 'inherit');
+    search.classList.remove('none');
+    settingsText.classList.replace('inherit', 'none');
+
+});
+
+profileIconDesktop.addEventListener('click', () =>{
+  profileIconDesktop.src = "img/chef-on.png"; 
+  postcontainer.classList.add('none');
+/*   profilecontainer.classList.replace('none', 'inherit');
+  userPostcontainer.classList.replace('none', 'inherit'); */
+  postMenuContainer.classList.remove('none');
+  containerInfo.classList.replace('none', 'inherit');
+  titlePostMenu.classList.remove('none');
+  inspirationIconDesktop.src = "img/dust.png"; 
 });
 
 document.getElementById("inspirationIcon").addEventListener('click', () =>{
   inspirationIcon.src = "img/dust-on.png";
   profileIcon.src = "img/chef.png"; 
-  postcontainer.classList.replace('none', 'inherit');
+  postcontainer.classList.remove('none');
+  profilecontainer.classList.replace('inherit', 'none'); 
+  userPostcontainer.classList.replace('inherit', 'none');
+  post.classList.add('none');
+  posting.classList.replace('none', 'inherit');
+  settingsOptions.classList.replace('inherit', 'none');
+  logoPrincipal.classList.replace('none', 'inherit');
+  search.classList.remove('none');
+  settingsText.classList.replace('inherit', 'none');
+});
+
+inspirationIconDesktop.addEventListener('click', () =>{
+  inspirationIconDesktop.src = "img/dust-on.png";
+  profileIconDesktop.src = "img/chef.png";
+  postMenuContainer.classList.add('none'); 
+  postcontainer.classList.remove('none');
   profilecontainer.classList.replace('inherit', 'none'); 
   userPostcontainer.classList.replace('inherit', 'none');
 });

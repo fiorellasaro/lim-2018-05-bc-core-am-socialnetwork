@@ -17,90 +17,116 @@
     <title>Social Sweet</title>
   </head>
   <body>
-   <header class="col-12" id="socialHeader"> 
-    <img src="img/LogoPrincipal.png" alt="LogoPrincipal" id="logoPrincipal" class= "inherit"> 
+        <header class="col-12" id="socialHeader"> 
+                <img src="img/LogoPrincipal.png" alt="LogoPrincipal" id="logoPrincipal" class= "inherit"> 
 
-    <div class="input-group col-9" id="search">
-      <input type="search" class="form-control" id="searchInput" placeholder="Buscar" >
-      <span class="input-group-btn" id="searchIcon">
-        <button class="btn" id="searchButton" type="button" ><span class="fas fa-search" ></span></button>
-      </span>
-    </div>
+                <div class="input-group col-9 col-md-3" id="search">
+                        <input type="search" class="form-control" id="searchInput" placeholder="Buscar" >
+                        <span class="input-group-btn" id="searchIcon">
+                        <button class="btn" id="searchButton" type="button" ><span class="fas fa-search" ></span></button>
+                        </span>
+                </div>
 
-    <img src="img/settings.png" alt="settings icon" id="settingsIcon" class="left">
-    <p class= "none left" id="settingsText">Configuración</p>
+                <div class="none col-md-6 left" id="channelsMenu">
+                <div class="col-2 containerIcon">
+                        <img class="menuIcons" id="inspirationIconDesktop" src="img/dust.png" alt="inspiration icon">
+                        <p class="textIcon">Inspiración</p> 
+                </div>
+                <div class="col-2 containerIcon">
+                        <img class="menuIcons" id="marketIconDesktop" src="img/cart.png" alt="sell/buy icon">
+                        <p class="textIcon">Tienda</p>
+                </div>
+                <div class="col-2 containerIcon">
+                        <img class="menuIcons" id="menuIconDesktop" src="img/menu.png" alt="recepy icon">
+                        <p class="textIcon">Recetas</p>
+                </div>
+                <div class="col-2 containerIcon">
+                        <img class="menuIcons" id="questionIconDesktop" src="img/question.png" alt="doubts icon">
+                        <p class="textIcon">Dudas</p>
+                </div>
+                <div class="col-2 containerIcon">
+                        <img class="menuIcons" id="profileIconDesktop" src="img/chef.png" alt="user icon">
+                        <p class="textIcon">Perfil</p>
+                </div>
+                </div>
 
-   </header>
+                <img src="img/settings.png" alt="settings icon" id="settingsIcon" class="left">
+                <p class= "none left" id="settingsText">Configuración</p>
+
+        </header>
 
 
-<main>
-    
-    <img src="img/pencil.png" alt="write post button" id="posting" class= "inherit">
+        <main class="col-12">
+        
+        <img src="img/pencil.png" alt="write post button" id="posting" class= "inherit">
 
-    <div class="col-10 none" id="post" >
-        <div id="backIcon-container">
-            <img src="img/error.png" alt="back to wall" id="backIcon">
+        <div id="containerInfo" class= "none col-md-5">
+                <div id="profilecontainer" class="none"></div>
         </div>
-           <p id="titlePublic">Publicación</p>
 
-           <form class="form-group" id="postForm">
-               <textarea class="form-control" rows="5" id="postText" placeholder="¿Qué quieres decir hoy?"></textarea>
-               <button class="form-control" id="postImage">Elegir foto</button>      
-           </form>
+        <div class="col-md-5 none left" id="post" >
+                <div id="backIcon-container">
+                        <img src="img/error.png" alt="back to wall" id="backIcon" class="none">
+                </div> 
+                <p id="titlePublic" class="none">Publicación</p>
+                
+                <form class="form-group" id="postForm">
+                        <textarea class="form-control" rows="5" id="postText" placeholder="¿Qué quieres decir hoy?"></textarea>
+                        <button class="none form-control" id="postImage">Elegir foto</button>      
+                </form>
+                
+                        
+                <div class="form-group none" id="privacityContainer" >
+                        <select title="Privacidad:" class="privacityForm col-5 left" id="selectPrivacy" >
+                                <option>Privacidad</option>
+                                <option>Público <i class="fas fa-globe-americas"></i></a></option>
+                                <option>Privado <a href="img/icon.png"></a></option>         
+                        </select>
+                        <button id="publicButton" class="col-5">Publicar</button>
+                </div>  
+        </div> 
+        <div id="postcontainer" class="col-md-6 left"> </div>
+        <div id="settingsOptions" class="none col-8">
+                <button class="settingsButton" >Editar perfil</button>    
+                <button class="settingsButton" id="logout">Cerrar sesión</button>    
+                <button class="settingsButton" id="backButton" >Volver</button>    
+        </div>
 
-           
-              <div class="form-group" id="privacityContainer" >
-                   <select title="Privacidad:" class="privacityForm col-5 left" id="selectPrivacy" >
-                             <option>Privacidad</option>
-                             <option>Público <i class="fas fa-globe-americas"></i></a></option>
-                             <option>Privado <a href="img/icon.png"></a></option>         
-                   </select>
-                   <button id="publicButton" class="col-5">Publicar</button>
-              </div>    
-     </div> 
-   
-    <div id="postcontainer" class="inherit"> </div>
-    <div id="settingsOptions" class="none col-8">
-            <button class="settingsButton" >Editar perfil</button>    
-            <button class="settingsButton" id="logout">Cerrar sesión</button>    
-            <button class="settingsButton" id="backButton" >Volver</button>    
-    </div>
+        <div id="userPostcontainer" class="col-md-6 none left"> </div>
 
-    <div id="profilecontainer" class="none"></div>
+        </main>
 
-    <div id="userPostcontainer" class="none"></div>
-
-</main>
-
-<footer class="fixed-bottom"> 
-    <div class="col-2 containerIcon">
-        <img class="menuIcons" id="inspirationIcon" src="img/dust.png" alt="inspiration icon">
-        <p class="textIcon">Inspiración</p> 
-    </div>
-    <div class="col-2 containerIcon">
-        <img class="menuIcons" id="marketIcon" src="img/cart.png" alt="sell/buy icon">
-        <p class="textIcon">Tienda</p>
-    </div>
-    <div class="col-2 containerIcon">
-        <img class="menuIcons" id="menuIcon" src="img/menu.png" alt="recepy icon">
-        <p class="textIcon">Recetas</p>
-    </div>
-    <div class="col-2 containerIcon">
-        <img class="menuIcons" id="questionIcon" src="img/question.png" alt="doubts icon">
-        <p class="textIcon">Dudas</p>
-    </div>
-    <div class="col-2 containerIcon">
-        <img class="menuIcons" id="profileIcon" src="img/chef.png" alt="user icon">
-        <p class="textIcon">Perfil</p>
-    </div>
-</footer>
+        <footer class="fixed-bottom col-12" id="menuMobile"> 
+        
+                <div class="col-2 containerIcon">
+                        <img class="menuIcons" id="inspirationIcon" src="img/dust.png" alt="inspiration icon">
+                        <p class="textIcon">Inspiración</p> 
+                </div>
+                <div class="col-2 containerIcon">
+                        <img class="menuIcons" id="marketIcon" src="img/cart.png" alt="sell/buy icon">
+                        <p class="textIcon">Tienda</p>
+                </div>
+                <div class="col-2 containerIcon">
+                        <img class="menuIcons" id="menuIcon" src="img/menu.png" alt="recepy icon">
+                        <p class="textIcon">Recetas</p>
+                </div>
+                <div class="col-2 containerIcon">
+                        <img class="menuIcons" id="questionIcon" src="img/question.png" alt="doubts icon">
+                        <p class="textIcon">Dudas</p>
+                </div>
+                <div class="col-2 containerIcon">
+                        <img class="menuIcons" id="profileIcon" src="img/chef.png" alt="user icon">
+                        <p class="textIcon">Perfil</p>
+                </div>
+        
+        </footer>
 
 
-<script src="js/conexion.js"></script>
-<script src="js/muro/wall.js"></script>
-<script src="js/muro/muro.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="js/conexion.js"></script>
+        <script src="js/muro/wall.js"></script>
+        <script src="js/muro/muro.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
   </body>
 </html>
