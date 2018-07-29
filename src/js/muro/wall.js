@@ -13,7 +13,6 @@ window.logoutwall = (callback) => {
     callback()
   }).catch((error) => {
   });
-
 }
 
 window.showPostHtml = (userWithPost) => {
@@ -117,6 +116,8 @@ window.showPost  = (callback) =>{
       for (const i in posts) {
         for (const key in datos) {
           if(posts[i].idUser === key){
+            let date =  posts[i].timeData;
+            var newdate = new Date(date);
             const stats = {
               id: i,
               uid: posts[i].idUser,
@@ -125,14 +126,13 @@ window.showPost  = (callback) =>{
               post: posts[i].post,
               likes:posts[i].likes,
               likeUser: posts[i].likeUser,
-              timeData: posts[i].timeData,
+              timeData: newdate.toLocaleString(),
               privacy: posts[i].privacy,
             }
             arrayPostUser.push(stats);
           }
         }
       }
-      console.log(arrayPostUser);
       showPostHtml(arrayPostUser);
       showPostHtmlPerfil(arrayPostUser);
     });
@@ -182,7 +182,6 @@ window.showPostHtmlPerfil = (userWithPost) => {
   userPostcontainer.innerHTML = '';
   for (const i in userWithPost) {
     if(userId === userWithPost[i].uid) {
-      console.log(userWithPost[i].likeUser);
       userPostcontainer.innerHTML += ` 
       <div class="col-11 postwall" id="${userWithPost[i].id}" >
         <div id="headerpost-container">
@@ -229,7 +228,7 @@ window.sendPostFirebase = (callback,currentUser,textPost,privacy) => {
           likes: 0,
           likeUser: {[userId]: 0},
           type: 'receta',
-          timeData: new Date(),
+          timeData: firebase.database.ServerValue.TIMESTAMP,
       };
       //para tener una nueva llave en la colección posts
       const newpostKey = firebase.database().ref(`/posts`).push().key;
@@ -243,7 +242,7 @@ window.sendPostFirebase = (callback,currentUser,textPost,privacy) => {
       firebase.database().ref('posts/' + editPost.idPost).update({
         post: textPost.value,
         privacy: privacityPost.value,
-        timeData: new Date(),
+        timeData: firebase.database.ServerValue.TIMESTAMP,
       }); 
       btnEnviar.value = create;
       modo = create;
@@ -262,7 +261,7 @@ window.calculateLike = (dbRef, userId) => {
   dbRef.transaction((post) => {
     if (post) {
       if(!post.hasOwnProperty('likeUser')){
-          post.likeUser = {}
+          post.likeUser = {};
           post.likeUser[userId] = {
             estado : true,
             img: 'imgLike',
@@ -282,15 +281,14 @@ window.calculateLike = (dbRef, userId) => {
         post.likeUser[userId].estado = true;
         post.likeUser[userId].img = 'imgLike';
       } 
-  }   
-}
-return post;
-});
-updateLike(dbRef)
+    }   
+  }
+  return post;
+  });
+  updateLike(dbRef);
 }
 window.updateLike = (dbRef) => {
   let count = 0;
-
   dbRef.on('value', snap => {
     const postEval = snap.val();
      const likepost = Object.values(postEval.likeUser);
@@ -301,8 +299,8 @@ window.updateLike = (dbRef) => {
            }
          }
        }
-   })
+   });
    dbRef.update({
      likes: count,
-     }); 
+    }); 
 }
