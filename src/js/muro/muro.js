@@ -31,9 +31,11 @@ firebase.auth().onAuthStateChanged((user) => {
         sendPostFirebase(addClass, currentUser,textPost,privacityPost);
       }  
     }
-    btnEnviar.addEventListener('click', sendPost, false);
+  
     //Evento para postear
-    userPostcontainer.classList.add('none');
+    btnEnviar.addEventListener('click', sendPost, false);
+    
+    /* userPostcontainer.classList.add('none'); */
     document.getElementById('posting').addEventListener('click', () =>{
     document.getElementById('post').classList.replace('none', 'inherit');
     document.getElementById('postcontainer').classList.add('none');
@@ -56,6 +58,8 @@ firebase.auth().onAuthStateChanged((user) => {
 document.getElementById('logout').addEventListener('click', () =>{
   logoutwall(redirectionLogin);
 });
+
+
 
 document.getElementById('backIcon').addEventListener('click',  () =>{
   document.getElementById('postcontainer').classList.remove('none');
@@ -132,8 +136,8 @@ document.getElementById("profileIcon").addEventListener('click', () =>{
 profileIconDesktop.addEventListener('click', () =>{
   profileIconDesktop.src = "img/chef-on.png"; 
   postcontainer.classList.add('none');
-/*   profilecontainer.classList.replace('none', 'inherit');
-  userPostcontainer.classList.replace('none', 'inherit'); */
+  profilecontainer.classList.replace('none', 'inherit');
+  userPostcontainer.classList.replace('none', 'inherit');
   postMenuContainer.classList.remove('none');
   containerInfo.classList.replace('none', 'inherit');
   titlePostMenu.classList.remove('none');
