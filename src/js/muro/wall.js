@@ -163,18 +163,21 @@ window.showProfile  = (currentUser) =>{
         </tbody>
       </table>
     </div>
-    <div class="col-12" role="group"  id="menuProfile">
-      <button type="button" class="dropdown-toggle col-6 menuButton" data-toggle="dropdown" >
-         <img class="iconsProfile" id="inspirationIconProfile" src="img/dust-on.png" alt="inspiration icon">
-          Inspiración
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#"> <img class="iconsProfile" id="marketIconProfile" src="img/cart-on.png" alt="sell/buy icon"> Market</a>
-        <a class="dropdown-item" href="#"> <img class="iconsProfile" id="menuIconProfile" src="img/menu-on.png" alt="recepy icon"> Recetas</a>
-        <a class="dropdown-item" href="#"> <img class="iconsProfile" id="questionIconProfile" src="img/question-on.png" alt="doubts icon"> Dudas</a>
-      </div>
-      <button type="button" class="col-5 menuButton"> <img class="iconsProfile" src="img/star.png" alt="fav icon">Favoritos</button>
-    </div>
+    <div class="none" id="postMenuContainer">
+            <h3 class="none" id="titlePostMenu">Mis Posts</h3>
+            <div class="col-12" role="group"  id="menuProfile">
+                      <button type="button" class="dropdown-toggle col-6 menuButton" data-toggle="dropdown" >
+                            <img class="iconsProfile" id="inspirationIconProfile" src="img/dust-on.png" alt="inspiration icon">
+                        Inspiración
+                      </button>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#"> <img class="iconsProfile" id="marketIconProfile" src="img/cart-on.png" alt="sell/buy icon"> Market</a>
+                        <a class="dropdown-item" href="#"> <img class="iconsProfile" id="menuIconProfile" src="img/menu-on.png" alt="recepy icon"> Recetas</a>
+                        <a class="dropdown-item" href="#"> <img class="iconsProfile" id="questionIconProfile" src="img/question-on.png" alt="doubts icon"> Dudas</a>
+                      </div>
+                    <button type="button" class="col-5 menuButton"> <img class="iconsProfile" src="img/star.png" alt="fav icon">Favoritos</button>
+            </div>
+        </div>   
     `;
 }
 window.showPostHtmlPerfil = (userWithPost) => {
