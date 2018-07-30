@@ -1,473 +1,489 @@
-body{
-    font-size: 20px;
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Titillium+Web');
+body {
+  font-size: 20px;
 }
-main{
-    margin-bottom: 3.5em;
-    margin-top: 3.5em;
+
+main {
+  margin-bottom: 3.5em;
+  margin-top: 3.5em;
 }    
 
-#socialHeader{
-    border-bottom: 1px solid #C4C4C4;
-    z-index: 100;
-    overflow: auto;
-    background-color: white;
-	top: 0; 
-    position: fixed; 
-    margin-top: -0.2em;
-    height: 3.4em;
+#socialHeader {
+  border-bottom: 1px solid #C4C4C4;
+  z-index: 100;
+  overflow: auto;
+  background-color: white;
+  top: 0; 
+  position: fixed; 
+  margin-top: -0.2em;
+  height: 3.4em;
 }
 
-#logoPrincipal{
-    width: 3em; 
-    float: left;
-    margin-top: 0.35em;
+#logoPrincipal {
+  width: 3em; 
+  float: left;
+  margin-top: 0.35em;
 }
 
-#settingsIcon{
+#settingsIcon {
     width: 1.5em;
     margin-top: 1em;
 }
 
-#settingsText{
-    font-size: 0.8em;
-    margin-left: 1em;
-    margin-top: 1.5em;
+#settingsText {
+  font-size: 0.8em;
+  margin-left: 1em;
+  margin-top: 1.5em;
 }
 
-
-#search, #settingsText{
-    font-family: 'Titillium Web', sans-serif;
-    float: left;
+#search, #settingsText {
+  font-family: 'Titillium Web', sans-serif;
+  float: left;
 }
 
-.settingsButton{
-    border: none;
-    border-radius: 0.2em;
-    height: 2.7em;
-    cursor: pointer;
-    font-family: 'Titillium Web', sans-serif;
-    width: 100%;
-    border: 1px solid #939CA3;
-    float: left;
-    margin-bottom: 5%;
-
+.settingsButton {
+  border: none;
+  border-radius: 0.2em;
+  height: 2.7em;
+  cursor: pointer;
+  font-family: 'Titillium Web', sans-serif;
+  width: 100%;
+  border: 1px solid #939CA3;
+  float: left;
+  margin-bottom: 5%;
 }
 
-.settingsButton:hover, focus{
-    background-color:   #C4C4C4;
-    transition: 0.1s;
+.settingsButton:hover, focus {
+  background-color:#C4C4C4;
+  transition: 0.1s;
 }
 
-#settingsOptions{
-    overflow: none;
-    margin-left: 16%;
-    margin-top: 20%;
+#settingsOptions {
+  overflow: none;
+  margin-left: 16%;
+  margin-top: 20%;
 }
 
-#searchInput,#searchIcon{
-    font-size: 0.8em;
-    margin-top: 1.2em;
-    height: 2em; 
+#searchInput,
+#searchIcon {
+  font-size: 0.8em;
+  margin-top: 1.2em;
+  height: 2em; 
 }
 
-#searchButton{
-    padding: 0;
-    padding-left: 4px;
-    padding-right: 4px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+#searchButton {
+  padding: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
-#posting{
-    width: 3em;
-    position: fixed;
-    top: 80%;
-    right: 5%;
-    z-index: 300;
-    opacity: 0.6;
+#posting {
+  width: 3em;
+  position: fixed;
+  top: 80%;
+  right: 5%;
+  z-index: 300;
+  opacity: 0.6;
 }
 
 /* Estilos de publicación */
-#backIcon-container, #headerpost-container, #like-container, #infoPost{
-    overflow: auto;
+#backIcon-container, 
+#headerpost-container, 
+#like-container, 
+#infoPost {
+  overflow: auto;
 }
 
-#headerpost-container{
-    margin-top: 0.4em;
-    padding: 0;
-}
-#backIcon{
-   float: right;
-   width: 1em;
-   margin-top: 0.2em;
-   margin-right: 0;
+#headerpost-container {
+  margin-top: 0.4em;
+  padding: 0;
 }
 
-#moreIcon{
-    float: right;
-    width: 1.5em;
-    margin-top: -0.4em;
-    margin-right: 0.4em;
+#backIcon {
+  float: right;
+  width: 1em;
+  margin-top: 0.2em;
+  margin-right: 0;
 }
 
+#moreIcon {
+  float: right;
+  width: 1.5em;
+  margin-top: -0.4em;
+  margin-right: 0.4em;
+}
 
-#titlePublic{
-    font-family: 'Titillium Web', sans-serif;
-    margin-bottom: -0.2em;
+#titlePublic {
+  font-family: 'Titillium Web', sans-serif;
+  margin-bottom: -0.2em;
 }
 #creatorNameContainer{
-    overflow: auto;
+  overflow: auto;
 }
 
-.creatorName{
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 0.9em;
-    font-weight: bold;
-    float: left;
+.creatorName {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 0.9em;
+  font-weight: bold;
+  float: left;
 }
 
 #datePost{
-    font-size: 0.5em;
-    margin-top: -0.5em;
-    margin-bottom: 0;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
-#privateIcon, #datePost{
-    float: left;
+  font-size: 0.5em;
+  margin-top: -0.5em;
+  margin-bottom: 0;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
-.initial{
-    background: #C4C4C4;
-    border: none;
-    width: 2.5em;
-    height: 2.5em;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    font-weight: bolder;
-    float: left;
-    margin-left: 0.4em;
+#privateIcon, 
+#datePost {
+  float: left;
 }
 
-#postForm, #postSection{
-    overflow: auto;
-    padding-bottom: 3%;
-    padding-top: 3%;
+.initial {
+  background: #C4C4C4;
+  border: none;
+  width: 2.5em;
+  height: 2.5em;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  font-weight: bolder;
+  float: left;
+  margin-left: 0.4em;
 }
 
-#initial, #postText, #postImage, #postTextSection, #postImageSection{
-    float: left;
-    font-family: 'Titillium Web', sans-serif;
-    text-align: justify;
+#postForm, 
+#postSection {
+  overflow: auto;
+  padding-bottom: 3%;
+  padding-top: 3%;
 }
 
-#postImageSection{
-    background: #C4C4C4;
-    text-align: center;
-    margin:0;
-    height: 6em;
+#initial, 
+#postText, 
+#postImage, 
+#postTextSection, 
+#postImageSection {
+  float: left;
+  font-family: 'Titillium Web', sans-serif;
+  text-align: justify;
 }
 
-#postTextSection{
-    font-size: 0.9em;
+#postImageSection {
+  background: #C4C4C4;
+  text-align: center;
+  margin:0;
+  height: 6em;
 }
 
-#postImage{
-    margin-top: 1em;
-    height: 8em;
+#postTextSection {
+  font-size: 0.9em;
 }
 
-#post, #postwall{ 
-    border-radius: 0.3em;
-    border: 1px solid #C4C4C4;
-    margin-top: 1.5em;
+#postImage {
+  margin-top: 1em;
+  height: 8em;
+}
+
+#post,
+.postwall { 
+  border-radius: 0.3em;
+  border: 1px solid #C4C4C4;
+  margin-top: 1.5em;
 }
 #post{
     margin-left: 0;
 }
 
-#postwall{
-    margin-left: 4%;
-    padding: 0;
-}
-#privacityContainer{
- margin-top: -1em;
- margin-bottom: 0.8em;
- overflow: auto;
- font-size: 0.8em;
-
+.postwall {
+  margin-left: 4%;
+  padding: 0;
 }
 
-#selectPrivacy{
- padding: 0.5em;
+#privacityContainer {
+  margin-top: -1em;
+  margin-bottom: 0.8em;
+  overflow: auto;
+  font-size: 0.8em;
 }
 
-#privacyTitle{
-    margin-bottom: 0.3em;
-    text-align: left;
-    margin-left: -1.2em;
+#selectPrivacy {
+  padding: 0.5em;
 }
 
-#publicIcon, #privateIcon{
-    margin-top: -0.2em;
-    margin-left: 0.2em;
-    width: 1em;
+#privacyTitle {
+  margin-bottom: 0.3em;
+  text-align: left;
+  margin-left: -1.2em;
 }
 
-#publicButton{
-    border: none;
-    margin-left: 30%;
-    border-radius: 0.2em;
-    height: 2.7em;
-    cursor: pointer;
-    margin-top: -2.7em;
-    font-family: 'Titillium Web', sans-serif;
-    width: 40%;
-    float: right;
-    border: 1px solid #939CA3;
+#publicIcon, 
+#privateIcon {
+  margin-top: -0.2em;
+  margin-left: 0.2em;
+  width: 1em;
 }
 
-
-
-#likeIcon{
-    width: 2em;
-    margin-left: 0.7em;
-    float: left;
+#publicButton {
+  border: none;
+  margin-left: 30%;
+  border-radius: 0.2em;
+  height: 2.7em;
+  cursor: pointer;
+  margin-top: -2.7em;
+  font-family: 'Titillium Web', sans-serif;
+  width: 40%;
+  float: right;
+  border: 1px solid #939CA3;
 }
 
-#likeText{
-    font-size: 0.7em;
-    float: left;
-    margin-left: 1.5em;
-    margin-top: 0.5em;
+.likeIcon {
+  width: 2em;
+  margin-left: 0.7em;
+  float: left;
 }
 
-#dropdown-container{
-    float: right;
-    margin-top: -3em;
+.likeIconImg {
+  background-repeat:no-repeat;
+  background-size: 2em;
+  height: 2.2em;
+  width:2em;
+  border-radius: 10px;
+  border: transparent;
+  background-color: transparent;
+  background-position:center;
+  margin-left: 0.7em;
+  margin-bottom: 0.7em;
+  float: left;
 }
 
+.imgLike {
+  background-image: url('../img/cookie-on.png');
+}
 
-#dropdownMenuButton{
-    border: none;
-    background: none;    
+.imgDisLike {
+  background-image: url('../img/cookie.png');
+}
+
+#likeText {
+  font-size: 0.7em;
+  float: left;
+  margin-left: 1.5em;
+  margin-top: 0.5em;
+}
+
+#dropdown-container {
+  float: right;
+  margin-top: -3em;
+}
+
+#dropdownMenuButton {
+  border: none;
+  background: none;    
 }
 
 #dropdownMenuButton:focus { 
-    outline: none;
+  outline: none;
 } 
 
-#infoPost{
-    height: 3em;
-    padding: 0;
-    margin-right: 0;
+#infoPost {
+  height: 3em;
+  padding: 0;
+  margin-right: 0;
 }
 
-#dropdownPost{
- min-width: 0;
- padding: 0;
- font-size: 1em;
- margin-top: 1em;
+#dropdownPost {
+  min-width: 0;
+  padding: 0;
+  font-size: 1em;
+  margin-top: 1em;
 }
 
-.dropdown-text:hover, focus{
-    color:  #939CA3;
-    transition: 0.1s;
+.dropdown-text:hover, focus {
+  color:  #939CA3;
+  transition: 0.1s;
 }
-
-
 /* Estilos de perfil */
-.userInfo{
-    text-align: center;
-    margin-top: 3.5em;
-    height: 10em;
+.userInfo {
+  text-align: center;
+  margin-top: 3.5em;
+  height: 10em;
 }
 
-#profileName{
-    font-size: 1.2em;
+#profileName {
+  font-size: 1.2em;
 }
 
-#userButton{
-    margin-left: 40%;
-    width: 4em;
-    height: 4em;
-    margin-bottom: 0.5em;
+#userButton {
+  margin-left: 40%;
+  width: 4em;
+  height: 4em;
+  margin-bottom: 0.5em;
 }
 
-#tableInfo{
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 0.8em; 
-    margin-left: 21%;
-    font-weight: bolder;
-    
+#tableInfo {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 0.8em; 
+  margin-left: 21%;
+  font-weight: bolder; 
 }
 
-#tablever{
- margin-right: 0.5em;
+#tablever {
+  margin-right: 0.5em;
 }
 
-.iconsProfile{
-    width: 1.5em;
+.iconsProfile {
+  width: 1.5em;
 }
 
 #menuProfile{
-    border-top: 1px solid #91949D;
-    border-bottom: 1px solid #91949D;
-    padding: 0;
-    margin-top: 1em;
+  border-top: 1px solid #91949D;
+  border-bottom: 1px solid #91949D;
+  padding: 0;
+  margin-top: 1em;
 }
 
-.menuButton{
-    border: none; 
-    background: none;
-    color: #5F5F60;
+.menuButton {
+  border: none; 
+  background: none;
+  color: #5F5F60;
 }
-
-
-
-
-
 /* Estilos de footer */
-
-footer{
-    height: 3em;
-    color: black;
-    text-align: center;
-    border-top: 1px solid #C4C4C4;
-    background-color: white; 
+footer {
+  height: 3em;
+  color: black;
+  text-align: center;
+  border-top: 1px solid #C4C4C4;
+  background-color: white; 
 }
 
-.containerIcon{
-    float: left;
-    margin-left: 0.6em;
-}
-  
-.menuIcons{
-    margin-top: 0.1em;
-    width: 2em; 
-    margin-left: -0.4em;
+.containerIcon {
+  float: left;
+  margin-left: 0.6em;
 }
 
-.textIcon{
-    font-size: 0.6em;
-    text-align: center;
-    margin-left: -0.6em;
+.menuIcons {
+  margin-top: 0.1em;
+  width: 2em; 
+  margin-left: -0.4em;
+}
+
+.textIcon {
+  font-size: 0.6em;
+  text-align: center;
+  margin-left: -0.6em;
 }
 
 .none {
-    display: none !important;
-}
-.inherit{
-    display: inherit; 
+  display: none !important;
 }
 
-.left{
-    float: left;
+.inherit {
+  display: inherit; 
+}
+
+.left {
+  float: left;
 }
 
 .right{
-    float: right;
+  float: right;
 }
 
 .auto{
-    overflow: auto;
+  overflow: auto;
 }
 
 .initial{
-    display: initial;
+  display: initial;
 }
 
 
 /*Móviles en horizontal o tablets en vertical */
 @media (min-width: 768px) {
-    #menuMobile{
-        display: none;
-    }
+  #menuMobile{
+    display: none;
+  }
 
-    #channelsMenu{
-        display: inherit !important;
-        height: 2.5em !important;
-        margin-top: 0.4em ;
-        margin-left: 5em;
-    }
+  #channelsMenu{
+    display: inherit !important;
+    height: 2.5em !important;
+    margin-top: 0.4em ;
+    margin-left: 5em;
+  }
 
-    .containerIcon{
-        height: 2em;
-        margin-bottom: 0;
-    }
-  
-    .menuIcons{
+  .containerIcon{
+    height: 2em;
+    margin-bottom: 0;
+  }
+
+  .menuIcons{
     width: 2em; 
     margin-top: 0;
-    }
-
-    .textIcon{
-    margin-bottom: 0;  
-    }
-
-    #settingsIcon{
-        float: right;
-    }
-
-    #posting{
-        display: none;
-    }
-    
-    #containerInfo{
-        display: inherit !important;
-        height: 40em;
-        float: left;
-    }
-  
-
-    .userInfo{
-        margin-top: 1.2em;
-        margin-left: -0.5em;
-        margin-bottom: 1em;
-    }
-
-    #profilecontainer{
-        display:inherit !important;
-       
-    }
-
-    #titlePostMenu{
-        font-family: 'Titillium Web', sans-serif;
-        font-size: 1em;
-        font-weight: bold; 
-        text-align: center; 
-    }
-
-    #post{
-        display: inherit !important;
-        margin-left: 2.3em !important;
-    }
-
-    #postText{
-        height: 3em;
-    }
-
-   
   }
+
+  .textIcon{
+    margin-bottom: 0;  
+  }
+
+  #settingsIcon{
+    float: right;
+  }
+
+  #posting{
+    display: none;
+  }
+  
+  #containerInfo{
+    display: inherit !important;
+    height: 40em;
+    float: left;
+  }
+
+  .userInfo{
+    margin-top: 1.2em;
+    margin-left: -0.5em;
+    margin-bottom: 1em;
+  }
+
+  #profilecontainer{
+    display:inherit !important;
+  }
+
+  #titlePostMenu{
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1em;
+    font-weight: bold; 
+    text-align: center; 
+  }
+
+  #post{
+    display: inherit !important;
+    margin-left: 2.3em !important;
+  }
+
+  #postText{
+    height: 3em;
+  }
+   
+}
   
   /*Tablets en horizonal y escritorios normales */
-  @media (min-width: 1024px) {
-  
-    #post{
-        margin-left: 3.2em !important;
-    }
-
-    #channelsMenu{
-        
-        margin-left: 9em !important;
-    }
-
-    .menuIcons{
-      
-        margin-left: 0.4em;
-    }
-
-
+@media (min-width: 1024px) {
+  #post{
+    margin-left: 3.2em !important;
   }
+
+  #channelsMenu{
+    margin-left: 9em !important;
+  }
+
+  .menuIcons{
+    margin-left: 0.4em;
+  }
+}
   

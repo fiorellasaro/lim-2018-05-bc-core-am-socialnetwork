@@ -4,13 +4,11 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="css/styleRegister.css"/> 
-    <link href="https://fonts.googleapis.com/css?family=Pacifico|Titillium+Web" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
       <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css"/>
-    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <title>Social Sweet</title>
   </head>
   <body>
@@ -20,9 +18,9 @@
     </header>
     <main class="container">
       <section id="signUp"  class="block">
-        <p class="descriptionDesktop">Regístrate y hablarás de repostería cuando quieras, como quieras.</p>
+        <h5 class="descriptionDesktop">Regístrate y hablarás de repostería cuando quieras, como quieras.</h5>
         <section class="col-12 col-sm-8 col-md-6 col-lg-4">
-          <p class="description">Regístrate y hablarás de repostería cuando quieras, como quieras.</p>
+          <h5 class="description">Regístrate y hablarás de repostería cuando quieras, como quieras.</h5>
           <div id="buttonContainer">
             <a class="btn btn-social btn-facebook" id="signFacebook">
               <span class="fab fa-facebook-f"></span> Inicia sesión con Facebook
@@ -34,28 +32,28 @@
           <p class="or">O regístrate con:</p>
           <form id="register-user" class="form-group">
             <label for="usr" class="col-12 label" >Nombre </label>
-            <input type="text" class="form-control" id="usr" placeholder="Nombre">
+            <input type="text" class="form-control fonText" id="usr" placeholder="Nombre"/>
             <span><i id="usrOK" class="fas"></i></span>
             <label for="email" class="col-12 label">Correo electrónico </label>
-            <input type="email" class="form-control" id="email" placeholder="ejemplo@ejemplo.com">
+            <input type="email" class="form-control fonText" id="email" placeholder="ejemplo@ejemplo.com"/>
             <span><i id="emailOK" class="fas"></i></span>
             <span id="mesage" class="message"></span>
             <label for="pwd" class="col-12 label">Contraseña</label>
-            <input type="password" class="form-control" id="pwd" placeholder="contraseña">
+            <input type="password" class="form-control fonText" id="pwd" placeholder="contraseña"/>
             <span><i id="pwdOK" class="fas"></i></span>
-            <span id="mesage-pwd" class="message"></span>
             <label for="rpwd" class="col-12 label">Repetir contraseña</label>
-            <input type="password" class="form-control" id="rpwd" placeholder="repetir contraseña">
+            <input type="password" class="form-control fonText" id="rpwd" placeholder="repetir contraseña"/>
             <span><i id="rpwdOK" class="fas"></i></span>
-            <input type="button"  id="submitbutton" value="Registrarse"> 
+            <span id="mesage-pwd" class="message"></span>
+            <input type="button"  id="submitbutton" value="Registrarse"/> 
           </form>
-          <p id="alreadysignin">¿Ya tienes cuenta? inicia sesión <a href="#" id="signUpLink">aquí.</a></p>
+          <p id="alreadysignin" class="fonText">¿Ya tienes cuenta? inicia sesión <a href="#" id="signUpLink">aquí.</a></p>
         </section>
       </section>
       <section id="signIn" class="none">
-        <p class="descriptionDesktop">Ingresa y hablarás de repostería cuando quieras, como quieras.</p>
+        <h5 class="descriptionDesktop">Ingresa y hablarás de repostería cuando quieras, como quieras.</h5>
         <section class="col-12 col-sm-8 col-md-6 col-lg-4">
-          <p class="description">Ingresa y hablarás de repostería cuando quieras, como quieras.</p>
+          <h5 class="description">Ingresa y hablarás de repostería cuando quieras, como quieras.</h5>
           <div id="buttonSignInContainer">
             <a class="btn btn-social btn-facebook" id="signIFacebook">
               <span class="fab fa-facebook-f"></span> Inicia sesión con Facebook
@@ -67,17 +65,17 @@
           <p class="or" id="orIn">O ingresa con:</p>
           <form id="login" class="form-group" action="/wall.html">   
             <label for="email" class="col-12 label">Correo electrónico </label>
-            <input type="email" class="form-control" id="email1" placeholder="ejemplo@ejemplo.com">
+            <input type="email" class="form-control fonText" id="email1" placeholder="ejemplo@ejemplo.com"/>
             <label for="pwd" class="col-12 label">Contraseña</label>
-            <input type="password" class="form-control" id="pwd1" placeholder="contraseña">
+            <input type="password" class="form-control fonText" id="pwd1" placeholder="contraseña"/>
             <span id="mesage-login" class="message"></span>
-            <input type="button"  id="signInButton" value="Ingresar">
+            <input type="button"  id="signInButton" value="Ingresar"/>
           </form>
-          <p id="notSignin">¿No tienes cuenta? regístrate <a href="#" id="signInLink">aquí.</a></p>
+          <p id="notSignin" class="fonText">¿No tienes cuenta? regístrate <a href="#" id="signInLink">aquí.</a></p>
         </section>
       </section> 
-      <section id="saludo"></section>
     </main>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
     <script src="js/conexion.js"></script>
     <script src="js/login/login.js"></script>
     <script src="js/validation.js"></script>

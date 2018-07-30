@@ -1,29 +1,40 @@
+const textPost = document.getElementById('postText');
+const privacityPost = document.getElementById('selectPrivacy'); 
+const btnEnviar = document.getElementById('publicButton');
+
+//funcion para dirigir al inicio
 const redirectionLogin = () => {
     window.location.href = "index.html";
 }
+//funcion para remplazar clases
 const addClass = () => {
-    
   postcontainer.innerHTML = '';
   document.getElementById('post').classList.replace('inherit', 'none');
   document.getElementById('postcontainer').classList.replace('none', 'inherit');
-  document.getElementById('posting').classList.replace('none', 'inherit');   
+  document.getElementById('posting').classList.replace('none', 'inherit'); 
+  
 }
-
-firebase.auth().onAuthStateChanged((user) =>{
+firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     const currentUser = firebase.auth().currentUser;
+    //enviando informacion de usuario logueado a database
     firebase.database().ref('users/' + currentUser.uid).set({
-    username: currentUser.displayName,
-    email: currentUser.email
-  });
-  
-  document.getElementById('publicButton').addEventListener('click',() => {
-    createPost(addClass, currentUser)
-  });
-
-  userPostcontainer.classList.add('none');
-
-  document.getElementById('posting').addEventListener('click', () =>{
+      username: currentUser.displayName,
+      email: currentUser.email,
+      photoURL: (currentUser.photoURL !== null) ? currentUser.photoURL : 'https://image.flaticon.com/icons/svg/1034/1034680.svg',
+    });
+    //funcion para enviar post a firebase
+    const sendPost = () => {
+      postcontainer.innerHTML = '';  
+      if(textPost.value === ''){
+        alert('Ingrese un post');
+        sendPostFirebase(addClass, currentUser,textPost,privacityPost);
+      }  
+    }
+    btnEnviar.addEventListener('click', sendPost, false);
+    //Evento para postear
+    userPostcontainer.classList.add('none');
+    document.getElementById('posting').addEventListener('click', () =>{
     document.getElementById('post').classList.replace('none', 'inherit');
     document.getElementById('postcontainer').classList.add('none');
     document.getElementById('posting').classList.replace('inherit', 'none');
@@ -32,9 +43,8 @@ firebase.auth().onAuthStateChanged((user) =>{
     postImage.classList.replace('none', 'inherit');
     privacityContainer.classList.replace('none', 'inherit');
     profilecontainer.classList.replace('inherit', 'none');
-
   });
-
+  
     showPost(addClass);
     showProfile(currentUser);
   } else {
@@ -42,33 +52,10 @@ firebase.auth().onAuthStateChanged((user) =>{
   //aqui implementar para que al salir, aparezca nuevamente la interfaz del login
   }
 }); 
-
+//Cerrando sesion
 document.getElementById('logout').addEventListener('click', () =>{
   logoutwall(redirectionLogin);
 });
-
-
-  
-  
-
-// function toggleStar(postRef, uid) {
-//   postRef.transaction(function(post) {
-//     if (post) {
-//       if (post.stars && post.stars[uid]) {
-//         post.starCount--;
-//         post.stars[uid] = null;
-//       } else {
-//         post.starCount++;
-//         if (!post.stars) {
-//           post.stars = {};
-//         }
-//         post.stars[uid] = true;
-//       }
-//     }
-//     return post;
-//   });
-// }
-
 
 document.getElementById('backIcon').addEventListener('click',  () =>{
   document.getElementById('postcontainer').classList.remove('none');
