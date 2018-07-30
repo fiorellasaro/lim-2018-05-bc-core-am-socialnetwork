@@ -21,13 +21,16 @@ window.showPostHtml = (userWithPost) => {
   for (const i in userWithPost) {
     if(userWithPost[i].privacy === 'Publico' && userId === userWithPost[i].uid) {
       postcontainer.innerHTML += ` 
-      <div class="col-11 postwall" id="${userWithPost[i].id}">
+      <div class="postwall" id="${userWithPost[i].id}">
         <div id="headerpost-container">
           <input type="button" class="col-2" hidden/>
           <img src="${userWithPost[i].photoUser}" class="initial">
           <div id="infoPost" class="col-8">
-            <h1 class="creatorName">${userWithPost[i].name}</h1>
-            <p id="datePost" class="col-8">${userWithPost[i].timeData}</p>
+          <div class="creatorNameContainer">
+                      <h1 class="creatorName">${userWithPost[i].name}</h1>
+          </div> 
+            
+            <p id="datePost" class="col-5 col-md-4 col-lg-3">${userWithPost[i].timeData}</p>
             <img src="img/icon.png" alt="private icon" id="privateIcon">
           </div>
           <div id="dropdown-container" class="show">
@@ -53,13 +56,15 @@ window.showPostHtml = (userWithPost) => {
       `;
     } else if(userWithPost[i].privacy === 'Publico') {
       postcontainer.innerHTML += ` 
-      <div class="col-11 postwall" id="${userWithPost[i].id}">
+      <div class="postwall" id="${userWithPost[i].id}">
         <div id="headerpost-container">
           <input type="button" class="col-2" hidden/>
           <img src="${userWithPost[i].photoUser}" class="initial">
           <div id="infoPost" class="col-8">
-            <h1 class="creatorName">${userWithPost[i].name}</h1>
-            <p id="datePost" class="col-8">${userWithPost[i].timeData}</p>
+          <div class="creatorNameContainer">
+              <h1 class="creatorName">${userWithPost[i].name}</h1>
+          </div> 
+            <p id="datePost" class="col-5 col-md-4 col-lg-3">${userWithPost[i].timeData}</p>
             <img src="img/icon.png" alt="private icon" id="privateIcon">
           </div>
           <div id="dropdown-container" class="show">
@@ -145,7 +150,7 @@ window.showProfile  = (currentUser) =>{
     <div class="userInfo col-12">
       <input type="button" class="initial col-12" hidden/>
       <img src="${currentUser.photoURL}" class="initial" id="userButton">
-      <h1 class="creatorName col-12" id="profileName">${currentUser.displayName}</h1>
+        <h1 class="creatorName col-12" id="profileName">${currentUser.displayName}</h1>
       <table  class="col-7" id="tableInfo">
         <thead id="tablever">
           <tr>
@@ -186,13 +191,16 @@ window.showPostHtmlPerfil = (userWithPost) => {
   for (const i in userWithPost) {
     if(userId === userWithPost[i].uid) {
       userPostcontainer.innerHTML += ` 
-      <div class="col-11 postwall" id="${userWithPost[i].id}" >
+      <div class="postwall" id="${userWithPost[i].id}" >
         <div id="headerpost-container">
           <input type="button" class="initial" hidden/>
           <img src="${userWithPost[i].photoUser}" class="initial">
           <div id="infoPost" class="col-8">
-            <h1 class="creatorName">${userWithPost[i].name}</h1>
-            <p id="datePost" class="col-8">${userWithPost[i].timeData}</p>
+          <div class="creatorNameContainer">
+              <h1 class="creatorName">${userWithPost[i].name}</h1>
+          </div> 
+           
+            <p id="datePost" class="col-5 col-md-4 col-lg-3">${userWithPost[i].timeData}</p>
             <img src="img/icon.png" alt="private icon" id="privateIcon">
           </div>
           <div id="dropdown-container" class="show">

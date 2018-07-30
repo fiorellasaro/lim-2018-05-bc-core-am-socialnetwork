@@ -28,12 +28,28 @@ firebase.auth().onAuthStateChanged((user) => {
       postcontainer.innerHTML = '';  
       if(textPost.value === ''){
         alert('Ingrese un post');
+        
+      } else{
         sendPostFirebase(addClass, currentUser,textPost,privacityPost);
-      }  
+      } 
     }
   
     //Evento para postear
-    btnEnviar.addEventListener('click', sendPost, false);
+    btnEnviar.addEventListener('click',  () =>{
+      post.classList.replace('inherit', 'none');
+      sendPost();
+     if( typeof $("#channelsMenu").hasClass("none")){
+      postcontainer.classList.remove('none');
+     } 
+     backIcon.classList.replace('inherit', 'none');
+     titlePublic.classList.replace('inherit', 'none');
+     postImage.classList.replace('inherit', 'none');
+     privacityContainer.classList.replace('inherit', 'none'); 
+     postText.value = '';
+    });
+    
+    inspirationIcon.src = "img/dust-on.png";
+    inspirationIconDesktop.src = "img/dust-on.png";
     
     /* userPostcontainer.classList.add('none'); */
     document.getElementById('posting').addEventListener('click', () =>{
@@ -109,12 +125,12 @@ postText.addEventListener('focus', () =>{
     privacityContainer.classList.replace('none', 'inherit'); 
 });
 
-postText.addEventListener('focusout', () =>{
+/* postText.addEventListener('focusout', () =>{
     backIcon.classList.replace('inherit', 'none');
     titlePublic.classList.replace('inherit', 'none');
     postImage.classList.replace('inherit', 'none');
     privacityContainer.classList.replace('inherit', 'none'); 
-});
+}); */
 
 
 
@@ -122,6 +138,7 @@ document.getElementById("profileIcon").addEventListener('click', () =>{
     profileIcon.src = "img/chef-on.png"; 
     postcontainer.classList.add('none');
     profilecontainer.classList.replace('none', 'inherit');
+    containerInfo.classList.replace('none', 'inherit');
     userPostcontainer.classList.replace('none', 'inherit');
     postMenuContainer.classList.remove('none');
     post.classList.add('none');
@@ -137,10 +154,11 @@ profileIconDesktop.addEventListener('click', () =>{
   profileIconDesktop.src = "img/chef-on.png"; 
   postcontainer.classList.add('none');
   profilecontainer.classList.replace('none', 'inherit');
+  containerInfo.classList.replace('none', 'inherit');
   userPostcontainer.classList.replace('none', 'inherit');
   postMenuContainer.classList.remove('none');
-  containerInfo.classList.replace('none', 'inherit');
   titlePostMenu.classList.remove('none');
+  settingsOptions.classList.replace('inherit', 'none');
   inspirationIconDesktop.src = "img/dust.png"; 
 });
 

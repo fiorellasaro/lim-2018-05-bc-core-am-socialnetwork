@@ -6,6 +6,7 @@ body {
 main {
   margin-bottom: 3.5em;
   margin-top: 3.5em;
+  
 }    
 
 #socialHeader {
@@ -119,7 +120,8 @@ main {
   font-family: 'Titillium Web', sans-serif;
   margin-bottom: -0.2em;
 }
-#creatorNameContainer{
+
+.creatorNameContainer{
   overflow: auto;
 }
 
@@ -128,6 +130,10 @@ main {
   font-size: 0.9em;
   font-weight: bold;
   float: left;
+}
+
+#userPostcontainer, #postcontainer{
+  padding: 0 !important;
 }
 
 #datePost{
@@ -202,6 +208,7 @@ main {
 .postwall {
   margin-left: 4%;
   padding: 0;
+  margin-left: 0;
 }
 
 #privacityContainer {
@@ -468,6 +475,10 @@ footer {
 
   #postText{
     height: 3em;
+  }
+
+  #userPostcontainer, #postcontainer{
+    margin-left: 0.3em !important;
   }
    
 }
