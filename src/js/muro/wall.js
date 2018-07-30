@@ -97,6 +97,8 @@ window.postEdit = (idPost, post, privacyEdit, like) => {
   document.getElementById('post').classList.replace('none', 'inherit');
   document.getElementById('postcontainer').classList.replace('inherit', 'none');
   document.getElementById('posting').classList.replace('inherit', 'none');
+  titlePublic.classList.add('none');
+  titleEdit.classList.remove('none');
   btnEnviar.value = update;
   modo = update;
   editPost.idPost = idPost;
