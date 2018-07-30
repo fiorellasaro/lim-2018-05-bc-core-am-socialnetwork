@@ -134,6 +134,7 @@ main {
 
 #userPostcontainer, #postcontainer{
   padding: 0 !important;
+  margin-bottom: 3.5em !important;
 }
 
 #datePost{
@@ -479,6 +480,7 @@ footer {
 
   #userPostcontainer, #postcontainer{
     margin-left: 0.3em !important;
+    margin-bottom: 3.5em !important;
   }
    
 }
