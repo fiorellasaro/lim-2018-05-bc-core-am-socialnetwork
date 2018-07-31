@@ -54,7 +54,7 @@ main {
   border: 1px solid #939CA3;
   float: left;
   margin-bottom: 5%;
-  background: #88D498;
+  background: #47A8BD;
   color: #F7F7FF;
 }
 
@@ -242,7 +242,9 @@ main {
   font-family: 'Titillium Web', sans-serif;
   width: 40%;
   float: right;
-  background-color: #88D498;
+/*   background-color: #88D498; */
+  background-color: #47A8BD;
+  
   border-radius: 10px;
   font-size: 1.2em;
   color: #F7F7FF;
@@ -316,7 +318,7 @@ main {
 }
 
 .dropdown-text:hover, focus {
-  background-color:  #88D498 !important;
+  background-color:  #47A8BD !important;
   transition: 0.1s !important;
 }
 /* Estilos de perfil */

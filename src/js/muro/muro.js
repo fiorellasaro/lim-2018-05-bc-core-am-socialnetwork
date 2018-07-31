@@ -28,7 +28,6 @@ firebase.auth().onAuthStateChanged((user) => {
       postcontainer.innerHTML = '';  
       if(textPost.value === ''){
         alert('Ingrese un post');
-        
       } else{
         sendPostFirebase(addClass, currentUser,textPost,privacityPost);
       } 

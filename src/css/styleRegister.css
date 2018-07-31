@@ -83,7 +83,7 @@ header {
 
 #submitbutton, 
 #signInButton {
-  background:  #88D498 ;
+  background:  #47A8BD;
   border: none;
   margin-top: 0.4em;
   margin-left: 20%;
@@ -133,7 +133,7 @@ section {
 
 #signInLink, 
 #signUpLink {
-  color: #88D498;
+  color: #47A8BD;
 }
 
 #signInLink:hover, focus {
