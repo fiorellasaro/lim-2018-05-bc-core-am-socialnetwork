@@ -11,8 +11,7 @@ const addClass = () => {
   postcontainer.innerHTML = '';
   document.getElementById('post').classList.replace('inherit', 'none');
   document.getElementById('postcontainer').classList.replace('none', 'inherit');
-  document.getElementById('posting').classList.replace('none', 'inherit'); 
-  
+  document.getElementById('posting').classList.replace('none', 'inherit');  
 }
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
@@ -28,13 +27,14 @@ firebase.auth().onAuthStateChanged((user) => {
       postcontainer.innerHTML = '';  
       if(textPost.value === ''){
         alert('Ingrese un post');
+        showPost(addClass)
       } else{
         sendPostFirebase(addClass, currentUser,textPost,privacityPost);
       } 
     }
   
     //Evento para postear
-    btnEnviar.addEventListener('click',  () =>{
+    btnEnviar.addEventListener('click',  () => {
       post.classList.replace('inherit', 'none');
       sendPost();
      if( typeof $("#channelsMenu").hasClass("none")){
@@ -98,7 +98,6 @@ document.getElementById('backButton').addEventListener('click', () =>{
   document.getElementById('settingsOptions').classList.replace('inherit', 'none');
 });
 
-
 document.getElementById('settingsIcon').addEventListener('click', () =>{
   document.getElementById('logoPrincipal').classList.replace('inherit', 'none');
   document.getElementById('search').classList.add( 'none');
@@ -111,7 +110,6 @@ document.getElementById('settingsIcon').addEventListener('click', () =>{
   userPostcontainer.classList.add('none');
   
 });
-
 
 document.getElementById("posting").addEventListener('mouseover', () =>{
   document.getElementById('posting').src = "img/pencil-color.png"; 
@@ -128,28 +126,19 @@ postText.addEventListener('focus', () =>{
     privacityContainer.classList.replace('none', 'inherit'); 
 });
 
-/* postText.addEventListener('focusout', () =>{
-    backIcon.classList.replace('inherit', 'none');
-    titlePublic.classList.replace('inherit', 'none');
-    postImage.classList.replace('inherit', 'none');
-    privacityContainer.classList.replace('inherit', 'none'); 
-}); */
-
-
-
 document.getElementById("profileIcon").addEventListener('click', () =>{
-    profileIcon.src = "img/chef-on.png"; 
-    postcontainer.classList.add('none');
-    profilecontainer.classList.replace('none', 'inherit');
-    containerInfo.classList.replace('none', 'inherit');
-    userPostcontainer.classList.replace('none', 'inherit');
-    postMenuContainer.classList.remove('none');
-    post.classList.add('none');
-    inspirationIcon.src = "img/dust.png";  
-    settingsOptions.classList.replace('inherit', 'none');
-    logoPrincipal.classList.replace('none', 'inherit');
-    search.classList.remove('none');
-    settingsText.classList.replace('inherit', 'none');
+  profileIcon.src = "img/chef-on.png"; 
+  postcontainer.classList.add('none');
+  profilecontainer.classList.replace('none', 'inherit');
+  containerInfo.classList.replace('none', 'inherit');
+  userPostcontainer.classList.replace('none', 'inherit');
+  postMenuContainer.classList.remove('none');
+  post.classList.add('none');
+  inspirationIcon.src = "img/dust.png";  
+  settingsOptions.classList.replace('inherit', 'none');
+  logoPrincipal.classList.replace('none', 'inherit');
+  search.classList.remove('none');
+  settingsText.classList.replace('inherit', 'none');
 
 });
 

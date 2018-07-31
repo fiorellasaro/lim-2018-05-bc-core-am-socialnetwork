@@ -10,7 +10,6 @@ main {
 }    
 
 #socialHeader {
-
   border-bottom: 1px solid #C4C4C4;
   z-index: 100;
   overflow: auto;
@@ -557,4 +556,13 @@ footer {
   }
 
 }
-  
+.textarea-post {
+  border-radius: 2px;
+  margin-bottom: 2px;
+  border: 0px;
+  width: 50%;
+  resize: none;
+}
+.textarea-post:focus{
+  border-color: #C4C4C4;
+}
