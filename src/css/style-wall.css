@@ -10,10 +10,11 @@ main {
 }    
 
 #socialHeader {
+
   border-bottom: 1px solid #C4C4C4;
   z-index: 100;
   overflow: auto;
-  background-color: white;
+  background-color: #EC3747;
   top: 0; 
   position: fixed; 
   margin-top: -0.2em;
@@ -29,6 +30,7 @@ main {
 #settingsIcon {
     width: 1.5em;
     margin-top: 1em;
+    margin-left: 1.5em;
 }
 
 #settingsText {
@@ -52,10 +54,12 @@ main {
   border: 1px solid #939CA3;
   float: left;
   margin-bottom: 5%;
+  background: #88D498;
+  color: #F7F7FF;
 }
 
 .settingsButton:hover, focus {
-  background-color:#C4C4C4;
+  background-color:#EC3747;
   transition: 0.1s;
 }
 
@@ -169,32 +173,24 @@ main {
   padding-bottom: 3%;
   padding-top: 3%;
 }
+#postForm{
+  margin-bottom: 0 !important;
+}
 
 #initial, 
 #postText, 
-#postImage, 
 #postTextSection, 
-#postImageSection {
+{
   float: left;
   font-family: 'Titillium Web', sans-serif;
   text-align: justify;
 }
 
-#postImageSection {
-  background: #C4C4C4;
-  text-align: center;
-  margin:0;
-  height: 6em;
-}
 
 #postTextSection {
   font-size: 0.9em;
 }
 
-#postImage {
-  margin-top: 1em;
-  height: 8em;
-}
 
 #post,
 .postwall { 
@@ -213,10 +209,10 @@ main {
 }
 
 #privacityContainer {
-  margin-top: -1em;
   margin-bottom: 0.8em;
   overflow: auto;
   font-size: 0.8em;
+  padding-top: 20px;
 }
 
 #selectPrivacy {
@@ -240,13 +236,22 @@ main {
   border: none;
   margin-left: 30%;
   border-radius: 0.2em;
-  height: 2.7em;
+  height: 2.5em;
   cursor: pointer;
-  margin-top: -2.7em;
+  margin-top: -2.5em;
   font-family: 'Titillium Web', sans-serif;
   width: 40%;
   float: right;
-  border: 1px solid #939CA3;
+  background-color: #88D498;
+  border-radius: 10px;
+  font-size: 1.2em;
+  color: #F7F7FF;
+  font-weight: bold;
+}
+
+#publicButton:hover{
+  background-color:#EC3747;
+  transition: 0.1s;
 }
 
 .likeIcon {
@@ -289,12 +294,12 @@ main {
   margin-top: -3em;
 }
 
-#dropdownMenuButton {
+.dropdownMenuButton {
   border: none;
   background: none;    
 }
 
-#dropdownMenuButton:focus { 
+.dropdownMenuButton:focus { 
   outline: none;
 } 
 
@@ -304,16 +309,15 @@ main {
   margin-right: 0;
 }
 
-#dropdownPost {
-  min-width: 0;
-  padding: 0;
-  font-size: 1em;
-  margin-top: 1em;
+.dropdownPost {
+  min-width: 0 !important;
+  padding: 0 !important;
+  font-size: 1em !important;
 }
 
 .dropdown-text:hover, focus {
-  color:  #939CA3;
-  transition: 0.1s;
+  background-color:  #88D498 !important;
+  transition: 0.1s !important;
 }
 /* Estilos de perfil */
 .userInfo {
@@ -366,7 +370,7 @@ footer {
   color: black;
   text-align: center;
   border-top: 1px solid #C4C4C4;
-  background-color: white; 
+  background-color: #EC3747; 
 }
 
 .containerIcon {
@@ -376,14 +380,16 @@ footer {
 
 .menuIcons {
   margin-top: 0.1em;
-  width: 2em; 
-  margin-left: -0.4em;
+  width: 1.8em; 
+  margin-left: -1em;
 }
 
 .textIcon {
-  font-size: 0.6em;
+  font-size: 0.7em;
   text-align: center;
-  margin-left: -0.6em;
+  margin-left: -2em;
+  color: #F4EBD9;
+  font-weight: 600;
 }
 
 .none {
@@ -413,53 +419,102 @@ footer {
 
 /*Móviles en horizontal o tablets en vertical */
 @media (min-width: 768px) {
+
+  header{
+    height: 4.5em !important;
+  }
+
+  #logoPrincipal {
+    width: 3.8em; 
+    margin-top: 0.5em;
+  }
+
+  
+  #search{
+    margin-top: 0.5em;
+    margin-right: 4em;
+  }
+
+  
   #menuMobile{
     display: none;
   }
 
   #channelsMenu{
     display: inherit !important;
-    height: 2.5em !important;
-    margin-top: 0.4em ;
-    margin-left: 5em;
+    height: 3em !important;
+    margin-top: 0.7em ;
+    padding: 0 !important;
   }
 
-  .containerIcon{
-    height: 2em;
-    margin-bottom: 0;
-  }
 
   .menuIcons{
     width: 2em; 
-    margin-top: 0;
+    margin-left: -1.2em;
   }
 
-  .textIcon{
-    margin-bottom: 0;  
+ 
+  .textIcon {
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 0.8em;
   }
 
-  #settingsIcon{
-    float: right;
+  #menuProfile{
+    border-radius: 5px;
+    border-bottom: none;
+    border-top: 2px solid #686963;
+    background: #EC3747;
   }
 
-  #posting{
+  .menuButton {
+    color: #F4EBD9;
+  }
+
+
+
+ 
+  #settingsIcon, #posting{
     display: none;
+  }
+
+  #menuSettings{
+    display: inherit !important;
+    margin-top: 2em !important;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 0.8em;
+    color: #F4EBD9;
+    font-weight: bold;
+  }
+
+  #settingsIconDesktop{
+    margin-right: 0.3em;
+    width: 2em;
   }
   
   #containerInfo{
     display: inherit !important;
     height: 40em;
     float: left;
+    height: 3000px;
   }
 
   .userInfo{
-    margin-top: 1.2em;
-    margin-left: -0.5em;
     margin-bottom: 1em;
+    margin-top: -1em;
   }
 
   #profilecontainer{
     display:inherit !important;
+    border-top: 2px solid #686963!important;
+    border-left: 2px solid #686963 !important;
+    border-right: 2px solid #686963 !important;
+    border-bottom: 2px solid #686963 !important;
+    margin-top: 2em;
+    border-radius: 10px;
+    width: 80%;
+    margin: 10%;
+    /* background: #88D498; */
   }
 
   #titlePostMenu{
@@ -471,7 +526,7 @@ footer {
 
   #post{
     display: inherit !important;
-    margin-left: 2.3em !important;
+    
   }
 
   #postText{
@@ -479,7 +534,6 @@ footer {
   }
 
   #userPostcontainer, #postcontainer{
-    margin-left: 0.3em !important;
     margin-bottom: 3.5em !important;
   }
    
@@ -487,16 +541,18 @@ footer {
   
   /*Tablets en horizonal y escritorios normales */
 @media (min-width: 1024px) {
-  #post{
-    margin-left: 3.2em !important;
-  }
 
   #channelsMenu{
-    margin-left: 9em !important;
+    margin-left: 13%;
+  }
+
+  #search{
+    margin-right: 0;
   }
 
   .menuIcons{
-    margin-left: 0.4em;
+    margin-left: -0.1em;
   }
+
 }
   

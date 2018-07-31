@@ -34,10 +34,10 @@ window.showPostHtml = (userWithPost) => {
             <img src="img/icon.png" alt="private icon" id="privateIcon">
           </div>
           <div id="dropdown-container" class="show">
-            <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img src="img/more.png" alt="more icon" id="moreIcon">
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownPost">
+            <div class="dropdown-menu dropdownPost" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item dropdown-text" href="#" onclick="postEdit('${userWithPost[i].id}','${userWithPost[i].post}','${userWithPost[i].privacy}','${userWithPost[i].likes}')">Editar</a>
               <a class="dropdown-item dropdown-text" href="#" onclick="postDelete('${userWithPost[i].id}')">Eliminar</a>
               <a class="dropdown-item dropdown-text" href="#">Guardar</a>
@@ -46,7 +46,7 @@ window.showPostHtml = (userWithPost) => {
         </div>  
         <section id="postSection">
           <p id="postTextSection" class="col-12">${userWithPost[i].post}</p>
-          <p id="postImageSection" class="col-12">Foto</p>      
+          
         </section> 
         <div id="like-container">
           <input type="button" onclick="clickPost('${userWithPost[i].id}','${userWithPost[i].likes}','${userWithPost[i].uid}')" class="likeIconImg ${userWithPost[i].likeUser !== undefined && userWithPost[i].likeUser[userId] !==undefined && userWithPost[i].likeUser[userId].estado ? 'imgLike' : 'imgDisLike'}" id="${'li'+userWithPost[i].id}"/>
@@ -68,17 +68,17 @@ window.showPostHtml = (userWithPost) => {
             <img src="img/icon.png" alt="private icon" id="privateIcon">
           </div>
           <div id="dropdown-container" class="show">
-            <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img src="img/more.png" alt="more icon" id="moreIcon">
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownPost">
+            <div class="dropdown-menu dropdownPost" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item dropdown-text" href="#">Guardar</a>
               <a class="dropdown-item dropdown-text" href="#">Cancelar</a>
-          </div>
+            </div>
         </div>  
         <section id="postSection">
           <p id="postTextSection" class="col-12">${userWithPost[i].post}</p>
-          <p id="postImageSection" class="col-12">Foto</p>      
+         
         </section> 
         <div id="like-container">
           <input type="button" onclick="clickPost('${userWithPost[i].id}','${userWithPost[i].likes}','${userWithPost[i].uid}')" class="likeIconImg ${userWithPost[i].likeUser !== undefined && userWithPost[i].likeUser[userId] !== undefined && userWithPost[i].likeUser[userId].estado ? 'imgLike' : 'imgDisLike'}" id="${'li'+userWithPost[i].id}"/>
@@ -177,7 +177,7 @@ window.showProfile  = (currentUser) =>{
                             <img class="iconsProfile" id="inspirationIconProfile" src="img/dust-on.png" alt="inspiration icon">
                         Inspiración
                       </button>
-                      <div class="dropdown-menu">
+                      <div class="dropdown-menu dropdownPost">
                         <a class="dropdown-item" href="#"> <img class="iconsProfile" id="marketIconProfile" src="img/cart-on.png" alt="sell/buy icon"> Market</a>
                         <a class="dropdown-item" href="#"> <img class="iconsProfile" id="menuIconProfile" src="img/menu-on.png" alt="recepy icon"> Recetas</a>
                         <a class="dropdown-item" href="#"> <img class="iconsProfile" id="questionIconProfile" src="img/question-on.png" alt="doubts icon"> Dudas</a>
@@ -206,10 +206,10 @@ window.showPostHtmlPerfil = (userWithPost) => {
             <img src="img/icon.png" alt="private icon" id="privateIcon">
           </div>
           <div id="dropdown-container" class="show">
-            <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img src="img/more.png" alt="more icon" id="moreIcon">
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownPost">
+            <div class="dropdown-menu dropdownPost" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item dropdown-text" href="#" onclick="postEdit('${userWithPost[i].id}','${userWithPost[i].post}','${userWithPost[i].privacy}','${userWithPost[i].likes}')">Editar</a>
               <a class="dropdown-item dropdown-text" href="#" onclick="postDelete('${userWithPost[i].id}')">Eliminar</a>
               <a class="dropdown-item dropdown-text" href="#">Guardar</a>
@@ -218,8 +218,7 @@ window.showPostHtmlPerfil = (userWithPost) => {
           </div>  
         </div>
         <section id="postSection">
-          <p id="postTextSection" class="col-12">${userWithPost[i].post}</p>
-          <p id="postImageSection" class="col-12">Foto</p>      
+          <p id="postTextSection" class="col-12">${userWithPost[i].post}</p>   
         </section> 
         <div id="like-container">
         <input type="button" onclick="clickPost('${userWithPost[i].id}','${userWithPost[i].likes}','${userWithPost[i].idUser}')" class="likeIconImg ${userWithPost[i].likeUser !== undefined && userWithPost[i].likeUser[userId] !== undefined && userWithPost[i].likeUser[userId].estado ? 'imgLike' : 'imgDisLike'}" id="${'li'+ userWithPost[i].id}"/>

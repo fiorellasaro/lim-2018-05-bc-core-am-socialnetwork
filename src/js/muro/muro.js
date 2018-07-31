@@ -43,7 +43,7 @@ firebase.auth().onAuthStateChanged((user) => {
      } 
      backIcon.classList.replace('inherit', 'none');
      titlePublic.classList.replace('inherit', 'none');
-     postImage.classList.replace('inherit', 'none');
+    /*  postImage.classList.replace('inherit', 'none'); */
      privacityContainer.classList.replace('inherit', 'none'); 
      postText.value = '';
     });
@@ -58,7 +58,7 @@ firebase.auth().onAuthStateChanged((user) => {
     document.getElementById('posting').classList.replace('inherit', 'none');
     backIcon.classList.replace('none', 'inherit');
     titlePublic.classList.replace('none', 'inherit');
-    postImage.classList.replace('none', 'inherit');
+   /*  postImage.classList.replace('none', 'inherit'); */
     privacityContainer.classList.replace('none', 'inherit');
     profilecontainer.classList.replace('inherit', 'none');
   });
@@ -72,6 +72,10 @@ firebase.auth().onAuthStateChanged((user) => {
 }); 
 //Cerrando sesion
 document.getElementById('logout').addEventListener('click', () =>{
+  logoutwall(redirectionLogin);
+});
+
+menuSettings.addEventListener('click', () =>{
   logoutwall(redirectionLogin);
 });
 
@@ -121,7 +125,7 @@ document.getElementById("posting").addEventListener('mouseout', () =>{
 postText.addEventListener('focus', () =>{
   backIcon.classList.replace('none', 'inherit');
     titlePublic.classList.replace('none', 'inherit');
-    postImage.classList.replace('none', 'inherit');
+    /* postImage.classList.replace('none', 'inherit'); */
     privacityContainer.classList.replace('none', 'inherit'); 
 });
 
