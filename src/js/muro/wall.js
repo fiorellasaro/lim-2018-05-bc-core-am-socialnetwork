@@ -62,7 +62,7 @@ window.showPostHtml = (userPost) => {
             <option value="Publico">Público </option>
             <option value="Privado">Privado </option>
         </select>
-          <input type="button" class="btn btn-primary none" id="${'btn' + userWithPost[i].id}" value="Guardar" onclick="savePostEdit('${userWithPost[i].id}','${userWithPost[i].post}','${userWithPost[i].privacy}')">
+          <input type="button" class="btn btn-info none" id="${'btn' + userWithPost[i].id}" value="Guardar" onclick="savePostEdit('${userWithPost[i].id}','${userWithPost[i].post}','${userWithPost[i].privacy}')">
         </section>
       </form>
         <div id="like-container">
@@ -113,29 +113,33 @@ window.postEdit = (idPost) => {
   const postTextEdit = document.getElementById('post'+idPost);
   const selectPrivacyEdit = document.getElementById('select' + idPost);
   const btnSave = document.getElementById('btn' + idPost);
-  const postTextEditi = document.getElementById('posti'+idPost);
-  const selectPrivacyEditi = document.getElementById('selecti' + idPost);
-  const btnSavei = document.getElementById('btni' + idPost);
   postTextEdit.readOnly = false;
   postTextEdit.focus();
   btnSave.classList.replace('none','inherit');
   selectPrivacyEdit.classList.replace('none','left');
+ 
+}
+window.postEditt = (idPost) => {
+  const postTextEditi = document.getElementById('posti'+idPost);
+  const selectPrivacyEditi = document.getElementById('selecti' + idPost);
+  const btnSavei = document.getElementById('btni' + idPost);
   postTextEditi.readOnly = false;
   postTextEditi.focus();
   btnSavei.classList.replace('none','inherit');
   selectPrivacyEditi.classList.replace('none','left');
 }
-
 window.savePostEdit = (idPost) => {
   const postTextEdit = document.getElementById('post'+idPost);
   const selectPrivacyEdit = document.getElementById('select' + idPost);
-  const postTextEditi = document.getElementById('posti'+idPost);
-  const selectPrivacyEditi = document.getElementById('selecti' + idPost);
   firebase.database().ref('posts/' + idPost).update({
     post: postTextEdit.value,
     privacy: selectPrivacyEdit.value,
     timeData: firebase.database.ServerValue.TIMESTAMP,
-  });
+  }); 
+}
+window.savePostEditP = (idPost) => {
+  const postTextEditi = document.getElementById('posti'+idPost);
+  const selectPrivacyEditi = document.getElementById('selecti' + idPost);
   firebase.database().ref('posts/' + idPost).update({
     post: postTextEditi.value,
     privacy: selectPrivacyEditi.value,
@@ -240,7 +244,7 @@ window.showPostHtmlPerfil = (userPost) => {
               <img src="img/more.png" alt="more icon" id="moreIcon">
             </button>
             <div class="dropdown-menu dropdownPost" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item dropdown-text" onclick="postEdit('${userWithPost[i].id}')">Editar</a>
+              <a class="dropdown-item dropdown-text" onclick="postEditt('${userWithPost[i].id}')">Editar</a>
               <a class="dropdown-item dropdown-text" href="#" data-toggle="modal" data-target="${'#exampleModal' + userWithPost[i].id}">Eliminar</a>              
               <a class="dropdown-item dropdown-text" href="#">Guardar</a>
               <a class="dropdown-item dropdown-text" href="#">Cancelar</a>
@@ -274,7 +278,7 @@ window.showPostHtmlPerfil = (userPost) => {
             <option value="Publico">Público </option>
             <option value="Privado">Privado </option>
         </select>
-          <input type="button" class="btn btn-primary none" id="${'btni' + userWithPost[i].id}" value="Guardar" onclick="savePostEdit('${userWithPost[i].id}','${userWithPost[i].post}','${userWithPost[i].privacy}')">
+          <input type="button" class="btn btn-info none" id="${'btni' + userWithPost[i].id}" value="Guardar" onclick="savePostEditP('${userWithPost[i].id}','${userWithPost[i].post}','${userWithPost[i].privacy}')">
         </section>
       </form>
         <div id="like-container">
