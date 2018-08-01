@@ -26,7 +26,7 @@ firebase.auth().onAuthStateChanged((user) => {
     //funcion para enviar post a firebase
     const sendPost = () => {
       postcontainer.innerHTML = '';  
-      if(textPost.value === ''){
+      if(textPost.value === '' || textPost.value.trim() === ''){
         alert('Ingrese un post');
         showPost(addClass)
       } else{
