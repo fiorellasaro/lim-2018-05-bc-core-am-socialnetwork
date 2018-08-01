@@ -36,6 +36,8 @@ main {
   font-size: 0.8em;
   margin-left: 1em;
   margin-top: 1.5em;
+  color: #F7F7FF;
+  font-weight: bold;
 }
 
 #search, #settingsText {
@@ -130,7 +132,7 @@ main {
 
 .creatorName {
   font-family: 'Titillium Web', sans-serif;
-  font-size: 0.9em;
+  font-size: 1em !important;
   font-weight: bold;
   float: left;
 }
@@ -138,6 +140,7 @@ main {
 #userPostcontainer, #postcontainer{
   padding: 0 !important;
   margin-bottom: 3.5em !important;
+  margin-left: 4% !important;
 }
 
 #datePost{
@@ -300,9 +303,11 @@ main {
   background: none;    
 }
 
-.dropdownMenuButton:focus { 
+.dropdownMenuButton:focus, .menuButton:focus, input[type="button"]:focus{ 
   outline: none;
 } 
+
+
 
 #infoPost {
   height: 3em;
@@ -329,6 +334,15 @@ main {
 
 #profileName {
   font-size: 1.2em;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: bold;
+  float: left;
+}
+
+#titlePostMenu{
+  font-size: 0.9em;
+  margin-top: 0.5em;
+  text-align: center;
 }
 
 #userButton {
@@ -468,11 +482,17 @@ footer {
     background: #EC3747;
   }
 
+  .creatorName{
+    font-size: 0.8em;
+  }
+
   .menuButton {
     color: #F4EBD9;
   }
 
-
+  #datePost{
+    font-size: 0.6em;
+  }
 
  
   #settingsIcon, #posting{
@@ -511,7 +531,7 @@ footer {
     border-left: 2px solid #686963 !important;
     border-right: 2px solid #686963 !important;
     border-bottom: 2px solid #686963 !important;
-    margin-top: 2em;
+    margin-top: 3em !important;
     border-radius: 10px;
     width: 80%;
     margin: 10%;
@@ -522,11 +542,11 @@ footer {
     font-family: 'Titillium Web', sans-serif;
     font-size: 1em;
     font-weight: bold; 
-    text-align: center; 
   }
 
   #post{
     display: inherit !important;
+    margin-top: 3em !important;
     
   }
 
@@ -536,6 +556,8 @@ footer {
 
   #userPostcontainer, #postcontainer{
     margin-bottom: 3.5em !important;
+    margin-left: 0% !important;
+    
   }
    
 }

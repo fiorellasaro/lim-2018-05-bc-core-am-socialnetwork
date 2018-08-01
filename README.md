@@ -35,6 +35,10 @@ en los que le gustaría invertir:
  
 En está [página](https://www.eipe.es/3-elementos-que-componen-red-social/) explican que las redes sociales se componen de estos tres elementos básicos: sociológico, tecnológico y jurídico.
 
+* Benchmark de las principales redes sociales: 
+
+Se realizó un [benchmark](https://drive.google.com/file/d/1ayjtyKqF_dq3NcIUKkaBeite6Mp0-mbR/view?usp=sharing) de las redes sociales: Facebook, Instagram y Twitter. Con la finalidad de conocer las diferencias que hay entre cada una de estas redes y sus puntos más fuertes.
+
 * Quiénes son los principales usuarios de producto: 
 
 Los principales usuarios del producto son personas que se dedican a la repostería, también personas interesadas en la repostería. 
@@ -70,6 +74,10 @@ Por lo que se decidió crear una red social en la cual estas actividades se pudi
   3.	Recetas: Aquí se podrán escribir y ver recetas de otros usuarios que se sigan.
   4.	Dudas: Canal creado para preguntar por alguna recomendación o duda sobre repostería. 
   5.	Favoritos: Aquí se guardan todas las publicaciones que al usuario le ha gustado, pueden ser fotos como recetas o alguna respuesta en el canal de dudas que le interesó, también publicaciones de venta.
+
+* Cómo verificaste que el producto les está resolviendo sus problemas y cómo te asegurarás que estos usuarios usen este producto: 
+  Por las entrevistas se pudo concluir que los usuarios utilizan diversas herramientas como redes sociales, paginas web, etc para obtener información que les interesa sobre pastelería; a su vez, también es de su interes guardar esta información que obtienen. Por otro lado, también se ve una necesidad por compartir sobre sus actividades dentro de la repostería. La red social Social Sweet les resuelve esos problemas a los usuarios cubriendo estas necesidades porque pueden realizar estas actividades ya antes mencionadas en un solo lugar y conectarse con otras personas que comparten sus mismos intereses dentro de la repostería. Por otro lado, también están los restaurantes, empresas de repostería, negocios independientes, reposteros con negocio propio, aficionados en repostería, expertos en repostería que les generaría gran interés pertenecer a una red social como esta para poder posicionar su negocio o su propia imagen. El gran contendo especializado en repostería haría que cada vez más usuarios utilicen ese producto.
+ 
 
 * Testing con el producto en HTML. (conclusiones): 
 

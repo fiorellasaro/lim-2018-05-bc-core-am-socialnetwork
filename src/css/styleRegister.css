@@ -85,18 +85,21 @@ header {
 #signInButton {
   background:  #47A8BD;
   border: none;
-  margin-top: 0.4em;
   margin-left: 20%;
   font-size: 1.3em;
   border-radius: 0.3em;
   height: 1.6em;
   cursor: pointer;
-  margin-bottom: 0.4em;
   font-family: 'Titillium Web', sans-serif;
   color: white;
   width: 60%; 
   text-align: center; 
-  margin-top: 1em;
+  float: left;
+  
+}
+
+#signInButton{
+  margin-top: 1.2em;
 }
 
 #submitbutton:hover, focus {
@@ -178,7 +181,7 @@ section {
     font-size: 1em;
   }
   .fonText {
-    font-size: 0.8em;
+    font-size: 0.8em !important;
   }
 
   .descriptionDesktop {
@@ -250,6 +253,10 @@ section {
 
 .block {
   display: initial;
+}
+
+.auto{
+  overflow: auto;
 }
 
 footer {
